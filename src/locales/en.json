@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "about": "About",
+    "treninzi": "Classes",
+    "trenerice": "Trainers",
+    "galerija": "Gallery",
+    "blog": "Blog",
+    "kontakt": "Contact",
+    "clanice": "Members"
+  },
+  "hero": {
+    "title": "Transform Your Body and Find Balance",
+    "subtitle": "Boutique reformer pilates studio with a personalized approach in a calm, intimate space.",
+    "ctaPrimary": "Book a Session",
+    "ctaSecondary": "Learn More"
+  },
+  "about": {
+    "title": "About the Studio",
+    "myStory": "My Story",
+    "mission": "Mission and Values",
+    "whySpecial": "Why We're Special"
+  },
+  "classes": {
+    "title": "What We Offer",
+    "whatIsPilates": "What is reformer pilates?",
+    "forWho": "Who is it for?",
+    "types": "Types of Training",
+    "pricing": "Pricing",
+    "booking": "Want to book your spot?"
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "Meet us"
+  },
+  "reviews": {
+    "title": "What Our Clients Say",
+    "googleReviews": "Google Reviews"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "viewAll": "View all photos"
+  },
+  "contact": {
+    "title": "Contact",
+    "address": "Address",
+    "hours": "Opening Hours",
+    "getInTouch": "Send us a message"
+  },
+  "newsletter": {
+    "title": "Stay Updated",
+    "subtitle": "Subscribe to our newsletter to be the first to know about new classes, special offers, and helpful tips.",
+    "placeholder": "Your email address",
+    "button": "Subscribe",
+    "success": "Thank you for subscribing!",
+    "error": "An error occurred. Please try again."
+  },
+  "footer": {
+    "tagline": "Transform Your Body and Find Balance",
+    "navigation": "Navigation",
+    "contact": "Contact",
+    "hours": "Opening Hours",
+    "legal": "Legal Information",
+    "rights": "All rights reserved"
+  },
+  "members": {
+    "title": "Members",
+    "subtitle": "Access to trainings and schedule",
+    "loginTitle": "Log in to the system",
+    "loginDesc": "For existing members - access your account to book sessions and view your schedule.",
+    "loginButton": "Open App",
+    "newTitle": "New here?",
+    "newDesc": "If you're just starting with training, first book your first session via the contact form.",
+    "contactButton": "Contact us"
+  },
+  "booking": {
+    "infoMessage": "For now, please contact us directly at info@gioia.hr or 095 389 6809"
+  }
+}
