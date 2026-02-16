@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "../styles/ClassesSection.css";
 
-import heroImage from "../assets/images/DSC_8108.webp";
 import individualTrainingImage from "../assets/images/DSC_8240.webp";
 import groupTrainingImage from "../assets/images/IMG_1588.webp";
 import bookingSidebar1 from "../assets/images/DSC_1394.webp";
@@ -39,25 +38,6 @@ function ClassesSection() {
 
   return (
     <section className="classes-section" id="classes">
-      <div className="classes-hero">
-        <div className="classes-hero-text">
-          <h2 className="classes-title">{t("classes.title", "Što nudimo")}</h2>
-          <div className="classes-intro-content">
-            <p>
-              U Gioia studiju trenutno imamo u ponudi tri vrste treninga na reformeru.
-            </p>
-          </div>
-        </div>
-        <div className="classes-hero-image-wrapper">
-          <img
-            src={heroImage}
-            alt="Gioia pilates studio s ginkgo dekoracijom"
-            className="classes-hero-image"
-            loading="eager"
-          />
-        </div>
-      </div>
-
       <div className="classes-for-who-section">
         <div className="classes-container">
           <h3 className="for-who-title">Za koga je reformer pilates?</h3>

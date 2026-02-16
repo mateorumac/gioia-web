@@ -8,8 +8,8 @@ import GallerySection from "../components/GallerySection";
 import ContactSection from "../components/ContactSection";
 import QuoteSection from "../components/QuoteSection";
 import navLogo from "../assets/logos/nav-logo.png";
-import heroImg from "../assets/images/DSC_8301.webp";
-import heroAccent from "../assets/images/DSC_5627.webp";
+import heroLeft from "../assets/images/DSC_5627.webp";
+import heroRight from "../assets/images/DSC_5455.webp";
 
 function HomePage() {
   const { t } = useTranslation();
@@ -23,10 +23,15 @@ function HomePage() {
 
   return (
     <div className="home">
-      {/* HERO — Full-bleed image with overlay */}
+      {/* HERO — Split background, centered content */}
       <section className="hero">
         <div className="hero-bg">
-          <img src={heroImg} alt="" className="hero-bg-img" />
+          <div className="hero-bg-left">
+            <img src={heroLeft} alt="" className="hero-bg-img" />
+          </div>
+          <div className="hero-bg-right">
+            <img src={heroRight} alt="" className="hero-bg-img hero-bg-img--mirrored" />
+          </div>
           <div className="hero-bg-overlay" />
         </div>
 
@@ -34,32 +39,15 @@ function HomePage() {
           <div className="hero-text">
             <p className="hero-statement">We do things differently here.</p>
             <h1 className="hero-title">
-              {t("hero.title", "Transformiraj tijelo i pronađi balans")}
+              <span>Gioia Reformer</span>
+              <span>Pilates</span>
             </h1>
-            <p className="hero-subtitle">
-              {t(
-                "hero.subtitle",
-                "Boutique reformer pilates studio s personaliziranim pristupom u mirnom, intimnom prostoru."
-              )}
-            </p>
-            <div className="hero-actions">
-              <button
-                className="hero-btn-primary"
-                onClick={() => scrollToSection("classes")}
-              >
-                {t("hero.ctaPrimary", "Rezerviraj termin")}
-              </button>
-              <button
-                className="hero-btn-secondary"
-                onClick={() => scrollToSection("about")}
-              >
-                {t("hero.ctaSecondary", "Saznaj više")}
-              </button>
-            </div>
-          </div>
-
-          <div className="hero-accent-img-wrap">
-            <img src={heroAccent} alt="" className="hero-accent-img" />
+            <button
+              className="hero-btn-primary"
+              onClick={() => scrollToSection("classes")}
+            >
+              {t("hero.ctaPrimary", "Rezerviraj termin")}
+            </button>
           </div>
         </div>
 
