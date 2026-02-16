@@ -1,31 +1,34 @@
-/* About Section - Editorial Style */
+/* ═══════════════════════════════════════════
+   ABOUT — Editorial asymmetric layout
+   ═══════════════════════════════════════════ */
 .about-section-editorial {
-  padding: 8rem 4rem;
+  padding: 10rem 4rem;
   background-color: var(--color-white);
   position: relative;
+  overflow: hidden;
 }
 
 .about-container-editorial {
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 6rem;
+  grid-template-columns: 0.85fr 1fr;
+  gap: 8rem;
   align-items: start;
 }
 
 /* Image Column */
 .about-image-column {
   position: relative;
-  top: 65px;
+  padding-top: 2rem;
 }
 
 .about-logo-watermark {
   position: absolute;
-  top: -8rem;
-  left: 0rem;
-  width: 280px;
-  opacity: 0.45;
+  top: -6rem;
+  left: -2rem;
+  width: 260px;
+  opacity: 0.06;
   pointer-events: none;
   z-index: 3;
 }
@@ -34,93 +37,73 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  border-radius: 4px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-  z-index: 1;
 }
 
 .about-image-editorial {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.6s ease;
+  transition: transform 0.8s ease;
 }
 
 .about-image-wrapper-editorial:hover .about-image-editorial {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 /* Text Column */
 .about-text-editorial {
-  padding: 2rem 0;
+  padding: 0;
 }
 
 .about-title-editorial {
   font-family: var(--font-playfair);
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
-  margin-bottom: 3rem;
-  color: var(--color-sage);
+  font-size: clamp(2.8rem, 4.5vw, 3.8rem);
+  margin-bottom: 3.5rem;
+  color: var(--color-text);
   font-weight: 400;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
 .about-block-editorial {
   margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(132, 139, 121, 0.12);
 }
 
 .about-block-editorial:last-child {
   margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .about-block-editorial h3 {
-  font-family: var(--font-playfair);
-  font-size: 1.8rem;
-  margin-bottom: 1.25rem;
-  color: var(--color-text);
-  font-weight: 400;
+  font-family: var(--font-inter);
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-sage);
+  margin-bottom: 1.5rem;
 }
 
 .about-text-editorial p {
   font-family: var(--font-inter);
-  font-size: 1.05rem;
-  line-height: 1.9;
+  font-size: 1rem;
+  line-height: 1.95;
   color: var(--color-text);
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  max-width: 55ch;
 }
 
 .about-text-editorial p:last-child {
   margin-bottom: 0;
 }
 
-.about-text-editorial ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.about-text-editorial li {
-  font-family: var(--font-inter);
-  font-size: 1rem;
-  line-height: 2;
-  color: var(--color-text);
-  padding-left: 1.75rem;
-  position: relative;
-  margin-bottom: 0.5rem;
-}
-
-.about-text-editorial li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--color-sage);
-  font-size: 1.5rem;
-  line-height: 1.8;
-}
-
-/* Responsive */
+/* ── Responsive ── */
 @media (max-width: 1200px) {
   .about-section-editorial {
-    padding: 6rem 3rem;
+    padding: 8rem 3rem;
   }
 
   .about-container-editorial {
@@ -130,51 +113,57 @@
 
 @media (max-width: 900px) {
   .about-section-editorial {
-    padding: 5rem 2rem;
+    padding: 6rem 2rem;
   }
 
   .about-container-editorial {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 4rem;
   }
 
   .about-image-column {
-    position: relative;
-    top: 0;
-    order: -1;
+    padding-top: 0;
+    max-width: 560px;
   }
 
   .about-logo-watermark {
-    width: 220px;
-    top: -2rem;
+    width: 200px;
+    top: -3rem;
     left: -1rem;
-  }
-
-  .about-title-editorial {
-    margin-bottom: 2.5rem;
   }
 }
 
 @media (max-width: 600px) {
   .about-section-editorial {
-    padding: 4rem 1.5rem;
+    padding: 5rem 1.5rem;
   }
 
   .about-title-editorial {
     font-size: 2.2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
 
-  .about-block-editorial h3 {
-    font-size: 1.5rem;
+  .about-block-editorial {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
   }
 
   .about-text-editorial p {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .about-logo-watermark {
-    width: 180px;
-    opacity: 0.05;
+    width: 160px;
+    opacity: 0.04;
+  }
+}
+
+@media (max-width: 400px) {
+  .about-section-editorial {
+    padding: 4rem 1.25rem;
+  }
+
+  .about-title-editorial {
+    font-size: 1.9rem;
   }
 }

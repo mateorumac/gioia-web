@@ -7,8 +7,9 @@ import ReviewsSection from "../components/ReviewsSection";
 import GallerySection from "../components/GallerySection";
 import ContactSection from "../components/ContactSection";
 import QuoteSection from "../components/QuoteSection";
-import { heroImage } from "../utils/images";
 import navLogo from "../assets/logos/nav-logo.png";
+import heroImg from "../assets/images/DSC_8301.webp";
+import heroAccent from "../assets/images/DSC_5627.webp";
 
 function HomePage() {
   const { t } = useTranslation();
@@ -22,37 +23,47 @@ function HomePage() {
 
   return (
     <div className="home">
-      <section className="hero-editorial">
-        <div className="hero-content-editorial">
-          <img src={navLogo} alt="" className="hero-logo-watermark" />
-          <h1 className="hero-title-editorial">
-            {t("hero.title", "Transformiraj tijelo i pronađi balans")}
-          </h1>
-          <p className="hero-statement-editorial">We do things differently here.</p>
-          <p className="hero-subtitle-editorial">
-            {t(
-              "hero.subtitle",
-              "Boutique reformer pilates studio s personaliziranim pristupom u mirnom, intimnom prostoru."
-            )}
-          </p>
-          <div className="hero-actions-editorial">
-            <button
-              className="hero-btn hero-btn-primary"
-              onClick={() => scrollToSection("classes")}
-            >
-              {t("hero.ctaPrimary", "Rezerviraj termin")}
-            </button>
-            <button
-              className="hero-btn hero-btn-secondary"
-              onClick={() => scrollToSection("about")}
-            >
-              {t("hero.ctaSecondary", "Saznaj više")}
-            </button>
+      {/* HERO — Full-bleed image with overlay */}
+      <section className="hero">
+        <div className="hero-bg">
+          <img src={heroImg} alt="" className="hero-bg-img" />
+          <div className="hero-bg-overlay" />
+        </div>
+
+        <div className="hero-inner">
+          <div className="hero-text">
+            <p className="hero-statement">We do things differently here.</p>
+            <h1 className="hero-title">
+              {t("hero.title", "Transformiraj tijelo i pronađi balans")}
+            </h1>
+            <p className="hero-subtitle">
+              {t(
+                "hero.subtitle",
+                "Boutique reformer pilates studio s personaliziranim pristupom u mirnom, intimnom prostoru."
+              )}
+            </p>
+            <div className="hero-actions">
+              <button
+                className="hero-btn-primary"
+                onClick={() => scrollToSection("classes")}
+              >
+                {t("hero.ctaPrimary", "Rezerviraj termin")}
+              </button>
+              <button
+                className="hero-btn-secondary"
+                onClick={() => scrollToSection("about")}
+              >
+                {t("hero.ctaSecondary", "Saznaj više")}
+              </button>
+            </div>
+          </div>
+
+          <div className="hero-accent-img-wrap">
+            <img src={heroAccent} alt="" className="hero-accent-img" />
           </div>
         </div>
-        <div className="hero-image-wrapper-editorial">
-          <img src={heroImage} alt="Gioia pilates studio" className="hero-image-editorial" />
-        </div>
+
+        <img src={navLogo} alt="" className="hero-watermark" />
       </section>
 
       <AboutSection />

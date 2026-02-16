@@ -1,97 +1,78 @@
-/* Team Section - Editorial Style */
+/* ═══════════════════════════════════════════
+   TEAM — Editorial profiles
+   ═══════════════════════════════════════════ */
 .team-section-editorial {
-  padding: 8rem 4rem;
-  background-color: var(--color-beige);
-  background-image: url('../assets/green-pattern-bg.png');
-  background-size: 100px;
-  background-repeat: repeat;
+  padding: 10rem 4rem;
+  background-color: var(--color-white);
   position: relative;
-}
-
-.team-section-editorial::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-color: var(--color-beige);
-  opacity: 0.98;
-  pointer-events: none;
 }
 
 .team-container-editorial {
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
 }
 
 /* Header */
 .team-header-editorial {
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto 6rem;
+  max-width: 700px;
+  margin: 0 auto 8rem;
   position: relative;
 }
 
 .team-logo-watermark {
   position: absolute;
-  top: -4rem;
+  top: -5rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 350px;
-  opacity: 0.06;
+  width: 300px;
+  opacity: 0.05;
   pointer-events: none;
   z-index: 0;
 }
 
 .team-title-editorial {
   font-family: var(--font-playfair);
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
-  margin-bottom: 1.5rem;
-  color: var(--color-sage);
+  font-size: clamp(2.8rem, 4.5vw, 3.8rem);
+  margin-bottom: 2rem;
+  color: var(--color-text);
   font-weight: 400;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   position: relative;
   z-index: 1;
 }
 
 .team-intro-editorial {
   font-family: var(--font-inter);
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.9;
   color: var(--color-text);
+  opacity: 0.8;
   position: relative;
   z-index: 1;
 }
 
-/* Grid */
+/* Grid — side by side */
 .team-grid-editorial {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 4rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6rem;
 }
 
-/* Trainer Cards */
+/* Trainer Cards — no box, clean */
 .trainer-card-editorial {
-  background-color: var(--color-white);
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.trainer-card-editorial:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(132, 139, 121, 0.15);
 }
 
 /* Image */
 .trainer-image-wrapper-editorial {
   width: 100%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 4/5;
   overflow: hidden;
   position: relative;
+  margin-bottom: 2.5rem;
 }
 
 .trainer-image-editorial {
@@ -99,16 +80,15 @@
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  transition: transform 0.6s ease;
+  transition: transform 0.8s ease;
 }
 
-.trainer-card-editorial:hover .trainer-image-editorial {
-  transform: scale(1.05);
+.trainer-image-wrapper-editorial:hover .trainer-image-editorial {
+  transform: scale(1.02);
 }
 
 /* Content */
 .trainer-content-editorial {
-  padding: 3rem 2.5rem 3.5rem;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -120,21 +100,24 @@
   margin-bottom: 0.5rem;
   color: var(--color-text);
   font-weight: 400;
+  letter-spacing: -0.02em;
 }
 
 .trainer-role-editorial {
   font-family: var(--font-inter);
-  font-size: 1rem;
-  color: var(--color-sage);
+  font-size: 0.78rem;
   font-weight: 500;
-  margin-bottom: 1.75rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(132, 139, 121, 0.15);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-sage);
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(132, 139, 121, 0.12);
 }
 
 .trainer-text-editorial {
   font-family: var(--font-inter);
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.9;
   color: var(--color-text);
   margin-bottom: 1.25rem;
@@ -144,39 +127,41 @@
   margin-bottom: 0;
 }
 
-/* Responsive */
+/* ── Responsive ── */
 @media (max-width: 1200px) {
   .team-section-editorial {
-    padding: 6rem 3rem;
+    padding: 8rem 3rem;
   }
 
   .team-header-editorial {
-    margin-bottom: 5rem;
+    margin-bottom: 6rem;
   }
 
   .team-grid-editorial {
-    gap: 3rem;
+    gap: 4rem;
   }
 }
 
 @media (max-width: 900px) {
   .team-section-editorial {
-    padding: 5rem 2rem;
+    padding: 6rem 2rem;
   }
 
   .team-grid-editorial {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 5rem;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
-  .trainer-content-editorial {
-    padding: 2.5rem 2rem 3rem;
+  .team-header-editorial {
+    margin-bottom: 5rem;
   }
 }
 
 @media (max-width: 600px) {
   .team-section-editorial {
-    padding: 4rem 1.5rem;
+    padding: 5rem 1.5rem;
   }
 
   .team-header-editorial {
@@ -188,12 +173,11 @@
   }
 
   .team-intro-editorial {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .team-logo-watermark {
-    width: 250px;
-    top: -3rem;
+    width: 220px;
     opacity: 0.04;
   }
 
@@ -201,7 +185,17 @@
     font-size: 1.7rem;
   }
 
-  .trainer-content-editorial {
-    padding: 2rem 1.75rem 2.5rem;
+  .trainer-image-wrapper-editorial {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .team-section-editorial {
+    padding: 4rem 1.25rem;
+  }
+
+  .team-title-editorial {
+    font-size: 1.9rem;
   }
 }
