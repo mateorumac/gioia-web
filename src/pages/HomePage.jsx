@@ -6,6 +6,7 @@ import TeamSection from "../components/TeamSection";
 import ReviewsSection from "../components/ReviewsSection";
 import GallerySection from "../components/GallerySection";
 import ContactSection from "../components/ContactSection";
+import QuoteSection from "../components/QuoteSection";
 import { heroImage } from "../utils/images";
 import navLogo from "../assets/logos/nav-logo.png";
 
@@ -27,6 +28,7 @@ function HomePage() {
           <h1 className="hero-title-editorial">
             {t("hero.title", "Transformiraj tijelo i pronađi balans")}
           </h1>
+          <p className="hero-statement-editorial">We do things differently here.</p>
           <p className="hero-subtitle-editorial">
             {t(
               "hero.subtitle",
@@ -55,6 +57,7 @@ function HomePage() {
 
       <AboutSection />
       <ClassesSection />
+      <QuoteSection />
       <TeamSection />
       <ReviewsSection />
       <GallerySection />

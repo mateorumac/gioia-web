@@ -44,6 +44,18 @@
   z-index: 1;
 }
 
+.hero-statement-editorial {
+  font-family: var(--font-playfair);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-sage);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.01em;
+}
+
 .hero-subtitle-editorial {
   font-family: var(--font-inter);
   font-size: clamp(1.05rem, 2vw, 1.2rem);

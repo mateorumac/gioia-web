@@ -29,35 +29,37 @@ function AboutSection() {
           </h2>
 
           <div className="about-block-editorial">
-            <h3>{t("about.myStory", "Moja priča")}</h3>
             <p>
-              Gioia je nastala iz želje za stvaranjem prostora u kojem se tijelo
-              i um mogu povezati kroz sigurne, promišljene pokrete. Nakon godina
-              rada u wellness industriji, shvatila sam koliko je važan osobni
-              pristup, manji broj ljudi u grupi i edukacija temeljena na iskustvu,
-              anatomiji i individualnim potrebama. Gioia je mjesto gdje se uči
-              kako slušati vlastito tijelo.
+              Gioia reformer studio započeo je s radom u ožujku 2025. Iako je reformer pilates već bio dosta popularan u to vrijeme, u Puli još nije bilo studija s takvom vrstom treninga.
+            </p>
+            <p>
+              Ideja je bila upoznati ljude s reformerom i benefitima koje nudi za svakog pojedinca, te stvoriti mjesto gdje su svi koji žele prioritizirati svoje zdravlje i poboljšati fizičko stanje dobrodošli, s ciljem da im pružimo podržavajuće i pozitivno okruženje.
             </p>
           </div>
 
           <div className="about-block-editorial">
             <h3>{t("about.mission", "Misija i naše vrijednosti")}</h3>
-            <ul>
-              <li>Sigurni i funkcionalni pokreti za sva tijela</li>
-              <li>Učenje pravilnog disanja i osvještavanja pokreta</li>
-              <li>Individualni pristup u malim grupama</li>
-              <li>Topla, podržavajuća atmosfera bez žurbe i buke</li>
-              <li>Stručnost temeljena na znanju i kontinuiranoj edukaciji</li>
-            </ul>
+            <p>Od prvog dana njegujemo neke temeljne principe rada, koji su za nas:</p>
+            <p>
+              Usmjeren fokus isključivo na klijenta. Imamo 6 reformera i smatramo da je to maksimum u kojem možemo pružiti kvalitetnu observaciju izvođenja vježbi kod svakog klijenta i korigiranja istog.
+            </p>
+            <p>
+              Pazimo na progres svakog klijenta i potičemo i slavimo napretke, bez obzira jesu li veliki ili mali.
+            </p>
+            <p>
+              Poštujemo svakog klijenta u našem studiju i uvažavamo svaki feedback.
+            </p>
+            <p>
+              Bitne su nam i energija i zajedništvo koje se stvara u studiju, tako da osiguravamo u svakom trenutku da se svi osjećaju viđeno, sigurno i podržano.
+            </p>
           </div>
 
           <div className="about-block-editorial">
-            <h3>{t("about.whySpecial", "Zašto smo posebne")}</h3>
             <p>
-              U Gioia studiju naglasak je na kvaliteti, a ne kvantiteti. Radimo u
-              malim grupama kako bismo svakome posvetile dovoljno pažnje. Naše
-              vježbe su prilagođene svim razinama, a cilj je ojačati tijelo,
-              poboljšati držanje, povećati mobilnost i vratiti lakoću pokreta.
+              Vjerujemo da je učenje neprekidan proces i tako smo od početka otvaranja studija i mi uz naše klijente dosta naučili i napredovali.
+            </p>
+            <p>
+              Gioiu ne činimo samo mi treneri i osnivači, Gioiu čine ljudi, svaka osoba koja uđe kroz naša vrata.
             </p>
           </div>
         </div>

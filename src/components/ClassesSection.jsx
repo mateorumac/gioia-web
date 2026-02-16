@@ -43,18 +43,8 @@ function ClassesSection() {
         <div className="classes-hero-text">
           <h2 className="classes-title">{t("classes.title", "Što nudimo")}</h2>
           <div className="classes-intro-content">
-            <h3>Što je reformer pilates?</h3>
             <p>
-              Reformer pilates je metoda vježbanja koja kombinira kontrolirane
-              pokrete, rad na disanju i stabilizaciji trupa uz pomoć posebnog
-              sprava – reformera. Nastao je kao nježan, ali vrlo učinkovit način
-              oporavka i jačanja tijela, s naglaskom na pravilno poravnanje,
-              snagu iz centra i fluidnost pokreta.
-            </p>
-            <p>
-              Idealan je za osobe koje žele poboljšati držanje, smanjiti bolove u
-              leđima, ojačati cijelo tijelo i istovremeno se opustiti. Vježbe se
-              uvijek prilagođavaju tvom iskustvu, razini snage i dnevnom stanju.
+              U Gioia studiju trenutno imamo u ponudi tri vrste treninga na reformeru.
             </p>
           </div>
         </div>
@@ -104,7 +94,7 @@ function ClassesSection() {
             <div className="class-card-image-wrapper">
               <img
                 src={individualTrainingImage}
-                alt="Individualni pilates trening na reformeru"
+                alt="Strength Reformer trening"
                 className="class-card-image"
                 loading="lazy"
               />
@@ -112,32 +102,12 @@ function ClassesSection() {
             <div className="class-card-content">
               <div className="class-card-header-editorial">
                 <span className="class-icon-editorial">①</span>
-                <h4>Individualni trening</h4>
+                <h4>Strength Reformer</h4>
               </div>
+              <p className="class-card-intensity">srednji do jači intenzitet</p>
               <p className="class-card-desc">
-                Potpuno posvećenje tebi – tempo, razina i fokus prilagođeni su
-                tvojim ciljevima, mogućnostima i trenutnom stanju tijela.
+                Ovo je sat koji je, rekli bi, naš signature. U početku smo imale samo ovu vrstu treninga, ali smo s vremenom shvatile da je potrebna i prilagodba klijentima. U satu kombiniramo vježbe snage i tradicionalne, bazične, reformer vježbe. Sat je dosta intenzivan, međutim svi klijenti ga savladaju bez ikakvih problema. S reformerom kombiniramo i dodatne rekvizite kao što su slobodni utezi, utezi za zglobove, pilates lopta i obruč, trake za gluteus i štap. Cilj je jačanje mišića s fokusom na trup, kako bi se poboljšala stabilnost centra tijela. Rezultat je jače tijelo, bolje i pravilnije držanje i lakši i pravilniji pokreti.
               </p>
-              <ul className="class-meta">
-                <li>
-                  <span>Razina:</span> od početne do napredne
-                </li>
-                <li>
-                  <span>Trajanje:</span> 50 minuta
-                </li>
-                <li>
-                  <span>Benefiti:</span> brzi napredak, detaljna korekcija,
-                  sigurnost kod specifičnih stanja
-                </li>
-                <li>
-                  <span>Što trebaš ponijeti:</span> udobnu odjeću, čarape s
-                  protukliznim potplatom (po želji), bočicu vode
-                </li>
-                <li>
-                  <span>Rekviziti:</span> reformer, elastične trake, lopte,
-                  kocke, small props (ovisno o ciljevima)
-                </li>
-              </ul>
             </div>
           </article>
 
@@ -145,42 +115,49 @@ function ClassesSection() {
             <div className="class-card-content">
               <div className="class-card-header-editorial">
                 <span className="class-icon-editorial">②</span>
-                <h4>Mala grupa</h4>
+                <h4>Stretch Reformer</h4>
               </div>
+              <p className="class-card-intensity">umjeren intenzitet</p>
               <p className="class-card-desc">
-                Trening u intimnoj atmosferi s malim brojem ljudi, gdje i dalje
-                dobivaš individualne upute, ali dijeliš energiju grupe.
+                Ovo je nježan stretch reformer sat koji je prikladan za početnike, osobe koje se prvi put susreću s reformerom, kao i za one koje nisu dugo vježbale ili imaju nekih blagih odstupanja u području kralježnice. To je opušteniji sat s naglaskom na istezanja. Fokus je na tradicionalni reformer pilates po učenjima Josepha Pilatesa. Sat se fokusira na dubinsko jačanje mišića, potporu i osnažvanje kralježnice te poboljšanje ukupnog poravnanja tijela na smiren i svjestan način.
               </p>
-              <ul className="class-meta">
-                <li>
-                  <span>Razina:</span> početna do srednje napredne
-                </li>
-                <li>
-                  <span>Trajanje:</span> 50 minuta
-                </li>
-                <li>
-                  <span>Benefiti:</span> motivacija grupe, konzistentnost,
-                  povoljnija cijena
-                </li>
-                <li>
-                  <span>Što trebaš ponijeti:</span> udobnu odjeću, ručnik,
-                  čarape, vodu
-                </li>
-                <li>
-                  <span>Rekviziti:</span> reformer za svaku osobu, trake, lopte,
-                  jastuci za potporu
-                </li>
-              </ul>
             </div>
             <div className="class-card-image-wrapper">
               <img
                 src={groupTrainingImage}
-                alt="Grupni pilates trening u maloj grupi"
+                alt="Stretch Reformer trening"
                 className="class-card-image"
                 loading="lazy"
               />
             </div>
           </article>
+
+          <article className="class-card-editorial">
+            <div className="class-card-image-wrapper">
+              <img
+                src={bookingSidebar1}
+                alt="Cardio Reformer trening"
+                className="class-card-image"
+                loading="lazy"
+              />
+            </div>
+            <div className="class-card-content">
+              <div className="class-card-header-editorial">
+                <span className="class-icon-editorial">③</span>
+                <h4>Cardio reformer</h4>
+              </div>
+              <p className="class-card-intensity">jači intenzitet</p>
+              <p className="class-card-desc">
+                Dinamičan i brz reformer sat namijenjen iskusnijim polaznicima. Uz jumping board (daska za skakanje) koji izgleda kao mali trampolin na reformeru, imate mogućnost isprobati trening visokog intenziteta s fokusom na donji dio tijela na zabavan i dinamičan način. Ovu vrstu treninga preporučujemo ipak malo iskusnijim klijentima koji već neko vrijeme vježbaju na reformeru ili su u već dobroj kondicijskoj formi.
+              </p>
+            </div>
+          </article>
+
+          <div className="class-types-footer">
+            <p>
+              Svi naši treninzi traju 55 minuta, u kojima imamo dio posvećen zagrijavanju i istezanju tijela i glavni dio treninga s vježbama. U našim vježbama često koristimo i razne rekvizite poput bučica, traka za gluteus i ručnih utega. Tijekom sata fokus je na cijelom tijelu, iako reformer sam po sebi izuzetno jača mišiće trupa. Za vježbanje je potrebno imati protuklizne čarape, ručnik i vodu i spremni ste za trening.
+            </p>
+          </div>
         </div>
 
         <div className="pricing-editorial">

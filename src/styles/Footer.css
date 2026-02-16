@@ -1,7 +1,7 @@
 .site-footer-editorial {
   position: relative;
   background-color: var(--color-beige);
-  padding: 6rem 4rem 3rem;
+  padding: 6rem 4rem 2rem;
   overflow: hidden;
 }
 
@@ -163,6 +163,8 @@
   background-color: #6f755f;
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(132, 139, 121, 0.3);
+    color: var(--color-white);
+
 }
 
 .footer-hours {
@@ -281,7 +283,7 @@
 
 .footer-bottom-editorial {
   text-align: center;
-  padding-top: 1.6rem;
+  padding-top: 1rem;
 }
 
 .footer-bottom-editorial p {
@@ -301,16 +303,6 @@
   position: relative;
 }
 
-.footer-powered-link-editorial::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 100%;
-  height: 1px;
-  background-color: var(--color-sage);
-  opacity: 0.5;
-}
 
 .footer-powered-link-editorial:hover {
   color: var(--color-sage);
