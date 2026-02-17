@@ -143,110 +143,149 @@
   text-align: left;
 }
 
-/* ── Class types — editorial grid ── */
-.class-types-editorial {
-  padding: 10rem 0 8rem;
-  display: flex;
-  flex-direction: column;
-  gap: 6rem;
-  max-width: 1200px;
+/* ═══════════════════════════════════════════
+   TRAINING TYPES — Editorial blocks
+   ═══════════════════════════════════════════ */
+.training-types-section {
+  background: var(--color-beige);
+}
+
+/* ── Intro ── */
+.training-types-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 8rem 4rem 0;
+}
+
+.training-intro {
+  text-align: center;
+  max-width: 920px;
   margin: 0 auto;
 }
 
-.class-card-editorial {
+.training-intro__eyebrow {
+  font-family: var(--font-inter);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-sage);
+  margin: 0 0 1rem;
+}
+
+.training-intro__title {
+  font-family: var(--font-playfair);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin: 0 0 2.5rem;
+  line-height: 1.25;
+}
+
+.training-intro__text {
+  font-family: var(--font-inter);
+  font-size: 0.95rem;
+  line-height: 2;
+  color: var(--color-text);
+  opacity: 0.6;
+  margin: 0;
+}
+
+.training-intro__separator {
+  width: 50px;
+  height: 1px;
+  background: var(--color-sage);
+  opacity: 0.3;
+  margin: 4rem auto 0;
+}
+
+/* ═══ Training blocks — unified system ═══ */
+.training-block {
   display: grid;
-  grid-template-columns: 0.45fr 1fr;
-  gap: 0;
-  min-height: 480px;
-  background: transparent;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 5rem 4rem;
+  align-items: center;
+}
+
+/* Reverse: content first in DOM order via CSS */
+.training-block--reverse {
+  direction: rtl;
+}
+
+.training-block--reverse > * {
+  direction: ltr;
+}
+
+/* Image */
+.training-block__image {
   overflow: hidden;
+  border-radius: 3px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
 }
 
-.class-card-editorial.reverse {
-  grid-template-columns: 1fr 0.45fr;
-}
-
-.class-card-image-wrapper {
+.training-block__image img {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.class-card-image {
-  width: 100%;
-  height: 100%;
+  display: block;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
   transition: transform 0.8s ease;
 }
 
-.class-card-image-wrapper:hover .class-card-image {
+.training-block__image:hover img {
   transform: scale(1.03);
 }
 
-.class-card-content {
-  padding: 4rem 5rem;
+/* Content */
+.training-block__content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
-.class-card-header-editorial {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  margin-bottom: 1rem;
-}
-
-.class-icon-editorial {
+.training-block__num {
   font-family: var(--font-cormorant);
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: var(--color-sage);
-  opacity: 0.5;
-}
-
-.class-card-header-editorial h4 {
-  font-family: var(--font-playfair);
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   font-weight: 400;
-  margin: 0;
-  color: var(--color-text);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.1em;
+  color: var(--color-sage);
+  opacity: 0.75;
+  margin-bottom: 1.2rem;
 }
 
-.class-card-intensity {
+.training-block__name {
+  font-family: var(--font-playfair);
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin: 0 0 0.6rem;
+}
+
+.training-block__intensity {
   font-family: var(--font-inter);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--color-sage);
-  margin-bottom: 2rem;
+  margin: 0 0 2rem;
 }
 
-.class-card-desc {
+.training-block__desc {
   font-family: var(--font-inter);
-  font-size: 1rem;
-  line-height: 1.9;
-  margin-bottom: 0;
-  color: var(--color-text);
-  max-width: 52ch;
-}
-
-.class-types-footer {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 3rem 0 0;
-  border-top: 1px solid rgba(132, 139, 121, 0.12);
-}
-
-.class-types-footer p {
-  font-family: var(--font-inter);
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   line-height: 1.9;
   color: var(--color-text);
-  text-align: center;
-  opacity: 0.75;
+  opacity: 0.65;
+  margin: 0;
+}
+
+/* Last block: extra bottom padding before pricing */
+.training-block:last-of-type {
+  padding-bottom: 7rem;
 }
 
 /* ── Pricing — clean table ── */
@@ -483,12 +522,13 @@
     padding: 2rem 2.2rem;
   }
 
-  .class-types-editorial {
-    padding: 8rem 3rem 6rem;
+  .training-types-container {
+    padding: 6rem 3rem 0;
   }
 
-  .class-card-content {
-    padding: 3rem 3.5rem;
+  .training-block {
+    padding: 4rem 3rem;
+    gap: 4rem;
   }
 
   .pricing-editorial {
@@ -518,30 +558,31 @@
     padding: 2rem;
   }
 
-  /* 2-col: hide right divider on even items */
   .for-who-column:nth-child(2)::after {
     display: none;
   }
 
-  /* Horizontal dividers on first row */
   .for-who-column:nth-child(1),
   .for-who-column:nth-child(2) {
     border-bottom: 1px solid rgba(236, 229, 209, 0.12);
   }
 
-  .class-types-editorial {
-    padding: 6rem 2rem 5rem;
-    gap: 4rem;
+  .training-types-container {
+    padding: 5rem 2rem 0;
   }
 
-  .class-card-editorial,
-  .class-card-editorial.reverse {
+  .training-block {
     grid-template-columns: 1fr;
-    min-height: auto;
+    gap: 2.5rem;
+    padding: 3.5rem 2rem;
   }
 
-  .class-card-content {
-    padding: 3rem 2rem;
+  .training-block--reverse {
+    direction: ltr;
+  }
+
+  .training-block__image img {
+    aspect-ratio: 3 / 2;
   }
 
   .pricing-editorial {
@@ -615,21 +656,13 @@
     border-bottom: none;
   }
 
-  .class-types-editorial {
-    padding: 5rem 1.5rem 4rem;
-    gap: 3rem;
+  .training-types-container {
+    padding: 4rem 1.5rem 0;
   }
 
-  .class-card-content {
-    padding: 2.5rem 1.5rem;
-  }
-
-  .class-icon-editorial {
-    font-size: 1.2rem;
-  }
-
-  .class-card-header-editorial h4 {
-    font-size: 1.5rem;
+  .training-block {
+    padding: 3rem 1.5rem;
+    gap: 2rem;
   }
 
   .pricing-editorial {
@@ -660,8 +693,12 @@
     padding: 3.5rem 1.25rem;
   }
 
-  .class-types-editorial {
-    padding: 4rem 1.25rem 3rem;
+  .training-types-container {
+    padding: 3.5rem 1.25rem 0;
+  }
+
+  .training-block {
+    padding: 2.5rem 1.25rem;
   }
 
   .pricing-editorial {
