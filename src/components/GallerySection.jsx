@@ -8,7 +8,10 @@ import img2 from "../assets/images/DSC_1517.webp";
 import img3 from "../assets/images/DSC_2478.webp";
 import img4 from "../assets/images/DSC_5385.webp";
 import img5 from "../assets/images/DSC_3690.webp";
+import img7 from "../assets/images/DSC_2489.webp";
+import img8 from "../assets/images/DSC_3722.webp";
 import img6 from "../assets/images/DSC_5624 2.webp";
+import img9 from "../assets/images/DSC_5674.webp";
 
 const galleryItems = [
   { src: img1, alt: "Trening u studiju" },
@@ -17,6 +20,9 @@ const galleryItems = [
   { src: img4, alt: "Reformer trening" },
   { src: img5, alt: "Studio detalj" },
   { src: img6, alt: "Gioia studio ambijent" },
+  { src: img7, alt: "Pilates vježba" },
+  { src: img8, alt: "Grupni trening" },
+  { src: img9, alt: "Studio atmosfera" },
 ];
 
 function GallerySection() {
