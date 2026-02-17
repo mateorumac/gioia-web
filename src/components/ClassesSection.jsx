@@ -66,7 +66,7 @@ function ClassesSection() {
         </div>
       </div>
 
-      <div className="classes-container">
+      <div className="classes-container" id="treninzi">
         <div className="class-types-editorial">
           <h3 className="section-subtitle">Vrste treninga</h3>
 
@@ -185,7 +185,7 @@ function ClassesSection() {
           </div>
         </div>
 
-        <div className="booking-editorial">
+        <div className="booking-editorial" id="booking">
           <div className="booking-form-wrapper">
             <h3 className="section-subtitle l">Želiš rezervirati svoje mjesto?</h3>
             <p className="booking-text">

@@ -44,7 +44,7 @@ function HomePage() {
             </h1>
             <button
               className="hero-btn-primary"
-              onClick={() => scrollToSection("classes")}
+              onClick={() => scrollToSection("booking")}
             >
               {t("hero.ctaPrimary", "Rezerviraj termin")}
             </button>

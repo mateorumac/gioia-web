@@ -3,19 +3,18 @@ import "../styles/ContactSection.css";
 // Import images
 import heroImage from "../assets/images/DSC_3666.webp";
 import verticalImage from "../assets/images/IMG_1706.webp";
-import gallery1 from "../assets/images/DSC_1394.webp";
+import gallery1 from "../assets/images/DSC_2498.webp";
 import gallery2 from "../assets/images/DSC_8160.webp";
 import gallery3 from "../assets/images/IMG_4435.webp";
 import gallery4 from "../assets/images/DSC_8325.webp";
-import navLogo from "../assets/logos/nav-logo.png";
 import patternBg from "../assets/green-pattern-bg.png";
 
 function ContactSection() {
-  const handleScrollToClasses = (e) => {
+  const handleScrollToBooking = (e) => {
     e.preventDefault();
-    const classesSection = document.getElementById("classes");
-    if (classesSection) {
-      classesSection.scrollIntoView({ behavior: "smooth" });
+    const bookingSection = document.getElementById("booking");
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -131,12 +130,11 @@ function ContactSection() {
 
       {/* CTA Footer */}
       <div className="contact-cta-footer">
-        <img src={navLogo} alt="" className="contact-cta-logo" />
         <p className="contact-cta-text">Spremna započeti svoj pilates put?</p>
         <a
-          href="#classes"
+          href="#booking"
           className="contact-cta-button"
-          onClick={handleScrollToClasses}
+          onClick={handleScrollToBooking}
         >
           Rezerviraj termin
         </a>

@@ -204,7 +204,7 @@
 /* CTA Footer - Redesigned */
 .contact-cta-footer {
   background: linear-gradient(135deg, #f8f6f2 0%, var(--color-beige) 100%);
-  padding: 10rem 4rem;
+  padding: 5rem 4rem 6rem;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -228,18 +228,10 @@
   opacity: 0.25;
 }
 
-.contact-cta-logo {
-  width: 180px;
-  height: auto;
-  margin: 0 auto 3rem;
-  opacity: 0.4;
-  display: block;
-}
-
 .contact-cta-text {
   font-family: var(--font-playfair);
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  margin-bottom: 3rem;
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  margin-bottom: 2.5rem;
   font-weight: 400;
   color: var(--color-text);
   letter-spacing: -0.02em;
@@ -251,22 +243,21 @@
 
 .contact-cta-button {
   display: inline-block;
-  padding: 1.4rem 4rem;
+  padding: 1rem 3.2rem;
   background: var(--color-sage);
   color: white;
   font-family: var(--font-inter);
   font-weight: 500;
   text-decoration: none;
-  border-radius: 999px;
-  transition: all 0.3s ease;
-  font-size: 1.1rem;
-  letter-spacing: 0.02em;
-  box-shadow: 0 8px 20px rgba(132, 139, 121, 0.2);
+  border-radius: 0;
+  transition: background-color 0.3s ease;
+  font-size: 0.88rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transform: skewX(-20deg);
 }
 
 .contact-cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(132, 139, 121, 0.35);
   background-color: #6f755f;
 }
 
@@ -337,21 +328,12 @@
   }
 
   .contact-cta-footer {
-    padding: 8rem 2rem;
-  }
-
-  .contact-cta-logo {
-    width: 150px;
-    margin-bottom: 2.5rem;
+    padding: 4rem 2rem;
   }
 
   .contact-cta-text {
-    font-size: 2.2rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .contact-cta-button {
-    padding: 1.2rem 3.5rem;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -398,24 +380,11 @@
   }
 
   .contact-cta-footer {
-    padding: 6rem 1.5rem;
-  }
-
-  .contact-cta-logo {
-    width: 130px;
-    margin-bottom: 2rem;
-    opacity: 0.3;
+    padding: 3rem 1.5rem;
   }
 
   .contact-cta-text {
-    font-size: 1.8rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .contact-cta-button {
-    font-size: 1rem;
-    padding: 1.2rem 3rem;
-    width: 100%;
-    max-width: 320px;
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
   }
 }

@@ -108,7 +108,7 @@ function Navbar() {
 
   const navItems = [
     { type: "anchor", hash: "about", label: t("nav.about", "O studiju") },
-    { type: "anchor", hash: "classes", label: t("nav.classes", "Treninzi") },
+    { type: "anchor", hash: "treninzi", label: t("nav.classes", "Treninzi") },
     {
       type: "anchor",
       hash: "team",

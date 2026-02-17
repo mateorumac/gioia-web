@@ -278,7 +278,7 @@
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  align-items: stretch;
+  align-items: start;
 }
 
 .booking-form-wrapper {
@@ -379,8 +379,7 @@
 
 .booking-sidebar-image {
   width: 100%;
-  flex: 1;
-  min-height: 0;
+  height: 240px;
   object-fit: cover;
   display: block;
 }
