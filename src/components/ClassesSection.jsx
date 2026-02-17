@@ -39,28 +39,39 @@ function ClassesSection() {
   return (
     <section className="classes-section" id="classes">
       <div className="classes-for-who-section">
-        <div className="classes-container">
-          <h3 className="for-who-title">Za koga je reformer pilates?</h3>
-          <div className="for-who-cards">
-            <div className="for-who-card">
-              <div className="for-who-icon">01</div>
-              <h4>Početnice</h4>
-              <p>Siguran i kontroliran ulazak u svijet vježbanja uz stručno vodstvo</p>
+        <div className="for-who-grain" />
+        <div className="for-who-container">
+          <div className="for-who-header">
+            <p className="for-who-eyebrow">Kome je namijenjen</p>
+            <h3 className="for-who-title">
+              {t("classes.forWho", "Reformer pilates prilagođava se vama")}
+            </h3>
+          </div>
+
+          <div className="for-who-columns">
+            <div className="for-who-column">
+              <h4 className="for-who-column__title">Početnice</h4>
+              <p className="for-who-column__text">
+                Siguran i kontroliran ulazak u svijet vježbanja uz stručno vodstvo
+              </p>
             </div>
-            <div className="for-who-card">
-              <div className="for-who-icon">02</div>
-              <h4>Sjedilački posao</h4>
-              <p>Rješenje za napetost u leđima, vratu i ramenima</p>
+            <div className="for-who-column">
+              <h4 className="for-who-column__title">Sjedilački posao</h4>
+              <p className="for-who-column__text">
+                Rješenje za napetost u leđima, vratu i ramenima
+              </p>
             </div>
-            <div className="for-who-card">
-              <div className="for-who-icon">03</div>
-              <h4>Iskusne vježbačice</h4>
-              <p>Produbljivanje kontrole, snage i svijesti o tijelu</p>
+            <div className="for-who-column">
+              <h4 className="for-who-column__title">Iskusne vježbačice</h4>
+              <p className="for-who-column__text">
+                Produbljivanje kontrole, snage i svijesti o tijelu
+              </p>
             </div>
-            <div className="for-who-card">
-              <div className="for-who-icon">04</div>
-              <h4>Tražiš balans</h4>
-              <p>Miran, ali intenzivan trening koji povezuje tijelo i um</p>
+            <div className="for-who-column">
+              <h4 className="for-who-column__title">Tražiš balans</h4>
+              <p className="for-who-column__text">
+                Miran, ali intenzivan trening koji povezuje tijelo i um
+              </p>
             </div>
           </div>
         </div>
