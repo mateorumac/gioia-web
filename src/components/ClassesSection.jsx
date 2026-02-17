@@ -179,7 +179,8 @@ function ClassesSection() {
       <div className="classes-container">
 
         <div className="pricing-editorial">
-          <h3 className="section-subtitle">Cjenik</h3>
+          <p className="pricing-eyebrow">Cjenik</p>
+          <h3 className="pricing-title">Investicija u sebe</h3>
           <p className="pricing-note">
             Ovisno o vrsti treninga i dinamici dolazaka, nudimo različite pakete
             i članarine. Rado ćemo pomoći pri odabiru opcije koja ti najviše
@@ -188,36 +189,40 @@ function ClassesSection() {
 
           <div className="pricing-table">
             <div className="pricing-column">
-              <h4>Individualni trening</h4>
-              <div className="pricing-item">
-                <span className="pricing-label">Pojedinačni termin</span>
-                <span className="pricing-value">xx €</span>
-              </div>
-              <div className="pricing-item">
-                <span className="pricing-label">Paket 5 termina</span>
-                <span className="pricing-value">xx €</span>
-              </div>
-              <div className="pricing-item">
-                <span className="pricing-label">Paket 10 termina</span>
-                <span className="pricing-value">xx €</span>
+              <h4 className="pricing-column__title">Individualni trening</h4>
+              <p className="pricing-column__sub">Personalizirani pristup, potpuni fokus na tebe</p>
+              <div className="pricing-items">
+                <div className="pricing-item">
+                  <span className="pricing-label">Pojedinačni termin</span>
+                  <span className="pricing-value">xx<span className="pricing-currency"> €</span></span>
+                </div>
+                <div className="pricing-item">
+                  <span className="pricing-label">Paket 5 termina</span>
+                  <span className="pricing-value">xx<span className="pricing-currency"> €</span></span>
+                </div>
+                <div className="pricing-item">
+                  <span className="pricing-label">Paket 10 termina</span>
+                  <span className="pricing-value">xx<span className="pricing-currency"> €</span></span>
+                </div>
               </div>
             </div>
 
             <div className="pricing-column">
-              <h4>Mala grupa</h4>
-              <div className="pricing-item">
-                <span className="pricing-label">Pojedinačni termin</span>
-                <span className="pricing-value">xx €</span>
-              </div>
-              <div className="pricing-item">
-                <span className="pricing-label">Paket 8 termina</span>
-                <span className="pricing-value">xx €</span>
-              </div>
-              <div className="pricing-item">
-                <span className="pricing-label">
-                  Mjesečna članarina (2x tjedno)
-                </span>
-                <span className="pricing-value">xx €</span>
+              <h4 className="pricing-column__title">Mala grupa</h4>
+              <p className="pricing-column__sub">Do 6 polaznica, energija grupe uz osobni pristup</p>
+              <div className="pricing-items">
+                <div className="pricing-item">
+                  <span className="pricing-label">Pojedinačni termin</span>
+                  <span className="pricing-value">xx<span className="pricing-currency"> €</span></span>
+                </div>
+                <div className="pricing-item">
+                  <span className="pricing-label">Paket 8 termina</span>
+                  <span className="pricing-value">xx<span className="pricing-currency"> €</span></span>
+                </div>
+                <div className="pricing-item">
+                  <span className="pricing-label">Mjesečna članarina (2x tjedno)</span>
+                  <span className="pricing-value">xx<span className="pricing-currency"> €</span></span>
+                </div>
               </div>
             </div>
           </div>
