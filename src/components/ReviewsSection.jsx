@@ -1,18 +1,5 @@
 import "../styles/ReviewsSection.css";
-
-import bgDSC1576 from "../assets/images/DSC_1576.webp";
-import bgDSC8285 from "../assets/images/DSC_8285.webp";
-import bgDSC8332 from "../assets/images/DSC_8332.webp";
-import bgIMG1588 from "../assets/images/IMG_1588.webp";
-
-const backgroundOptions = {
-  DSC_1576: bgDSC1576,
-  DSC_8285: bgDSC8285,
-  DSC_8332: bgDSC8332,
-  IMG_1588: bgIMG1588,
-};
-
-const selectedBackground = backgroundOptions.IMG_1588;
+import sectionBg from "../assets/images/IMG_1588.webp";
 
 const testimonials = [
   {
@@ -41,6 +28,25 @@ const testimonials = [
   },
 ];
 
+const StarIcon = ({ className }) => (
+  <svg
+    className={className}
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M10 1.5l2.47 5.01 5.53.8-4 3.9.94 5.49L10 14.26 5.06 16.7 6 11.21l-4-3.9 5.53-.8L10 1.5z" />
+  </svg>
+);
+
+const Stars = ({ count = 5, className = "" }) => (
+  <div className={`testimonialsSection__stars ${className}`}>
+    {Array.from({ length: count }, (_, i) => (
+      <StarIcon key={i} className="testimonialsSection__starIcon" />
+    ))}
+  </div>
+);
+
 function ReviewsSection() {
   const featured = testimonials.find((t) => t.featured);
   const supporting = testimonials.filter((t) => !t.featured);
@@ -49,15 +55,22 @@ function ReviewsSection() {
     <section
       className="testimonialsSection"
       id="reviews"
-      style={{ backgroundImage: `url(${selectedBackground})` }}
+      style={{ backgroundImage: `url(${sectionBg})` }}
     >
       <div className="testimonialsSection__overlay" />
 
       <div className="testimonialsSection__inner">
         <p className="testimonialsSection__eyebrow">Recenzije</p>
         <h2 className="testimonialsSection__title">
-          Što kažu naše klijentice
+          Iskustva naših klijenata
         </h2>
+
+        <div className="testimonialsSection__credibilityBlock">
+          <Stars className="testimonialsSection__stars--credibility" />
+          <p className="testimonialsSection__credibilityText">
+            na temelju 48 recenzija
+          </p>
+        </div>
 
         <div className="testimonialsSection__featured">
           <span className="testimonialsSection__quoteMark">&ldquo;</span>
@@ -65,15 +78,17 @@ function ReviewsSection() {
             {featured.text}
           </blockquote>
           <p className="testimonialsSection__featuredName">{featured.name}</p>
+          <Stars className="testimonialsSection__stars--featured" />
         </div>
-
-        <div className="testimonialsSection__divider" />
 
         <div className="testimonialsSection__grid">
           {supporting.map((t) => (
             <article key={t.id} className="testimonialsSection__card">
               <p className="testimonialsSection__cardText">{t.text}</p>
-              <p className="testimonialsSection__cardName">{t.name}</p>
+              <div className="testimonialsSection__cardFooter">
+                <p className="testimonialsSection__cardName">{t.name}</p>
+                <Stars className="testimonialsSection__stars--card" />
+              </div>
             </article>
           ))}
         </div>
