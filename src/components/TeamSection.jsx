@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import "../styles/TeamSection.css";
 import { teamSanja, teamTea } from "../utils/images";
-import navLogo from "../assets/logos/nav-logo.png";
 
 function TeamSection() {
   const { t } = useTranslation();
@@ -10,8 +9,8 @@ function TeamSection() {
     <section className="team-section-editorial" id="team">
       <div className="team-container-editorial">
         <div className="team-header-editorial">
-          <img src={navLogo} alt="" className="team-logo-watermark" />
-          <h2 className="team-title-editorial">{t("team.title", "Naš tim")}</h2>
+          <p className="team-eyebrow-editorial">Upoznajte nas</p>
+          <h2 className="team-title-editorial">{t("team.title", "Trenerice koje vode vašu promjenu")}</h2>
           <p className="team-intro-editorial">
             U Gioia studiju vjerujemo da je odnos između trenerice i klijentice
             jedan od ključnih elemenata napretka. Svaka osoba koja dođe k nama

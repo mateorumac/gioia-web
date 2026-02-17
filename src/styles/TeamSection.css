@@ -2,7 +2,7 @@
    TEAM — Editorial profiles
    ═══════════════════════════════════════════ */
 .team-section-editorial {
-  padding: 10rem 4rem;
+  padding: 8rem 4rem;
   background-color: var(--color-white);
   position: relative;
 }
@@ -17,30 +17,26 @@
 .team-header-editorial {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 8rem;
-  position: relative;
+  margin: 0 auto 6rem;
 }
 
-.team-logo-watermark {
-  position: absolute;
-  top: -5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 300px;
-  opacity: 0.05;
-  pointer-events: none;
-  z-index: 0;
+.team-eyebrow-editorial {
+  font-family: var(--font-inter);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-sage);
+  margin: 0 0 1rem;
 }
 
 .team-title-editorial {
   font-family: var(--font-playfair);
-  font-size: clamp(2.8rem, 4.5vw, 3.8rem);
-  margin-bottom: 2rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 1.8rem;
   color: var(--color-text);
   font-weight: 400;
-  letter-spacing: -0.03em;
-  position: relative;
-  z-index: 1;
+  letter-spacing: -0.02em;
 }
 
 .team-intro-editorial {
@@ -48,9 +44,7 @@
   font-size: 1rem;
   line-height: 1.9;
   color: var(--color-text);
-  opacity: 0.8;
-  position: relative;
-  z-index: 1;
+  opacity: 0.7;
 }
 
 /* Grid — side by side */
@@ -86,6 +80,10 @@
   object-fit: cover;
   object-position: center 20%;
   transition: transform 0.8s ease;
+}
+
+.trainer-card-editorial:nth-child(2) .trainer-image-editorial {
+  object-position: center 75%;
 }
 
 .trainer-image-wrapper-editorial:hover .trainer-image-editorial {
@@ -135,11 +133,11 @@
 /* ── Responsive ── */
 @media (max-width: 1200px) {
   .team-section-editorial {
-    padding: 8rem 3rem;
+    padding: 6rem 3rem;
   }
 
   .team-header-editorial {
-    margin-bottom: 6rem;
+    margin-bottom: 5rem;
   }
 
   .team-grid-editorial {
@@ -165,7 +163,7 @@
   }
 
   .team-header-editorial {
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
   }
 }
 
@@ -175,20 +173,7 @@
   }
 
   .team-header-editorial {
-    margin-bottom: 4rem;
-  }
-
-  .team-title-editorial {
-    font-size: 2.2rem;
-  }
-
-  .team-intro-editorial {
-    font-size: 0.95rem;
-  }
-
-  .team-logo-watermark {
-    width: 220px;
-    opacity: 0.04;
+    margin-bottom: 3.5rem;
   }
 
   .trainer-name-editorial {
@@ -203,9 +188,5 @@
 @media (max-width: 400px) {
   .team-section-editorial {
     padding: 4rem 1.25rem;
-  }
-
-  .team-title-editorial {
-    font-size: 1.9rem;
   }
 }
