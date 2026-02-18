@@ -1,6 +1,8 @@
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "../styles/TeamSection.css";
 import { teamSanja, teamTea } from "../utils/images";
+import { fadeUp, imageReveal, staggerContainer, viewport } from "../animations/motionPresets";
 
 function TeamSection() {
   const { t } = useTranslation();
@@ -8,28 +10,44 @@ function TeamSection() {
   return (
     <section className="team-section-editorial" id="team">
       <div className="team-container-editorial">
-        <div className="team-header-editorial">
-          <p className="team-eyebrow-editorial">Upoznajte nas</p>
-          <h2 className="team-title-editorial">{t("team.title", "Trenerice koje vode vašu promjenu")}</h2>
-          <p className="team-intro-editorial">
+        <motion.div
+          className="team-header-editorial"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
+          <motion.p className="team-eyebrow-editorial" variants={fadeUp}>
+            Upoznajte nas
+          </motion.p>
+          <motion.h2 className="team-title-editorial" variants={fadeUp}>
+            {t("team.title", "Trenerice koje vode vašu promjenu")}
+          </motion.h2>
+          <motion.p className="team-intro-editorial" variants={fadeUp}>
             U Gioia studiju vjerujemo da je odnos između trenerice i klijentice
             jedan od ključnih elemenata napretka. Svaka osoba koja dođe k nama
             dobiva podršku, jasne upute i osjećaj sigurnosti – bez žurbe,
             uspoređivanja i pritiska.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="team-grid-editorial">
+        <motion.div
+          className="team-grid-editorial"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
           {/* Sanja */}
-          <article className="trainer-card-editorial">
-            <div className="trainer-image-wrapper-editorial">
+          <motion.article className="trainer-card-editorial" variants={fadeUp}>
+            <motion.div className="trainer-image-wrapper-editorial" variants={imageReveal}>
               <img
                 src={teamSanja}
                 alt="Sanja - Reformer Pilates Instructor"
                 className="trainer-image-editorial"
                 loading="lazy"
               />
-            </div>
+            </motion.div>
             <div className="trainer-content-editorial">
               <h3 className="trainer-name-editorial">Sanja</h3>
               <p className="trainer-role-editorial">Osnivačica i instruktorica reformer pilatesa</p>
@@ -43,18 +61,18 @@ function TeamSection() {
                 I sama sam često tražila mjesta gdje ću dobiti sve ono što u svom studiju i nudim, zato mi je bilo od početka bilo bitno stvoriti studio koji neće biti samo još jedan u nizu, nego mjesto gdje ćemo svi skupa zajedno rasti i biti podrška jedni drugima. Izuzetno sam sretna, ponosna i zahvalna što su i drugi to prepoznali.
               </p>
             </div>
-          </article>
+          </motion.article>
 
           {/* Tea */}
-          <article className="trainer-card-editorial">
-            <div className="trainer-image-wrapper-editorial">
+          <motion.article className="trainer-card-editorial" variants={fadeUp}>
+            <motion.div className="trainer-image-wrapper-editorial" variants={imageReveal}>
               <img
                 src={teamTea}
                 alt="Tea - Reformer Pilates Instructor"
                 className="trainer-image-editorial"
                 loading="lazy"
               />
-            </div>
+            </motion.div>
             <div className="trainer-content-editorial">
               <h3 className="trainer-name-editorial">Tea</h3>
               <p className="trainer-role-editorial">Instruktorica reformer pilatesa</p>
@@ -74,8 +92,8 @@ function TeamSection() {
                 Koji god je razlog zbog kojeg želite isprobati reformer pilates, u Gioii ćemo skupa krenuti s mjesta na kojem jeste i dovesti vas do cilja zbog kojeg ste i došli.
               </p>
             </div>
-          </article>
-        </div>
+          </motion.article>
+        </motion.div>
       </div>
     </section>
   );

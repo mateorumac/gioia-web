@@ -1,7 +1,9 @@
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import "../styles/GallerySection.css";
 import patternBg from "../assets/green-pattern-bg.png";
+import { fadeUp, imageReveal, staggerContainer, viewport } from "../animations/motionPresets";
 
 import img1 from "../assets/images/DSC_3662.webp";
 import img2 from "../assets/images/DSC_1517.webp";
@@ -40,29 +42,50 @@ function GallerySection() {
       />
 
       <div className="gallerySection__container">
-        <div className="gallerySection__header">
-          <p className="gallerySection__eyebrow">Prostor studija</p>
-          <h2 className="gallerySection__title">
+        <motion.div
+          className="gallerySection__header"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
+          <motion.p className="gallerySection__eyebrow" variants={fadeUp}>
+            Prostor studija
+          </motion.p>
+          <motion.h2 className="gallerySection__title" variants={fadeUp}>
             {t("gallery.title", "Galerija")}
-          </h2>
-        </div>
+          </motion.h2>
+        </motion.div>
 
-        <div className="gallerySection__mosaic">
+        <motion.div
+          className="gallerySection__mosaic"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05 }}
+        >
           {galleryItems.map((item, index) => (
-            <div
+            <motion.div
               key={index}
               className={`gallerySection__item gallerySection__item--${index + 1}`}
+              variants={imageReveal}
             >
               <img src={item.src} alt={item.alt} loading="lazy" />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="gallerySection__cta">
+        <motion.div
+          className="gallerySection__cta"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
           <Link to={galleryLink} className="gallerySection__button">
             {t("gallery.viewAll", "Pogledaj cijelu galeriju")}
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "../styles/TrainingSignupSection.css";
+import { fadeUp, staggerContainer, viewport } from "../animations/motionPresets";
 
 import bgImage from "../assets/images/DSC_8285.webp";
 
@@ -165,9 +167,7 @@ function TrainingSignupSection() {
         const rect = sectionRef.current.getBoundingClientRect();
         const vh = window.innerHeight;
         if (rect.bottom > -vh && rect.top < vh * 2) {
-          // progress: positive = section below viewport center, negative = above
           const progress = (rect.top + rect.height / 2 - vh / 2) / vh;
-          // ±80px travel — noticeable parallax depth
           const shift = progress * 80;
           bgImgRef.current.style.transform = `scale(1.06) translateY(${shift}px)`;
         }
@@ -176,7 +176,7 @@ function TrainingSignupSection() {
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll(); // set correct position immediately on mount
+    onScroll();
 
     return () => {
       window.removeEventListener("scroll", onScroll);
@@ -204,7 +204,7 @@ function TrainingSignupSection() {
   return (
     <section className="tss-section" id="booking" ref={sectionRef}>
 
-      {/* ── Background ── */}
+      {/* ── Background — parallax untouched ── */}
       <div className="tss-bg">
         <div
           ref={bgImgRef}
@@ -215,13 +215,23 @@ function TrainingSignupSection() {
         <div className="tss-bg__vignette" />
       </div>
 
-      {/* ── Floating card ── */}
-      <div className="tss-card">
-        <p className="tss-eyebrow">Rezerviraj svoje mjesto</p>
-        <h2 className="tss-title">Prijavi se na trening</h2>
-        <p className="tss-subtitle">
+      {/* ── Floating card — animate in ── */}
+      <motion.div
+        className="tss-card"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+      >
+        <motion.p className="tss-eyebrow" variants={fadeUp}>
+          Rezerviraj svoje mjesto
+        </motion.p>
+        <motion.h2 className="tss-title" variants={fadeUp}>
+          Prijavi se na trening
+        </motion.h2>
+        <motion.p className="tss-subtitle" variants={fadeUp}>
           Ograničen broj mjesta. Javljamo se unutar 24 sata.
-        </p>
+        </motion.p>
         <div className="tss-divider" />
 
         <form className="tss-form" onSubmit={handleSubmit}>
@@ -331,7 +341,7 @@ function TrainingSignupSection() {
           </button>
           <p className="tss-microcopy">Bez obveze. Bez članarine. Samo dogovor.</p>
         </form>
-      </div>
+      </motion.div>
 
       {formStatus && (
         <div className={`tss-toast tss-toast--${formStatus.type}`}>

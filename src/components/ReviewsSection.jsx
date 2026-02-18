@@ -1,5 +1,7 @@
+import { motion } from "framer-motion";
 import "../styles/ReviewsSection.css";
 import sectionBg from "../assets/images/IMG_1588.webp";
+import { fadeUp, fadeIn, staggerContainer, viewport } from "../animations/motionPresets";
 
 const testimonials = [
   {
@@ -60,38 +62,69 @@ function ReviewsSection() {
       <div className="testimonialsSection__overlay" />
 
       <div className="testimonialsSection__inner">
-        <p className="testimonialsSection__eyebrow">Recenzije</p>
-        <h2 className="testimonialsSection__title">
-          Iskustva naših klijenata
-        </h2>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
+          <motion.p className="testimonialsSection__eyebrow" variants={fadeUp}>
+            Recenzije
+          </motion.p>
+          <motion.h2 className="testimonialsSection__title" variants={fadeUp}>
+            Iskustva naših klijenata
+          </motion.h2>
+        </motion.div>
 
-        <div className="testimonialsSection__credibilityBlock">
+        <motion.div
+          className="testimonialsSection__credibilityBlock"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
           <Stars className="testimonialsSection__stars--credibility" />
           <p className="testimonialsSection__credibilityText">
             na temelju 48 recenzija
           </p>
-        </div>
+        </motion.div>
 
-        <div className="testimonialsSection__featured">
+        <motion.div
+          className="testimonialsSection__featured"
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
           <span className="testimonialsSection__quoteMark">&ldquo;</span>
           <blockquote className="testimonialsSection__featuredQuote">
             {featured.text}
           </blockquote>
           <p className="testimonialsSection__featuredName">{featured.name}</p>
           <Stars className="testimonialsSection__stars--featured" />
-        </div>
+        </motion.div>
 
-        <div className="testimonialsSection__grid">
+        <motion.div
+          className="testimonialsSection__grid"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
           {supporting.map((t) => (
-            <article key={t.id} className="testimonialsSection__card">
+            <motion.article
+              key={t.id}
+              className="testimonialsSection__card"
+              variants={fadeUp}
+            >
               <p className="testimonialsSection__cardText">{t.text}</p>
               <div className="testimonialsSection__cardFooter">
                 <p className="testimonialsSection__cardName">{t.name}</p>
                 <Stars className="testimonialsSection__stars--card" />
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

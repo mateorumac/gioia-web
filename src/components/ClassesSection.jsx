@@ -1,5 +1,7 @@
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "../styles/ClassesSection.css";
+import { fadeUp, imageReveal, staggerContainer, viewport } from "../animations/motionPresets";
 
 import individualTrainingImage from "../assets/images/DSC_8240.webp";
 import groupTrainingImage from "../assets/images/IMG_1588.webp";
@@ -14,50 +16,72 @@ function ClassesSection() {
       <div className="classes-for-who-section">
         <div className="for-who-grain" />
         <div className="for-who-container">
-          <div className="for-who-header">
-            <p className="for-who-eyebrow">Kome je namijenjen</p>
-            <h3 className="for-who-title">
+          <motion.div
+            className="for-who-header"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+          >
+            <motion.p className="for-who-eyebrow" variants={fadeUp}>
+              Kome je namijenjen
+            </motion.p>
+            <motion.h3 className="for-who-title" variants={fadeUp}>
               {t("classes.forWho", "Reformer pilates prilagođava se vama")}
-            </h3>
-          </div>
+            </motion.h3>
+          </motion.div>
 
-          <div className="for-who-columns">
-            <div className="for-who-column">
+          <motion.div
+            className="for-who-columns"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+          >
+            <motion.div className="for-who-column" variants={fadeUp}>
               <h4 className="for-who-column__title">Početnice</h4>
               <p className="for-who-column__text">
                 Siguran i kontroliran ulazak u svijet vježbanja uz stručno vodstvo
               </p>
-            </div>
-            <div className="for-who-column">
+            </motion.div>
+            <motion.div className="for-who-column" variants={fadeUp}>
               <h4 className="for-who-column__title">Sjedilački posao</h4>
               <p className="for-who-column__text">
                 Rješenje za napetost u leđima, vratu i ramenima
               </p>
-            </div>
-            <div className="for-who-column">
+            </motion.div>
+            <motion.div className="for-who-column" variants={fadeUp}>
               <h4 className="for-who-column__title">Iskusne vježbačice</h4>
               <p className="for-who-column__text">
                 Produbljivanje kontrole, snage i svijesti o tijelu
               </p>
-            </div>
-            <div className="for-who-column">
+            </motion.div>
+            <motion.div className="for-who-column" variants={fadeUp}>
               <h4 className="for-who-column__title">Tražiš balans</h4>
               <p className="for-who-column__text">
                 Miran, ali intenzivan trening koji povezuje tijelo i um
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
       <div className="training-types-section" id="treninzi">
         <div className="training-types-container">
-          <div className="training-intro">
-            <p className="training-intro__eyebrow">Trening u Gioia studiju</p>
-            <h3 className="training-intro__title">
+          <motion.div
+            className="training-intro"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+          >
+            <motion.p className="training-intro__eyebrow" variants={fadeUp}>
+              Trening u Gioia studiju
+            </motion.p>
+            <motion.h3 className="training-intro__title" variants={fadeUp}>
               {t("classes.trainingTitle", "Tri koncepta. Jedan cilj. Snažno i svjesno tijelo.")}
-            </h3>
-            <p className="training-intro__text">
+            </motion.h3>
+            <motion.p className="training-intro__text" variants={fadeUp}>
               Svi naši treninzi traju 55 minuta, u kojima imamo dio posvećen
               zagrijavanju i istezanju tijela i glavni dio treninga s vježbama. U
               našim vježbama često koristimo i razne rekvizite poput bučica, traka
@@ -65,21 +89,27 @@ function ClassesSection() {
               iako reformer sam po sebi izuzetno jača mišiće trupa. Za vježbanje je
               potrebno imati protuklizne čarape, ručnik i vodu i spremni ste za
               trening.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
           <div className="training-intro__separator" />
         </div>
 
-        {/* Block 1 — Strength Reformer: image left, text right */}
-        <article className="training-block">
-          <div className="training-block__image">
+        {/* Block 1 — Strength Reformer */}
+        <motion.article
+          className="training-block"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
+          <motion.div className="training-block__image" variants={imageReveal}>
             <img
               src={individualTrainingImage}
               alt="Strength Reformer trening"
               loading="lazy"
             />
-          </div>
-          <div className="training-block__content">
+          </motion.div>
+          <motion.div className="training-block__content" variants={fadeUp}>
             <span className="training-block__num">01</span>
             <h4 className="training-block__name">Strength Reformer</h4>
             <p className="training-block__intensity">srednji do jači intenzitet</p>
@@ -95,19 +125,25 @@ function ClassesSection() {
               centra tijela. Rezultat je jače tijelo, bolje i pravilnije držanje i
               lakši i pravilniji pokreti.
             </p>
-          </div>
-        </article>
+          </motion.div>
+        </motion.article>
 
-        {/* Block 2 — Stretch Reformer: text left, image right */}
-        <article className="training-block training-block--reverse">
-          <div className="training-block__image">
+        {/* Block 2 — Stretch Reformer */}
+        <motion.article
+          className="training-block training-block--reverse"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
+          <motion.div className="training-block__image" variants={imageReveal}>
             <img
               src={groupTrainingImage}
               alt="Stretch Reformer trening"
               loading="lazy"
             />
-          </div>
-          <div className="training-block__content">
+          </motion.div>
+          <motion.div className="training-block__content" variants={fadeUp}>
             <span className="training-block__num">02</span>
             <h4 className="training-block__name">Stretch Reformer</h4>
             <p className="training-block__intensity">umjeren intenzitet</p>
@@ -121,19 +157,25 @@ function ClassesSection() {
               kralježnice te poboljšanje ukupnog poravnanja tijela na smiren i
               svjestan način.
             </p>
-          </div>
-        </article>
+          </motion.div>
+        </motion.article>
 
-        {/* Block 3 — Cardio Reformer: image left, text right */}
-        <article className="training-block">
-          <div className="training-block__image">
+        {/* Block 3 — Cardio Reformer */}
+        <motion.article
+          className="training-block"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
+          <motion.div className="training-block__image" variants={imageReveal}>
             <img
               src={bookingSidebar1}
               alt="Cardio Reformer trening"
               loading="lazy"
             />
-          </div>
-          <div className="training-block__content">
+          </motion.div>
+          <motion.div className="training-block__content" variants={fadeUp}>
             <span className="training-block__num">03</span>
             <h4 className="training-block__name">Cardio Reformer</h4>
             <p className="training-block__intensity">jači intenzitet</p>
@@ -145,62 +187,68 @@ function ClassesSection() {
               treninga preporučujemo ipak malo iskusnijim klijentima koji već neko
               vrijeme vježbaju na reformeru ili su u već dobroj kondicijskoj formi.
             </p>
-          </div>
-        </article>
+          </motion.div>
+        </motion.article>
       </div>
 
       <div className="pricing-section-wrapper">
         <div className="pricing-pattern" style={{ backgroundImage: `url(${patternBg})` }} />
         <div className="classes-container">
-        <div className="pricing-editorial">
-          <p className="pricing-eyebrow">Cjenik</p>
-          <h3 className="pricing-title">Investicija u sebe</h3>
-          <p className="pricing-note">
-            Ovisno o vrsti treninga i dinamici dolazaka, nudimo različite pakete
-            i članarine. Rado ćemo pomoći pri odabiru opcije koja ti najviše
-            odgovara.
-          </p>
+          <motion.div
+            className="pricing-editorial"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+          >
+            <motion.p className="pricing-eyebrow" variants={fadeUp}>Cjenik</motion.p>
+            <motion.h3 className="pricing-title" variants={fadeUp}>Investicija u sebe</motion.h3>
+            <motion.p className="pricing-note" variants={fadeUp}>
+              Ovisno o vrsti treninga i dinamici dolazaka, nudimo različite pakete
+              i članarine. Rado ćemo pomoći pri odabiru opcije koja ti najviše
+              odgovara.
+            </motion.p>
 
-          <div className="pricing-table">
-            <div className="pricing-column">
-              <h4 className="pricing-column__title">Individualni trening</h4>
-              <p className="pricing-column__sub">Personalizirani pristup, potpuni fokus na tebe</p>
-              <div className="pricing-items">
-                <div className="pricing-item">
-                  <span className="pricing-label">Pojedinačni termin</span>
-                  <span className="pricing-value">xx<span className="pricing-currency"> €</span></span>
+            <motion.div className="pricing-table" variants={staggerContainer}>
+              <motion.div className="pricing-column" variants={fadeUp}>
+                <h4 className="pricing-column__title">Individualni trening</h4>
+                <p className="pricing-column__sub">Personalizirani pristup, potpuni fokus na tebe</p>
+                <div className="pricing-items">
+                  <div className="pricing-item">
+                    <span className="pricing-label">Pojedinačni termin</span>
+                    <span className="pricing-value">xx<span className="pricing-currency"> €</span></span>
+                  </div>
+                  <div className="pricing-item">
+                    <span className="pricing-label">Paket 5 termina</span>
+                    <span className="pricing-value">xx<span className="pricing-currency"> €</span></span>
+                  </div>
+                  <div className="pricing-item">
+                    <span className="pricing-label">Paket 10 termina</span>
+                    <span className="pricing-value">xx<span className="pricing-currency"> €</span></span>
+                  </div>
                 </div>
-                <div className="pricing-item">
-                  <span className="pricing-label">Paket 5 termina</span>
-                  <span className="pricing-value">xx<span className="pricing-currency"> €</span></span>
-                </div>
-                <div className="pricing-item">
-                  <span className="pricing-label">Paket 10 termina</span>
-                  <span className="pricing-value">xx<span className="pricing-currency"> €</span></span>
-                </div>
-              </div>
-            </div>
+              </motion.div>
 
-            <div className="pricing-column">
-              <h4 className="pricing-column__title">Mala grupa</h4>
-              <p className="pricing-column__sub">Do 6 polaznica, energija grupe uz osobni pristup</p>
-              <div className="pricing-items">
-                <div className="pricing-item">
-                  <span className="pricing-label">Pojedinačni termin</span>
-                  <span className="pricing-value">xx<span className="pricing-currency"> €</span></span>
+              <motion.div className="pricing-column" variants={fadeUp}>
+                <h4 className="pricing-column__title">Mala grupa</h4>
+                <p className="pricing-column__sub">Do 6 polaznica, energija grupe uz osobni pristup</p>
+                <div className="pricing-items">
+                  <div className="pricing-item">
+                    <span className="pricing-label">Pojedinačni termin</span>
+                    <span className="pricing-value">xx<span className="pricing-currency"> €</span></span>
+                  </div>
+                  <div className="pricing-item">
+                    <span className="pricing-label">Paket 8 termina</span>
+                    <span className="pricing-value">xx<span className="pricing-currency"> €</span></span>
+                  </div>
+                  <div className="pricing-item">
+                    <span className="pricing-label">Mjesečna članarina (2x tjedno)</span>
+                    <span className="pricing-value">xx<span className="pricing-currency"> €</span></span>
+                  </div>
                 </div>
-                <div className="pricing-item">
-                  <span className="pricing-label">Paket 8 termina</span>
-                  <span className="pricing-value">xx<span className="pricing-currency"> €</span></span>
-                </div>
-                <div className="pricing-item">
-                  <span className="pricing-label">Mjesečna članarina (2x tjedno)</span>
-                  <span className="pricing-value">xx<span className="pricing-currency"> €</span></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import "../styles/ContactSection.css";
+import { fadeUp, imageReveal, staggerContainer, viewport } from "../animations/motionPresets";
 
 // Import images
 import heroImage from "../assets/images/DSC_3666.webp";
@@ -49,7 +51,7 @@ function ContactSection() {
 
   return (
     <section className="contact-section" id="contact">
-      {/* Hero Image Section */}
+      {/* Hero Image Section — parallax bg untouched, animate the text overlay */}
       <div className="contact-hero" ref={heroRef}>
         <div
           ref={heroBgRef}
@@ -59,18 +61,30 @@ function ContactSection() {
           aria-label="Gioia reformer pilates studio"
         />
         <div className="contact-hero-overlay" />
-        <div className="contact-hero-content">
-          <h2 className="contact-hero-title">Kontakt i lokacija</h2>
-        </div>
+        <motion.div
+          className="contact-hero-content"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
+          <motion.h2 className="contact-hero-title" variants={fadeUp}>
+            Kontakt i lokacija
+          </motion.h2>
+        </motion.div>
       </div>
 
       {/* Information Grid - 3 columns */}
-      <div
+      <motion.div
         className="contact-info-grid"
         style={{ "--pattern-bg": `url(${patternBg})` }}
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
       >
         {/* Address Card */}
-        <div className="contact-info-card">
+        <motion.div className="contact-info-card" variants={fadeUp}>
           <h3>Adresa</h3>
           <p>
             Gioia – reformer pilates studio
@@ -83,10 +97,10 @@ function ContactSection() {
             Studio se nalazi u mirnom dijelu Verudele, nekoliko minuta hoda od
             mora. Lako dostupan autom, s besplatnim parkingom u blizini.
           </p>
-        </div>
+        </motion.div>
 
         {/* Contact & Hours Card */}
-        <div className="contact-info-card">
+        <motion.div className="contact-info-card" variants={fadeUp}>
           <div className="contact-details-block">
             <h3>Kontakt</h3>
             <p>
@@ -121,13 +135,13 @@ function ContactSection() {
               <strong>Nedjeljom:</strong> zatvoreno
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Vertical Image Column */}
-        <div className="contact-image-column">
+        <motion.div className="contact-image-column" variants={imageReveal}>
           <img src={verticalImage} alt="Gioia studio ambijent" loading="lazy" />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Pattern Divider */}
       <div className="contact-map-divider"></div>
@@ -144,32 +158,47 @@ function ContactSection() {
       </div>
 
       {/* Image Gallery Row */}
-      <div className="contact-gallery-row">
-        <div className="contact-gallery-item">
+      <motion.div
+        className="contact-gallery-row"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+      >
+        <motion.div className="contact-gallery-item" variants={imageReveal}>
           <img src={gallery1} alt="Pilates rekviziti" loading="lazy" />
-        </div>
-        <div className="contact-gallery-item">
+        </motion.div>
+        <motion.div className="contact-gallery-item" variants={imageReveal}>
           <img src={gallery2} alt="Reformer detalj" loading="lazy" />
-        </div>
-        <div className="contact-gallery-item">
+        </motion.div>
+        <motion.div className="contact-gallery-item" variants={imageReveal}>
           <img src={gallery3} alt="Trening u akciji" loading="lazy" />
-        </div>
-        <div className="contact-gallery-item">
+        </motion.div>
+        <motion.div className="contact-gallery-item" variants={imageReveal}>
           <img src={gallery4} alt="Studio prostor" loading="lazy" />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* CTA Footer */}
-      <div className="contact-cta-footer">
-        <p className="contact-cta-text">Spremna započeti svoj pilates put?</p>
-        <a
+      <motion.div
+        className="contact-cta-footer"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+      >
+        <motion.p className="contact-cta-text" variants={fadeUp}>
+          Spremna započeti svoj pilates put?
+        </motion.p>
+        <motion.a
           href="#booking"
           className="contact-cta-button"
+          variants={fadeUp}
           onClick={handleScrollToBooking}
         >
           Rezerviraj termin
-        </a>
-      </div>
+        </motion.a>
+      </motion.div>
     </section>
   );
 }

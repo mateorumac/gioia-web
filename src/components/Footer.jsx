@@ -1,4 +1,5 @@
 // import { useState } from "react";
+import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
@@ -10,6 +11,7 @@ import {
 import mainLogo from "../assets/logos/main-logo.png";
 // import Toast from "../components/Toast.jsx";
 import "../styles/Footer.css";
+import { fadeUp, staggerContainer, viewport } from "../animations/motionPresets";
 
 function Footer() {
   const { t } = useTranslation();
@@ -44,17 +46,26 @@ function Footer() {
   return (
     <footer className="site-footer-editorial">
       <div className="footer-inner-editorial">
-        <div className="footer-top-editorial">
-          <div className="footer-brand-editorial">
+        <motion.div
+          className="footer-top-editorial"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
+          <motion.div className="footer-brand-editorial" variants={fadeUp}>
             <img
               src={mainLogo}
               alt="Gioia Studio"
               className="footer-brand-logo-editorial"
             />
-          </div>
+          </motion.div>
 
-          <div className="footer-columns-editorial">
-            <div className="footer-column-editorial">
+          <motion.div
+            className="footer-columns-editorial"
+            variants={staggerContainer}
+          >
+            <motion.div className="footer-column-editorial" variants={fadeUp}>
               <h4>{t("footer.navigation", "Navigacija")}</h4>
               <ul>
                 <li>
@@ -73,9 +84,9 @@ function Footer() {
                   <Link to={`${homeBase}#contact`}>Kontakt</Link>
                 </li>
               </ul>
-            </div>
+            </motion.div>
 
-            <div className="footer-column-editorial">
+            <motion.div className="footer-column-editorial" variants={fadeUp}>
               <h4>{t("footer.contact", "Kontakt")}</h4>
               <ul className="footer-contact-list">
                 <li>
@@ -110,9 +121,9 @@ function Footer() {
                   <FaInstagram />
                 </a>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="footer-column-editorial">
+            <motion.div className="footer-column-editorial" variants={fadeUp}>
               <h4>{t("footer.hours", "Radno vrijeme")}</h4>
               <ul className="footer-hours">
                 <li>
@@ -128,9 +139,9 @@ function Footer() {
                   <span>Zatvoreno</span>
                 </li>
               </ul>
-            </div>
+            </motion.div>
 
-            <div className="footer-column-editorial">
+            <motion.div className="footer-column-editorial" variants={fadeUp}>
               <h4>{t("footer.legal", "Pravne informacije")}</h4>
               <ul>
                 <li>
@@ -148,7 +159,7 @@ function Footer() {
                   <Link to={`${homeBase}/gdpr`}>GDPR informacije</Link>
                 </li>
               </ul>
-            </div>
+            </motion.div>
 
             {/* <div className="footer-newsletter-editorial">
               <h4>{t("newsletter.title", "Ostani u tijeku")}</h4>
@@ -178,8 +189,8 @@ function Footer() {
                 </button>
               </form>
             </div> */}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         <div className="footer-divider-editorial" />
 

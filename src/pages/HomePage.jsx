@@ -1,5 +1,7 @@
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "../styles/home.css";
+import { fadeUp, fadeIn, staggerContainer } from "../animations/motionPresets";
 import AboutSection from "../components/AboutSection";
 import ClassesSection from "../components/ClassesSection";
 import TrainingSignupSection from "../components/TrainingSignupSection";
@@ -37,22 +39,38 @@ function HomePage() {
         </div>
 
         <div className="hero-inner">
-          <div className="hero-text">
-            <p className="hero-statement">We do things differently here.</p>
-            <h1 className="hero-title">
+          <motion.div
+            className="hero-text"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.p className="hero-statement" variants={fadeUp}>
+              We do things differently here.
+            </motion.p>
+            <motion.h1 className="hero-title" variants={fadeUp}>
               <span>Gioia Reformer</span>
               <span>Pilates</span>
-            </h1>
-            <button
+            </motion.h1>
+            <motion.button
               className="hero-btn-primary"
+              variants={fadeUp}
               onClick={() => scrollToSection("booking")}
             >
               {t("hero.ctaPrimary", "Rezerviraj termin")}
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </div>
 
-        <img src={navLogo} alt="" className="hero-watermark" />
+        <motion.img
+          src={navLogo}
+          alt=""
+          className="hero-watermark"
+          variants={fadeIn}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.4 }}
+        />
       </section>
 
       <AboutSection />

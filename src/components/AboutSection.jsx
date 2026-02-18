@@ -1,7 +1,9 @@
 import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "../styles/AboutSection.css";
 import patternBg from "../assets/green-pattern-bg.png";
+import { fadeUp, staggerContainer, viewport } from "../animations/motionPresets";
 
 /* Horizontal image options — swap index to change */
 const aboutImages = [
@@ -50,9 +52,7 @@ function AboutSection() {
         const rect = imageBreakRef.current.getBoundingClientRect();
         const vh = window.innerHeight;
         if (rect.bottom > -vh && rect.top < vh * 2) {
-          // positive = element below center, negative = above center
           const progress = (rect.top + rect.height / 2 - vh / 2) / vh;
-          // aggressive: ±120px travel reveals top/bottom of image on scroll
           const shift = progress * 120;
           bgRef.current.style.transform = `translateY(${shift}px)`;
         }
@@ -76,16 +76,30 @@ function AboutSection() {
 
       <div className="about-container-editorial">
         {/* A) Header */}
-        <div className="about-header-editorial">
-          <p className="about-eyebrow-editorial">O studiju</p>
-          <h2 className="about-title-editorial">
+        <motion.div
+          className="about-header-editorial"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
+          <motion.p className="about-eyebrow-editorial" variants={fadeUp}>
+            O studiju
+          </motion.p>
+          <motion.h2 className="about-title-editorial" variants={fadeUp}>
             {t("about.title", "Studio koji njeguje fokus i zajedništvo")}
-          </h2>
-        </div>
+          </motion.h2>
+        </motion.div>
 
         {/* B) Two-column intro area */}
-        <div className="about-intro-columns">
-          <div className="about-intro-left">
+        <motion.div
+          className="about-intro-columns"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
+          <motion.div className="about-intro-left" variants={fadeUp}>
             <p className="about-intro-lead">
               Gioia reformer studio započeo je s radom u ožujku 2025. Iako je
               reformer pilates već bio dosta popularan u to vrijeme, u Puli još
@@ -98,8 +112,8 @@ function AboutSection() {
               dobrodošli, s ciljem da im pružimo podržavajuće i pozitivno
               okruženje.
             </p>
-          </div>
-          <div className="about-intro-right">
+          </motion.div>
+          <motion.div className="about-intro-right" variants={fadeUp}>
             <p>
               Vjerujemo da je učenje neprekidan proces i tako smo od početka
               otvaranja studija i mi uz naše klijente dosta naučili i
@@ -109,11 +123,11 @@ function AboutSection() {
               Gioiu ne činimo samo mi treneri i osnivači, Gioiu čine ljudi,
               svaka osoba koja uđe kroz naša vrata.
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
-      {/* C) Full-bleed image with mission header overlay */}
+      {/* C) Full-bleed image with mission header overlay — parallax bg untouched */}
       <div className="about-image-break" ref={imageBreakRef}>
         <div
           ref={bgRef}
@@ -123,30 +137,48 @@ function AboutSection() {
           aria-label="Gioia Pilates Studio"
         />
         <div className="about-image-break__overlay" />
-        <div className="about-image-break__content">
-          <p className="about-image-break__eyebrow">Naše vrijednosti</p>
-          <h3 className="about-image-break__title">
+        <motion.div
+          className="about-image-break__content"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
+          <motion.p className="about-image-break__eyebrow" variants={fadeUp}>
+            Naše vrijednosti
+          </motion.p>
+          <motion.h3 className="about-image-break__title" variants={fadeUp}>
             {t("about.mission", "Misija i naše vrijednosti")}
-          </h3>
-          <p className="about-image-break__intro">
+          </motion.h3>
+          <motion.p className="about-image-break__intro" variants={fadeUp}>
             Od prvog dana njegujemo neke temeljne principe rada, koji su za
             nas:
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </div>
 
       {/* D) Mission manifesto grid */}
       <div className="about-container-editorial">
         <div className="about-mission-editorial">
-          <div className="about-manifesto-grid">
+          <motion.div
+            className="about-manifesto-grid"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+          >
             {manifestoItems.map((item) => (
-              <div key={item.num} className="about-manifesto-item">
+              <motion.div
+                key={item.num}
+                className="about-manifesto-item"
+                variants={fadeUp}
+              >
                 <span className="about-manifesto-num">{item.num}</span>
                 <h4 className="about-manifesto-label">{item.label}</h4>
                 <p className="about-manifesto-text">{item.text}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
