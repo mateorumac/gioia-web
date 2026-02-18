@@ -163,7 +163,7 @@ function ContactSection() {
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.22 }}
       >
         <motion.div className="contact-gallery-item" variants={imageReveal}>
           <img src={gallery1} alt="Pilates rekviziti" loading="lazy" />

@@ -62,7 +62,7 @@ function GallerySection() {
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
+          viewport={{ once: true, amount: 0.15 }}
         >
           {galleryItems.map((item, index) => (
             <motion.div
