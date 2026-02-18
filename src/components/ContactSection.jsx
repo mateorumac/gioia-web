@@ -1,8 +1,9 @@
+import { useEffect, useRef } from "react";
 import "../styles/ContactSection.css";
 
 // Import images
 import heroImage from "../assets/images/DSC_3666.webp";
-import verticalImage from "../assets/images/IMG_1706.webp";
+import verticalImage from "../assets/images/IMG_4020.webp";
 import gallery1 from "../assets/images/DSC_2498.webp";
 import gallery2 from "../assets/images/DSC_8160.webp";
 import gallery3 from "../assets/images/IMG_4435.webp";
@@ -10,6 +11,34 @@ import gallery4 from "../assets/images/DSC_8325.webp";
 import patternBg from "../assets/green-pattern-bg.png";
 
 function ContactSection() {
+  const heroRef = useRef(null);
+  const heroBgRef = useRef(null);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        if (!heroRef.current || !heroBgRef.current) { ticking = false; return; }
+        const rect = heroRef.current.getBoundingClientRect();
+        const vh = window.innerHeight;
+        if (rect.bottom > -vh && rect.top < vh * 2) {
+          const progress = (rect.top + rect.height / 2 - vh / 2) / vh;
+          const shift = progress * 100;
+          heroBgRef.current.style.transform = `translateY(${shift}px)`;
+        }
+        ticking = false;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const handleScrollToBooking = (e) => {
     e.preventDefault();
     const bookingSection = document.getElementById("booking");
@@ -21,14 +50,16 @@ function ContactSection() {
   return (
     <section className="contact-section" id="contact">
       {/* Hero Image Section */}
-      <div className="contact-hero">
-        <img
-          src={heroImage}
-          alt="Gioia reformer pilates studio"
-          className="contact-hero-image"
-          loading="lazy"
+      <div className="contact-hero" ref={heroRef}>
+        <div
+          ref={heroBgRef}
+          className="contact-hero__bg"
+          style={{ backgroundImage: `url(${heroImage})` }}
+          role="img"
+          aria-label="Gioia reformer pilates studio"
         />
-        <div className="contact-hero-overlay">
+        <div className="contact-hero-overlay" />
+        <div className="contact-hero-content">
           <h2 className="contact-hero-title">Kontakt i lokacija</h2>
         </div>
       </div>

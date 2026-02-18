@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import "../styles/AboutSection.css";
 import patternBg from "../assets/green-pattern-bg.png";
@@ -34,6 +35,36 @@ const manifestoItems = [
 
 function AboutSection() {
   const { t } = useTranslation();
+
+  const imageBreakRef = useRef(null);
+  const bgRef = useRef(null);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        if (!imageBreakRef.current || !bgRef.current) { ticking = false; return; }
+        const rect = imageBreakRef.current.getBoundingClientRect();
+        const vh = window.innerHeight;
+        if (rect.bottom > -vh && rect.top < vh * 2) {
+          // positive = element below center, negative = above center
+          const progress = (rect.top + rect.height / 2 - vh / 2) / vh;
+          // aggressive: ±120px travel reveals top/bottom of image on scroll
+          const shift = progress * 120;
+          bgRef.current.style.transform = `translateY(${shift}px)`;
+        }
+        ticking = false;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <section className="about-section-editorial" id="about">
@@ -83,13 +114,15 @@ function AboutSection() {
       </div>
 
       {/* C) Full-bleed image with mission header overlay */}
-      <div className="about-image-break">
-        <div className="about-image-break__overlay" />
-        <img
-          src={aboutHeroImage}
-          alt="Gioia Pilates Studio"
-          loading="lazy"
+      <div className="about-image-break" ref={imageBreakRef}>
+        <div
+          ref={bgRef}
+          className="about-image-break__bg"
+          style={{ backgroundImage: `url(${aboutHeroImage})` }}
+          role="img"
+          aria-label="Gioia Pilates Studio"
         />
+        <div className="about-image-break__overlay" />
         <div className="about-image-break__content">
           <p className="about-image-break__eyebrow">Naše vrijednosti</p>
           <h3 className="about-image-break__title">

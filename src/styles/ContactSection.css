@@ -12,26 +12,40 @@
   overflow: hidden;
 }
 
-.contact-hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+/* Parallax background — oversized vertically */
+.contact-hero__bg {
+  position: absolute;
+  top: -30%;
+  bottom: -30%;
+  left: 0;
+  right: 0;
+  background-size: cover;
+  background-position: center 40%;
+  will-change: transform;
 }
 
+/* Beige overlay — matches ReviewsSection style */
 .contact-hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    transparent 50%,
-    rgba(255, 255, 255, 0.18) 75%,
-    rgba(255, 255, 255, 0.55) 100%
+    180deg,
+    rgba(236, 229, 209, 0.82) 0%,
+    rgba(236, 229, 209, 0.62) 45%,
+    rgba(236, 229, 209, 0.78) 100%
   );
+  pointer-events: none;
+}
+
+/* Centered title layer */
+.contact-hero-content {
+  position: absolute;
+  inset: 0;
   display: flex;
-  align-items: flex-end;
-  padding: 4rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
 }
 
 .contact-hero-title {
@@ -263,7 +277,7 @@
 
 /* Responsive */
 @media (max-width: 1200px) {
-  .contact-hero-overlay {
+  .contact-hero-content {
     padding: 3rem;
   }
 
@@ -288,7 +302,7 @@
     min-height: 400px;
   }
 
-  .contact-hero-overlay {
+  .contact-hero-content {
     padding: 2.5rem 2rem;
   }
 
@@ -342,7 +356,7 @@
     min-height: 350px;
   }
 
-  .contact-hero-overlay {
+  .contact-hero-content {
     padding: 2rem 1.5rem;
   }
 

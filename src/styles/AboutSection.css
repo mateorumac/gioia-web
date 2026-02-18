@@ -43,6 +43,7 @@
 /* ── A) Header ── */
 .about-header-editorial {
   margin-bottom: 4rem;
+  text-align: center;
 }
 
 .about-eyebrow-editorial {
@@ -102,8 +103,21 @@
   position: relative;
   z-index: 1;
   width: 100%;
+  height: 440px; /* explicit — was driven by img height */
   overflow: hidden;
   margin-bottom: 3.5rem;
+}
+
+/* Parallax background — oversized vertically to allow scroll travel */
+.about-image-break__bg {
+  position: absolute;
+  top: -35%;    /* 154px buffer on 440px container — absorbs ±120px shift */
+  bottom: -35%;
+  left: 0;
+  right: 0;
+  background-size: cover;
+  background-position: center 40%;
+  will-change: transform;
 }
 
 .about-image-break__overlay {
@@ -117,14 +131,6 @@
     rgba(236, 229, 209, 0.5) 100%
   );
   pointer-events: none;
-}
-
-.about-image-break img {
-  width: 100%;
-  height: 440px;
-  display: block;
-  object-fit: cover;
-  object-position: center 40%;
 }
 
 .about-image-break__content {
@@ -249,7 +255,7 @@
     gap: 3rem;
   }
 
-  .about-image-break img {
+  .about-image-break {
     height: 400px;
   }
 
@@ -285,7 +291,7 @@
     margin-bottom: 2.5rem;
   }
 
-  .about-image-break img {
+  .about-image-break {
     height: 340px;
   }
 
@@ -336,7 +342,7 @@
     padding-bottom: 2rem;
   }
 
-  .about-image-break img {
+  .about-image-break {
     height: 300px;
   }
 
@@ -381,7 +387,7 @@
     font-size: 1.6rem;
   }
 
-  .about-image-break img {
+  .about-image-break {
     height: 260px;
   }
 

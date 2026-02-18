@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
@@ -8,7 +8,7 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import mainLogo from "../assets/logos/main-logo.png";
-import Toast from "../components/Toast.jsx";
+// import Toast from "../components/Toast.jsx";
 import "../styles/Footer.css";
 
 function Footer() {
@@ -20,26 +20,26 @@ function Footer() {
   const homeBase = `/${currentLang}`;
   const year = new Date().getFullYear();
 
-  const [newsletterEmail, setNewsletterEmail] = useState("");
-  const [toast, setToast] = useState({
-    open: false,
-    type: "info",
-    title: "",
-    message: "",
-  });
+  // const [newsletterEmail, setNewsletterEmail] = useState("");
+  // const [toast, setToast] = useState({
+  //   open: false,
+  //   type: "info",
+  //   title: "",
+  //   message: "",
+  // });
 
-  const handleNewsletterSubmit = (e) => {
-    e.preventDefault();
+  // const handleNewsletterSubmit = (e) => {
+  //   e.preventDefault();
 
-    setToast({
-      open: true,
-      type: "info",
-      title: t("newsletter.title", "Newsletter"),
-      message: t("newsletter.success", "Hvala na prijavi!"),
-    });
+  //   setToast({
+  //     open: true,
+  //     type: "info",
+  //     title: t("newsletter.title", "Newsletter"),
+  //     message: t("newsletter.success", "Hvala na prijavi!"),
+  //   });
 
-    setNewsletterEmail("");
-  };
+  //   setNewsletterEmail("");
+  // };
 
   return (
     <footer className="site-footer-editorial">
@@ -150,7 +150,7 @@ function Footer() {
               </ul>
             </div>
 
-            <div className="footer-newsletter-editorial">
+            {/* <div className="footer-newsletter-editorial">
               <h4>{t("newsletter.title", "Ostani u tijeku")}</h4>
               <p>
                 {t(
@@ -177,7 +177,7 @@ function Footer() {
                   {t("newsletter.button", "Prijavi se")}
                 </button>
               </form>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -199,7 +199,7 @@ function Footer() {
         </div>
       </div>
 
-      <Toast
+      {/* <Toast
         open={toast.open}
         type={toast.type}
         title={toast.title}
@@ -207,7 +207,7 @@ function Footer() {
         duration={4500}
         position="top-right"
         onClose={() => setToast((p) => ({ ...p, open: false }))}
-      />
+      /> */}
     </footer>
   );
 }

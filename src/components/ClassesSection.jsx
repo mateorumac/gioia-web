@@ -1,40 +1,13 @@
-import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "../styles/ClassesSection.css";
 
 import individualTrainingImage from "../assets/images/DSC_8240.webp";
 import groupTrainingImage from "../assets/images/IMG_1588.webp";
 import bookingSidebar1 from "../assets/images/DSC_1394.webp";
-import bookingSidebar2 from "../assets/images/DSC_8159.webp";
-import bookingSidebar3 from "../assets/images/IMG_1704.webp";
+import patternBg from "../assets/green-pattern-bg.png";
 
 function ClassesSection() {
   const { t } = useTranslation();
-  const [formStatus, setFormStatus] = useState(null);
-  const toastTimerRef = useRef(null);
-
-  useEffect(() => {
-    return () => {
-      if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
-    };
-  }, []);
-
-  const showToast = (status) => {
-    setFormStatus(status);
-    if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
-    toastTimerRef.current = setTimeout(() => setFormStatus(null), 3500);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    showToast({
-      type: "info",
-      message: t(
-        "booking.infoMessage",
-        "Za sada kontaktirajte nas direktno na info@gioia.hr ili 095 389 6809"
-      ),
-    });
-  };
 
   return (
     <section className="classes-section" id="classes">
@@ -176,8 +149,9 @@ function ClassesSection() {
         </article>
       </div>
 
-      <div className="classes-container">
-
+      <div className="pricing-section-wrapper">
+        <div className="pricing-pattern" style={{ backgroundImage: `url(${patternBg})` }} />
+        <div className="classes-container">
         <div className="pricing-editorial">
           <p className="pricing-eyebrow">Cjenik</p>
           <h3 className="pricing-title">Investicija u sebe</h3>
@@ -227,115 +201,8 @@ function ClassesSection() {
             </div>
           </div>
         </div>
-
-        <div className="booking-editorial" id="booking">
-          <div className="booking-form-wrapper">
-            <h3 className="section-subtitle l">Želiš rezervirati svoje mjesto?</h3>
-            <p className="booking-text">
-              Ispuni kratki obrazac, a mi ćemo ti se javiti s prijedlogom termina
-              i potvrdom rezervacije. Ovo je neobvezujuća prijava – služi da
-              pronađemo termin koji ti najbolje odgovara.
-            </p>
-
-            <form className="booking-form-editorial" onSubmit={handleSubmit}>
-              <div className="booking-field-editorial">
-                <label htmlFor="name">Ime i prezime</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Tvoje ime i prezime"
-                />
-              </div>
-
-              <div className="booking-field-editorial">
-                <label htmlFor="email">E-mail</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="tvoj@email.com"
-                />
-              </div>
-
-              <div className="booking-field-editorial">
-                <label htmlFor="phone">Broj mobitela</label>
-                <input type="tel" id="phone" name="phone" placeholder="+385..." />
-              </div>
-
-              <div className="booking-field-editorial">
-                <label htmlFor="type">Vrsta treninga</label>
-                <select id="type" name="type" defaultValue="">
-                  <option value="">Odaberi...</option>
-                  <option value="individual">Individualni trening</option>
-                  <option value="group">Mala grupa</option>
-                </select>
-              </div>
-
-              <div className="booking-field-editorial">
-                <label htmlFor="time">Vrijeme koje ti više odgovara</label>
-                <select id="time" name="time" defaultValue="">
-                  <option value="">Odaberi...</option>
-                  <option value="morning">Prijepodne</option>
-                  <option value="afternoon">Poslijepodne</option>
-                  <option value="flexible">Fleksibilno / dogovor</option>
-                </select>
-              </div>
-
-              <div className="booking-field-editorial">
-                <label htmlFor="experience">Iskustvo s pilatesom</label>
-                <select id="experience" name="experience" defaultValue="">
-                  <option value="">Odaberi...</option>
-                  <option value="beginner">Početnica sam</option>
-                  <option value="some">Imam malo iskustva</option>
-                  <option value="advanced">Vježbam redovito</option>
-                </select>
-              </div>
-
-              <div className="booking-field-editorial">
-                <label htmlFor="message">Dodatne napomene</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  placeholder="Npr. ciljevi, eventualne ozljede, željeni dani u tjednu..."
-                />
-              </div>
-
-              <button type="submit" className="booking-submit-editorial">
-                Pošalji upit za termin
-              </button>
-            </form>
-          </div>
-
-          <div className="booking-images-sidebar">
-            <img
-              src={bookingSidebar1}
-              alt="Pilates rekviziti"
-              className="booking-sidebar-image"
-              loading="lazy"
-            />
-            <img
-              src={bookingSidebar2}
-              alt="Detalj iz studija"
-              className="booking-sidebar-image"
-              loading="lazy"
-            />
-            <img
-              src={bookingSidebar3}
-              alt="Trening u akciji"
-              className="booking-sidebar-image"
-              loading="lazy"
-            />
-          </div>
         </div>
       </div>
-
-      {formStatus && (
-        <div className={`booking-toast booking-toast-${formStatus.type}`}>
-          {formStatus.message}
-        </div>
-      )}
     </section>
   );
 }

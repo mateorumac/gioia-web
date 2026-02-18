@@ -1,0 +1,358 @@
+/* ═══════════════════════════════════════════
+   TRAINING SIGNUP SECTION
+   Cinematic background · Floating card · Premium form
+   ═══════════════════════════════════════════ */
+
+.tss-section {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7rem 2rem;
+  min-height: 600px;
+}
+
+/* ── Background ─────────────────────────── */
+
+.tss-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Single seamless image — extended so parallax shift never exposes edges */
+.tss-bg__img {
+  position: absolute;
+  inset: -10%; /* extra buffer for parallax travel (±80px) + scale */
+  background-size: cover;
+  background-position: center 65%;
+  transform: scale(1.06); /* JS overwrites this each frame with translateY */
+  transform-origin: center center;
+  will-change: transform; /* promote to GPU compositor layer */
+}
+
+/* Warm beige wash — low opacity, keeps the studio context fully readable */
+.tss-bg__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(236, 229, 209, 0.38);
+}
+
+/* Subtle vignette — draws eye toward card center, no hard edges */
+.tss-bg__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 75% 85% at center,
+    transparent 42%,
+    rgba(0, 0, 0, 0.18) 100%
+  );
+  pointer-events: none;
+}
+
+/* ── Card ───────────────────────────────── */
+
+.tss-card {
+  position: relative;
+  z-index: 1;
+  background: var(--color-white);
+  max-width: 580px;
+  width: 100%;
+  padding: 3rem 3.5rem;
+  border-radius: 0; /* sharp corners — site style */
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 8px 28px rgba(0, 0, 0, 0.09),
+    0 24px 60px rgba(0, 0, 0, 0.13);
+  border: 1px solid rgba(132, 139, 121, 0.14);
+}
+
+/* ── Card header ────────────────────────── */
+
+.tss-eyebrow {
+  font-family: var(--font-inter);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-sage);
+  margin: 0 0 0.5rem;
+}
+
+.tss-title {
+  font-family: var(--font-playfair);
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+  margin: 0 0 0.4rem;
+}
+
+.tss-subtitle {
+  font-family: var(--font-inter);
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  opacity: 0.5;
+  margin: 0 0 0.9rem;
+}
+
+.tss-divider {
+  width: 28px;
+  height: 1px;
+  background: rgba(132, 139, 121, 0.3);
+  margin: 0 0 1rem;
+}
+
+/* ── Form layout ────────────────────────── */
+
+.tss-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+/* Two-column row for paired fields */
+.tss-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.tss-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.26rem;
+  position: relative; /* anchor for dropdown menu */
+}
+
+/* ── Labels ─────────────────────────────── */
+
+.tss-label {
+  font-family: var(--font-inter);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text);
+  opacity: 0.55; /* increased from 0.46 for readability */
+  display: block;
+}
+
+/* ── Text inputs & textarea ─────────────── */
+
+.tss-input {
+  font-family: var(--font-inter);
+  font-size: 0.93rem;
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.14);
+  border-radius: 0;
+  padding: 0.5rem 0;
+  outline: none;
+  transition: border-color 0.25s ease;
+  width: 100%;
+}
+
+.tss-input:focus {
+  border-bottom-color: var(--color-sage);
+}
+
+.tss-input::placeholder {
+  color: rgba(51, 51, 51, 0.28);
+}
+
+.tss-input--textarea {
+  resize: vertical;
+  min-height: 48px;
+}
+
+/* ── Custom select ──────────────────────── */
+
+.tss-select {
+  font-family: var(--font-inter);
+  font-size: 0.93rem;
+  color: var(--color-text);
+  border: none;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.14);
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.25s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.tss-select:focus,
+.tss-select--open {
+  border-bottom-color: var(--color-sage);
+}
+
+.tss-select__value {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Matches .tss-input::placeholder exactly */
+.tss-select__value--empty {
+  color: rgba(51, 51, 51, 0.28);
+}
+
+.tss-select__chevron {
+  flex-shrink: 0;
+  color: rgba(51, 51, 51, 0.38);
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.tss-select--open .tss-select__chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.tss-select__menu {
+  position: absolute;
+  top: calc(100% + 1px);
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: var(--color-white);
+  border: 1px solid rgba(132, 139, 121, 0.2);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.06);
+  list-style: none;
+  margin: 0;
+  padding: 0.2rem 0;
+}
+
+.tss-select__option {
+  font-family: var(--font-inter);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  padding: 0.58rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.12s ease;
+}
+
+.tss-select__option--focused,
+.tss-select__option:hover {
+  background: rgba(132, 139, 121, 0.08);
+}
+
+.tss-select__option--selected {
+  color: var(--color-sage);
+}
+
+/* ── Submit button ──────────────────────── */
+
+.tss-submit {
+  width: 100%;
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+  font-family: var(--font-inter);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em; /* increased — more luxury feel */
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: var(--color-sage);
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.tss-submit:hover {
+  background: #68705a; /* subtle darkening — no glow */
+}
+
+/* ── Microcopy ──────────────────────────── */
+
+.tss-microcopy {
+  font-family: var(--font-inter);
+  font-size: 0.72rem;
+  text-align: center;
+  color: var(--color-text);
+  opacity: 0.35;
+  margin: -0.3rem 0 0;
+}
+
+/* ── Toast ──────────────────────────────── */
+
+.tss-toast {
+  position: fixed;
+  top: 92px;
+  right: 18px;
+  z-index: 2000;
+  min-width: 280px;
+  max-width: 420px;
+  padding: 0.9rem 1.1rem;
+  border-radius: 0;
+  font-family: var(--font-inter);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+  background: rgba(236, 229, 209, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(14px);
+  animation: tss-toast-in 260ms ease forwards;
+}
+
+.tss-toast--info    { color: var(--color-text); }
+.tss-toast--success { color: #1f5f2a; }
+.tss-toast--error   { color: #8b1e1e; }
+
+@keyframes tss-toast-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 640px) {
+  .tss-section {
+    padding: 5rem 1.25rem;
+  }
+
+  /* Shift image upward slightly so reformer stays in frame on narrow screens */
+  .tss-bg__img {
+    background-position: center 55%;
+  }
+
+  .tss-card {
+    padding: 2.25rem 1.5rem;
+  }
+
+  /* Stack two-column rows on mobile */
+  .tss-row {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .tss-toast {
+    top: 76px;
+    right: 12px;
+    left: 12px;
+    max-width: none;
+    width: calc(100% - 24px);
+  }
+}
+
+@media (max-width: 400px) {
+  .tss-section {
+    padding: 4rem 1rem;
+  }
+
+  .tss-card {
+    padding: 2rem 1.25rem;
+  }
+}

@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import "../styles/home.css";
 import AboutSection from "../components/AboutSection";
 import ClassesSection from "../components/ClassesSection";
+import TrainingSignupSection from "../components/TrainingSignupSection";
 import TeamSection from "../components/TeamSection";
 import ReviewsSection from "../components/ReviewsSection";
 import GallerySection from "../components/GallerySection";
@@ -56,6 +57,7 @@ function HomePage() {
 
       <AboutSection />
       <ClassesSection />
+      <TrainingSignupSection />
       <QuoteSection />
       <TeamSection />
       <ReviewsSection />
