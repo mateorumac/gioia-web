@@ -85,7 +85,7 @@ function ReviewsSection() {
         >
           <Stars className="testimonialsSection__stars--credibility" />
           <p className="testimonialsSection__credibilityText">
-            na temelju 48 recenzija
+            na temelju 50+ recenzija
           </p>
         </motion.div>
 

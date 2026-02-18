@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "../styles/home.css";
-import { fadeUp, fadeIn, staggerContainer } from "../animations/motionPresets";
 import AboutSection from "../components/AboutSection";
 import ClassesSection from "../components/ClassesSection";
 import TrainingSignupSection from "../components/TrainingSignupSection";
@@ -10,9 +9,30 @@ import ReviewsSection from "../components/ReviewsSection";
 import GallerySection from "../components/GallerySection";
 import ContactSection from "../components/ContactSection";
 import QuoteSection from "../components/QuoteSection";
-import navLogo from "../assets/logos/nav-logo.png";
 import heroLeft from "../assets/images/DSC_5627.webp";
 import heroRight from "../assets/images/DSC_5455.webp";
+
+// Hero-specific animation variants — slower and more composed than global presets
+const heroEase = [0.16, 1, 0.3, 1];
+
+const heroFadeUp = {
+  hidden: { opacity: 0, y: 11 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1.05, ease: heroEase, type: "tween" },
+  },
+};
+
+const heroStagger = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.16,
+      delayChildren: 0.13,
+    },
+  },
+};
 
 function HomePage() {
   const { t } = useTranslation();
@@ -41,36 +61,28 @@ function HomePage() {
         <div className="hero-inner">
           <motion.div
             className="hero-text"
-            variants={staggerContainer}
+            variants={heroStagger}
             initial="hidden"
             animate="visible"
           >
-            <motion.p className="hero-statement" variants={fadeUp}>
+            <motion.p className="hero-statement" variants={heroFadeUp}>
               We do things differently here.
             </motion.p>
-            <motion.h1 className="hero-title" variants={fadeUp}>
+            <motion.h1 className="hero-title" variants={heroFadeUp}>
               <span>Gioia Reformer</span>
               <span>Pilates</span>
             </motion.h1>
-            <motion.button
-              className="hero-btn-primary"
-              variants={fadeUp}
-              onClick={() => scrollToSection("booking")}
-            >
-              {t("hero.ctaPrimary", "Rezerviraj termin")}
-            </motion.button>
+            {/* Wrap in motion.div so Framer Motion never touches the button's own transform */}
+            <motion.div variants={heroFadeUp}>
+              <button
+                className="hero-btn-primary"
+                onClick={() => scrollToSection("booking")}
+              >
+                {t("hero.ctaPrimary", "Rezerviraj termin")}
+              </button>
+            </motion.div>
           </motion.div>
         </div>
-
-        <motion.img
-          src={navLogo}
-          alt=""
-          className="hero-watermark"
-          variants={fadeIn}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.4 }}
-        />
       </section>
 
       <AboutSection />

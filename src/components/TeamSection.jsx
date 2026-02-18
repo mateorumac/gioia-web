@@ -33,10 +33,13 @@ function TeamSection() {
 
         <motion.div
           className="team-grid-editorial"
-          variants={staggerContainer}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.15, delayChildren: 0.06 } },
+          }}
           initial="hidden"
           whileInView="visible"
-          viewport={viewport}
+          viewport={{ once: true, amount: 0.25 }}
         >
           {/* Sanja */}
           <motion.article className="trainer-card-editorial" variants={fadeUp}>
