@@ -190,14 +190,15 @@ function ContactSection() {
         <motion.p className="contact-cta-text" variants={fadeUp}>
           Spremna započeti svoj pilates put?
         </motion.p>
-        <motion.a
-          href="#booking"
-          className="contact-cta-button"
-          variants={fadeUp}
-          onClick={handleScrollToBooking}
-        >
-          Rezerviraj termin
-        </motion.a>
+        <motion.div variants={fadeUp}>
+          <a
+            href="#booking"
+            className="contact-cta-button"
+            onClick={handleScrollToBooking}
+          >
+            Rezerviraj termin
+          </a>
+        </motion.div>
       </motion.div>
     </section>
   );
