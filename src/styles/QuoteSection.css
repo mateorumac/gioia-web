@@ -63,11 +63,23 @@
     padding: 2.5rem 1.5rem;
   }
 
+  .quote-mark-editorial {
+    font-size: 8rem;
+    margin-bottom: -2rem;
+  }
+
   .quote-text-editorial {
     font-size: 1.25rem;
   }
 
   .quote-divider-editorial {
     margin-bottom: 1.8rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .quote-mark-editorial {
+    font-size: 6rem;
+    margin-bottom: -1.5rem;
   }
 }

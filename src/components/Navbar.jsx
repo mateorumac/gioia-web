@@ -19,6 +19,8 @@ function Navbar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const langRef = useRef(null);
+  const drawerRef = useRef(null);
+  const hamburgerRef = useRef(null);
 
   const isHome = useMemo(() => {
     const p = location.pathname.replace(/\/+$/, "");
@@ -65,11 +67,21 @@ function Navbar() {
       if (e.key === "Escape") setDrawerOpen(false);
     };
 
+    const onPointerDown = (e) => {
+      const clickedInsideDrawer = drawerRef.current?.contains(e.target);
+      const clickedHamburger = hamburgerRef.current?.contains(e.target);
+      if (!clickedInsideDrawer && !clickedHamburger) {
+        setDrawerOpen(false);
+      }
+    };
+
     document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("pointerdown", onPointerDown);
     document.body.classList.add("no-scroll");
 
     return () => {
       document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("pointerdown", onPointerDown);
       document.body.classList.remove("no-scroll");
     };
   }, [drawerOpen]);
@@ -279,6 +291,7 @@ function Navbar() {
           </div>
 
           <button
+            ref={hamburgerRef}
             type="button"
             className={`hamburger mobile-only ${drawerOpen ? "is-open" : ""}`}
             aria-label={drawerOpen ? "Zatvori izbornik" : "Otvori izbornik"}
@@ -297,6 +310,7 @@ function Navbar() {
         />
 
         <aside
+          ref={drawerRef}
           className={`drawer ${drawerOpen ? "open" : ""}`}
           aria-hidden={!drawerOpen}
         >

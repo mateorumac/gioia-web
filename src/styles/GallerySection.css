@@ -277,7 +277,8 @@
   }
 
   .gallerySection__button {
-    width: 100%;
+    padding: 0.8rem 2.2rem;
+    font-size: 0.75rem;
   }
 }
 

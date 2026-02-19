@@ -354,7 +354,8 @@
 
 @media (max-width: 600px) {
   .contact-hero {
-    min-height: 350px;
+    height: 38vh;
+    min-height: 220px;
   }
 
   .contact-hero-content {
@@ -362,7 +363,7 @@
   }
 
   .contact-hero-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   .contact-info-grid {

@@ -74,7 +74,7 @@
   letter-spacing: 0.1em;
   color: var(--color-text);
   opacity: 0.8;
-  margin-bottom: -2rem;
+  margin-bottom: 0.8rem;
 }
 
 .hero-title {
@@ -120,6 +120,12 @@
   .hero-title { font-size: 2.6rem; }
   .hero-statement { font-size: 1rem; letter-spacing: 0.06em; }
   .hero-btn-primary { padding: 0.8rem 2.2rem; font-size: 0.75rem; }
+
+  /* Mobile: hide split layout, show only left image full-width */
+  .hero-bg-right { display: none; }
+
+  /* Re-center the subject when the left panel expands to full width */
+  .hero-bg-left .hero-bg-img { object-position: 58% 30%; }
 }
 
 @media (max-width: 400px) {

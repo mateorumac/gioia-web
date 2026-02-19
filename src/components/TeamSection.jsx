@@ -15,7 +15,7 @@ function TeamSection() {
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={viewport}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <motion.p className="team-eyebrow-editorial" variants={fadeUp}>
             Upoznajte nas
@@ -39,7 +39,7 @@ function TeamSection() {
           }}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.25 }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           {/* Sanja */}
           <motion.article className="trainer-card-editorial" variants={fadeUp}>
