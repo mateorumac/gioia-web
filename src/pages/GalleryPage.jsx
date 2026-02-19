@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { allGalleryImages } from "../utils/images";
 import patternBg from "../assets/green-pattern-bg.png";
 import "../styles/Gallery.css";
+import { fadeUp, fadeIn, imageReveal, staggerContainer } from "../animations/motionPresets";
 
 const modalOverlay = {
   hidden: { opacity: 0 },
@@ -67,25 +68,39 @@ function GalleryPage() {
 
       {/* ── Intro header ── */}
       <header className="gp__header">
-        <div className="gp__header-inner">
-          <p className="gp__eyebrow">Studio &amp; Trening</p>
-          <h1 className="gp__title">{t("gallery.pageTitle", "Galerija")}</h1>
-          <div className="gp__divider" />
-          <p className="gp__subtitle">
+        <motion.div
+          className="gp__header-inner"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <motion.p className="gp__eyebrow" variants={fadeUp}>
+            Studio &amp; Trening
+          </motion.p>
+          <motion.h1 className="gp__title" variants={fadeUp}>
+            {t("gallery.pageTitle", "Galerija")}
+          </motion.h1>
+          <motion.div className="gp__divider" variants={fadeIn} />
+          <motion.p className="gp__subtitle" variants={fadeUp}>
             {t(
               "gallery.pageSubtitle",
               "Zavirite u naš studio. Prirodno svjetlo, miran ambijent i trenuci fokusa."
             )}
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </header>
 
       {/* ── Masonry grid (CSS columns — auto-balanced heights) ── */}
       <div className="gp__grid">
         {allGalleryImages.map((src, index) => (
-          <div
+          <motion.div
             key={index}
             className="gp__item"
+            variants={imageReveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
             onClick={() => openModal(index)}
             role="button"
             tabIndex={0}
@@ -101,7 +116,7 @@ function GalleryPage() {
             <div className="gp__item-overlay" aria-hidden="true">
               <span className="gp__item-icon">+</span>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
