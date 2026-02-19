@@ -155,9 +155,6 @@ function Footer() {
                 <li>
                   <Link to={`${homeBase}/cookies`}>Cookie pravila</Link>
                 </li>
-                <li>
-                  <Link to={`${homeBase}/gdpr`}>GDPR informacije</Link>
-                </li>
               </ul>
             </motion.div>
 
