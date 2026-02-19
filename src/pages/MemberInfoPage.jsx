@@ -1,136 +1,211 @@
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { membersHero, allGalleryImages } from "../utils/images";
-import navLogo from "../assets/logos/nav-logo.png";
+import { fadeUp, imageReveal, staggerContainer, viewport } from "../animations/motionPresets";
+import patternBg from "../assets/green-pattern-bg.png";
 import "../styles/MemberInfo.css";
 
 function MemberInfoPage() {
   const { t } = useTranslation();
 
   return (
-    <div className="members-page-editorial">
-      {/* Hero Section with Image */}
-      <div className="members-hero-editorial">
-        <div className="members-hero-image-wrapper">
-          <img src={membersHero} alt="Gioia Studio članice" className="members-hero-image" />
-          <div className="members-hero-overlay" />
-        </div>
-        <div className="members-hero-content">
-          <img src={navLogo} alt="" className="members-logo-watermark" />
-          <h1 className="members-hero-title">
+    <div className="mi__page">
+
+      {/* ── Hero ── */}
+      <section className="mi__hero">
+        <div
+          className="mi__hero-bg"
+          style={{ backgroundImage: `url(${membersHero})` }}
+          role="img"
+          aria-label="Gioia Studio članice"
+        />
+        <div className="mi__hero-overlay" />
+        <motion.div
+          className="mi__hero-content"
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.p className="mi__eyebrow" variants={fadeUp}>
+            {t("members.eyebrow", "Digitalni alati")}
+          </motion.p>
+          <motion.h1 className="mi__hero-title" variants={fadeUp}>
             {t("members.heroTitle", "Sve o vašim treninzima, na jednom mjestu")}
-          </h1>
-        </div>
-      </div>
+          </motion.h1>
+        </motion.div>
+      </section>
 
-      {/* Main Content Wrapper */}
-      <div className="members-main-wrapper">
-        {/* Intro Section - Two Column */}
-        <div className="members-intro-section">
-          <div className="members-intro-content">
-            <h2 className="members-section-title">
-              {t("members.introTitle", "Za naše članice")}
-            </h2>
-            <p className="members-intro-text">
-              {t(
-                "members.introText",
-                "Za naše postojeće članice pripremili smo aplikaciju putem koje se jednostavno možete prijaviti na treninge, pregledati raspored i upravljati svojim terminima. Pristup aplikaciji omogućen je uz vaše korisničke podatke."
-              )}
-            </p>
-          </div>
-          <div className="members-intro-image-wrapper">
-            <img
-              src={allGalleryImages[15]}
-              alt="Gioia Studio Interior"
-              className="members-intro-image"
-              loading="lazy"
-            />
-          </div>
-        </div>
+      {/* ── Intro ── */}
+      <section className="mi__intro">
+        <div className="mi__container">
+          <div className="mi__intro-grid">
+            <motion.div
+              className="mi__intro-text"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewport}
+            >
+              <motion.p className="mi__section-eyebrow" variants={fadeUp}>
+                {t("members.introEyebrow", "Za naše članice")}
+              </motion.p>
+              <motion.h2 className="mi__section-title" variants={fadeUp}>
+                {t("members.introTitle", "Vaš trening, vaš raspored")}
+              </motion.h2>
+              <motion.p className="mi__intro-body" variants={fadeUp}>
+                {t(
+                  "members.introText",
+                  "Za naše postojeće članice pripremili smo aplikaciju putem koje se jednostavno možete prijaviti na treninge, pregledati raspored i upravljati svojim terminima. Pristup aplikaciji omogućen je uz vaše korisničke podatke."
+                )}
+              </motion.p>
+            </motion.div>
 
-        {/* Features Grid */}
-        <div className="members-features-grid">
-          <div className="members-feature-card">
-            <div className="members-feature-number">01</div>
-            <h3 className="members-feature-title">
-              {t("members.feature1Title", "Jednostavna prijava")}
-            </h3>
-            <p className="members-feature-text">
-              {t("members.feature1Text", "Pregledajte slobodne termine i rezervirajte svoj trening u nekoliko klikova.")}
-            </p>
-          </div>
-
-          <div className="members-feature-card">
-            <div className="members-feature-number">02</div>
-            <h3 className="members-feature-title">
-              {t("members.feature2Title", "Pregled rasporeda")}
-            </h3>
-            <p className="members-feature-text">
-              {t("members.feature2Text", "Vaš osobni kalendar s prikazom svih nadolazećih treninga na jednom mjestu.")}
-            </p>
-          </div>
-
-          <div className="members-feature-card">
-            <div className="members-feature-number">03</div>
-            <h3 className="members-feature-title">
-              {t("members.feature3Title", "Upravljanje rezervacijama")}
-            </h3>
-            <p className="members-feature-text">
-              {t("members.feature3Text", "Lako otkazujte ili mijenjajte termine prema svojim potrebama.")}
-            </p>
+            <motion.div
+              className="mi__intro-image"
+              variants={imageReveal}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewport}
+            >
+              <img
+                src={allGalleryImages[15]}
+                alt="Gioia Studio interior"
+                loading="lazy"
+              />
+            </motion.div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* CTA Section with Pattern - Full Width */}
-      <div className="members-cta-section">
-        <div className="members-cta-content">
-          <h2 className="members-cta-title">
+      {/* ── Features ── */}
+      <section className="mi__features">
+        <div className="mi__container">
+          <motion.div
+            className="mi__features-grid"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+          >
+            <motion.div className="mi__feature" variants={fadeUp}>
+              <span className="mi__feature-num">01</span>
+              <h3 className="mi__feature-title">
+                {t("members.feature1Title", "Jednostavna prijava")}
+              </h3>
+              <p className="mi__feature-text">
+                {t(
+                  "members.feature1Text",
+                  "Pregledajte slobodne termine i rezervirajte svoj trening u nekoliko klikova."
+                )}
+              </p>
+            </motion.div>
+
+            <motion.div className="mi__feature" variants={fadeUp}>
+              <span className="mi__feature-num">02</span>
+              <h3 className="mi__feature-title">
+                {t("members.feature2Title", "Pregled rasporeda")}
+              </h3>
+              <p className="mi__feature-text">
+                {t(
+                  "members.feature2Text",
+                  "Vaš osobni kalendar s prikazom svih nadolazećih treninga na jednom mjestu."
+                )}
+              </p>
+            </motion.div>
+
+            <motion.div className="mi__feature" variants={fadeUp}>
+              <span className="mi__feature-num">03</span>
+              <h3 className="mi__feature-title">
+                {t("members.feature3Title", "Upravljanje rezervacijama")}
+              </h3>
+              <p className="mi__feature-text">
+                {t(
+                  "members.feature3Text",
+                  "Lako otkazujte ili mijenjajte termine prema svojim potrebama."
+                )}
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <motion.section
+        className="mi__cta"
+        style={{ "--pattern-bg": `url(${patternBg})` }}
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+      >
+        <div className="mi__cta-veil" />
+        <div className="mi__cta-content">
+          <motion.h2 className="mi__cta-title" variants={fadeUp}>
             {t("members.ctaTitle", "Pristupite aplikaciji")}
-          </h2>
-          <p className="members-cta-subtitle">
+          </motion.h2>
+          <motion.p className="mi__cta-sub" variants={fadeUp}>
             {t(
               "members.ctaSubtitle",
               "Ako ste jedna od naših redovitih članica, prijavite se s vašim korisničkim podacima."
             )}
-          </p>
-          <a
-            href="https://gioia-app.web.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="members-app-button"
-          >
-            {t("members.appButton", "Otvori aplikaciju")}
-          </a>
-        </div>
-      </div>
-
-      {/* Help Section with Image */}
-      <div className="members-main-wrapper">
-        <div className="members-help-section">
-          <div className="members-help-image-wrapper">
-            <img
-              src={allGalleryImages[44]}
-              alt="Gioia Studio"
-              className="members-help-image"
-              loading="lazy"
-            />
-          </div>
-          <div className="members-help-content">
-            <h3 className="members-help-title">
-              {t("members.helpTitle", "Nova ste u studiju?")}
-            </h3>
-            <p className="members-help-text">
-              {t(
-                "members.helpText",
-                "Ako tek počinjete s treninzima, prvo nas kontaktirajte kako bismo vam pomogli započeti vaš pilates put."
-              )}
-            </p>
-            <a href="#contact" className="members-contact-link">
-              {t("members.contactLink", "Kontaktirajte nas")} →
+          </motion.p>
+          <motion.div variants={fadeUp}>
+            <a
+              href="https://gioia-app.web.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mi__cta-btn"
+            >
+              {t("members.appButton", "Otvori aplikaciju")}
             </a>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* ── Help ── */}
+      <section className="mi__help">
+        <div className="mi__container">
+          <div className="mi__help-grid">
+            <motion.div
+              className="mi__help-image"
+              variants={imageReveal}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewport}
+            >
+              <img
+                src={allGalleryImages[44]}
+                alt="Gioia Studio"
+                loading="lazy"
+              />
+            </motion.div>
+
+            <motion.div
+              className="mi__help-text"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewport}
+            >
+              <motion.h3 className="mi__help-title" variants={fadeUp}>
+                {t("members.helpTitle", "Nova ste u studiju?")}
+              </motion.h3>
+              <motion.p className="mi__help-body" variants={fadeUp}>
+                {t(
+                  "members.helpText",
+                  "Ako tek počinjete s treninzima, prvo nas kontaktirajte kako bismo vam pomogli započeti vaš pilates put."
+                )}
+              </motion.p>
+              <motion.div variants={fadeUp}>
+                <a href="#contact" className="mi__contact-link">
+                  {t("members.contactLink", "Kontaktirajte nas")} →
+                </a>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
-      </div>
+      </section>
+
     </div>
   );
 }
