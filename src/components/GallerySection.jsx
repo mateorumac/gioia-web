@@ -15,27 +15,27 @@ import img8 from "../assets/images/DSC_3722.webp";
 import img6 from "../assets/images/DSC_5624 2.webp";
 import img9 from "../assets/images/DSC_5674.webp";
 
-const galleryItems = [
-  { src: img1, alt: "Trening u studiju" },
-  { src: img2, alt: "Pilates trening" },
-  { src: img3, alt: "Prostor studija" },
-  { src: img4, alt: "Reformer trening" },
-  { src: img5, alt: "Studio detalj" },
-  { src: img6, alt: "Gioia studio ambijent" },
-  { src: img7, alt: "Pilates vježba" },
-  { src: img8, alt: "Grupni trening" },
-  { src: img9, alt: "Studio atmosfera" },
-];
-
 function GallerySection() {
   const { t } = useTranslation();
   const location = useLocation();
   const pathLang = location.pathname.split("/")[1];
   const currentLang = pathLang === "en" ? "en" : "hr";
-  const galleryLink = currentLang === "en" ? "/en/gallery" : "/hr/galerija";
+  const galleryLink = currentLang === "en" ? "/en/galerija" : "/hr/galerija";
+
+  const galleryItems = [
+    { src: img1, alt: t("gallery.alt1", "Trening u studiju") },
+    { src: img2, alt: t("gallery.alt2", "Pilates trening") },
+    { src: img3, alt: t("gallery.alt3", "Prostor studija") },
+    { src: img4, alt: t("gallery.alt4", "Reformer trening") },
+    { src: img5, alt: t("gallery.alt5", "Studio detalj") },
+    { src: img6, alt: t("gallery.alt6", "Gioia studio ambijent") },
+    { src: img7, alt: t("gallery.alt7", "Pilates vježba") },
+    { src: img8, alt: t("gallery.alt8", "Grupni trening") },
+    { src: img9, alt: t("gallery.alt9", "Studio atmosfera") },
+  ];
 
   return (
-    <section className="gallerySection" id="gallery">
+    <section className="gallerySection" id="galerija">
       <div
         className="gallerySection__patternLayer"
         style={{ backgroundImage: `url(${patternBg})` }}
@@ -50,7 +50,7 @@ function GallerySection() {
           viewport={viewport}
         >
           <motion.p className="gallerySection__eyebrow" variants={fadeUp}>
-            Prostor studija
+            {t("gallery.eyebrow", "Prostor studija")}
           </motion.p>
           <motion.h2 className="gallerySection__title" variants={fadeUp}>
             {t("gallery.title", "Galerija")}

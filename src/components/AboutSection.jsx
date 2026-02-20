@@ -12,31 +12,31 @@ const aboutImages = [
 ];
 const aboutHeroImage = aboutImages[0];
 
-const manifestoItems = [
-  {
-    num: "01",
-    label: "Fokus na klijenta",
-    text: "Usmjeren fokus isključivo na klijenta. Imamo 6 reformera i smatramo da je to maksimum u kojem možemo pružiti kvalitetnu observaciju izvođenja vježbi kod svakog klijenta i korigiranja istog.",
-  },
-  {
-    num: "02",
-    label: "Progres",
-    text: "Pazimo na progres svakog klijenta i potičemo i slavimo napretke, bez obzira jesu li veliki ili mali.",
-  },
-  {
-    num: "03",
-    label: "Poštovanje",
-    text: "Poštujemo svakog klijenta u našem studiju i uvažavamo svaki feedback.",
-  },
-  {
-    num: "04",
-    label: "Zajedništvo",
-    text: "Bitne su nam i energija i zajedništvo koje se stvara u studiju, tako da osiguravamo u svakom trenutku da se svi osjećaju viđeno, sigurno i podržano.",
-  },
-];
-
 function AboutSection() {
   const { t } = useTranslation();
+
+  const manifestoItems = [
+    {
+      num: "01",
+      label: t("about.manifesto01Label", "Fokus na klijenta"),
+      text: t("about.manifesto01Text", "Usmjeren fokus isključivo na klijenta. Imamo 6 reformera i smatramo da je to maksimum u kojem možemo pružiti kvalitetnu observaciju izvođenja vježbi kod svakog klijenta i korigiranja istog."),
+    },
+    {
+      num: "02",
+      label: t("about.manifesto02Label", "Progres"),
+      text: t("about.manifesto02Text", "Pazimo na progres svakog klijenta i potičemo i slavimo napretke, bez obzira jesu li veliki ili mali."),
+    },
+    {
+      num: "03",
+      label: t("about.manifesto03Label", "Poštovanje"),
+      text: t("about.manifesto03Text", "Poštujemo svakog klijenta u našem studiju i uvažavamo svaki feedback."),
+    },
+    {
+      num: "04",
+      label: t("about.manifesto04Label", "Zajedništvo"),
+      text: t("about.manifesto04Text", "Bitne su nam i energija i zajedništvo koje se stvara u studiju, tako da osiguravamo u svakom trenutku da se svi osjećaju viđeno, sigurno i podržano."),
+    },
+  ];
 
   const imageBreakRef = useRef(null);
   const bgRef = useRef(null);
@@ -67,7 +67,7 @@ function AboutSection() {
   }, []);
 
   return (
-    <section className="about-section-editorial" id="about">
+    <section className="about-section-editorial" id="o-nama">
       {/* Pattern layer */}
       <div
         className="about-section-editorial__pattern"
@@ -84,7 +84,7 @@ function AboutSection() {
           viewport={viewport}
         >
           <motion.p className="about-eyebrow-editorial" variants={fadeUp}>
-            O studiju
+            {t("about.eyebrow", "O studiju")}
           </motion.p>
           <motion.h2 className="about-title-editorial" variants={fadeUp}>
             {t("about.title", "Studio koji njeguje fokus i zajedništvo")}
@@ -101,27 +101,18 @@ function AboutSection() {
         >
           <motion.div className="about-intro-left" variants={fadeUp}>
             <p className="about-intro-lead">
-              Gioia reformer studio započeo je s radom u ožujku 2025. Iako je
-              reformer pilates već bio dosta popularan u to vrijeme, u Puli još
-              nije bilo studija s takvom vrstom treninga.
+              {t("about.intro1", "Gioia reformer studio započeo je s radom u ožujku 2025. Iako je reformer pilates već bio dosta popularan u to vrijeme, u Puli još nije bilo studija s takvom vrstom treninga.")}
             </p>
             <p>
-              Ideja je bila upoznati ljude s reformerom i benefitima koje nudi
-              za svakog pojedinca, te stvoriti mjesto gdje su svi koji žele
-              prioritizirati svoje zdravlje i poboljšati fizičko stanje
-              dobrodošli, s ciljem da im pružimo podržavajuće i pozitivno
-              okruženje.
+              {t("about.intro2", "Ideja je bila upoznati ljude s reformerom i benefitima koje nudi za svakog pojedinca, te stvoriti mjesto gdje su svi koji žele prioritizirati svoje zdravlje i poboljšati fizičko stanje dobrodošli, s ciljem da im pružimo podržavajuće i pozitivno okruženje.")}
             </p>
           </motion.div>
           <motion.div className="about-intro-right" variants={fadeUp}>
             <p>
-              Vjerujemo da je učenje neprekidan proces i tako smo od početka
-              otvaranja studija i mi uz naše klijente dosta naučili i
-              napredovali.
+              {t("about.intro3", "Vjerujemo da je učenje neprekidan proces i tako smo od početka otvaranja studija i mi uz naše klijente dosta naučili i napredovali.")}
             </p>
             <p>
-              Gioiu ne činimo samo mi treneri i osnivači, Gioiu čine ljudi,
-              svaka osoba koja uđe kroz naša vrata.
+              {t("about.intro4", "Gioiu ne činimo samo mi treneri i osnivači, Gioiu čine ljudi, svaka osoba koja uđe kroz naša vrata.")}
             </p>
           </motion.div>
         </motion.div>
@@ -145,14 +136,13 @@ function AboutSection() {
           viewport={viewport}
         >
           <motion.p className="about-image-break__eyebrow" variants={fadeUp}>
-            Naše vrijednosti
+            {t("about.valuesEyebrow", "Naše vrijednosti")}
           </motion.p>
           <motion.h3 className="about-image-break__title" variants={fadeUp}>
             {t("about.mission", "Misija i naše vrijednosti")}
           </motion.h3>
           <motion.p className="about-image-break__intro" variants={fadeUp}>
-            Od prvog dana njegujemo neke temeljne principe rada, koji su za
-            nas:
+            {t("about.valuesIntro", "Od prvog dana njegujemo neke temeljne principe rada, koji su za nas:")}
           </motion.p>
         </motion.div>
       </div>

@@ -238,7 +238,7 @@ function TrainingSignupSection() {
   };
 
   return (
-    <section className="tss-section" id="booking" ref={sectionRef}>
+    <section className="tss-section" id="rezervacija" ref={sectionRef}>
 
       {/* ── Background — parallax untouched ── */}
       <div className="tss-bg">
@@ -260,13 +260,13 @@ function TrainingSignupSection() {
         viewport={viewport}
       >
         <motion.p className="tss-eyebrow" variants={fadeUp}>
-          Rezerviraj svoje mjesto
+          {t("booking.eyebrow", "Rezerviraj svoje mjesto")}
         </motion.p>
         <motion.h2 className="tss-title" variants={fadeUp}>
-          Prijavi se na trening
+          {t("booking.title", "Prijavi se na trening")}
         </motion.h2>
         <motion.p className="tss-subtitle" variants={fadeUp}>
-          Ograničen broj mjesta. Javljamo se unutar 24 sata.
+          {t("booking.subtitle", "Ograničen broj mjesta. Javljamo se unutar 24 sata.")}
         </motion.p>
         <div className="tss-divider" />
 
@@ -275,14 +275,14 @@ function TrainingSignupSection() {
           {/* Full width: name */}
           <div className="tss-field">
             <label className="tss-label" htmlFor="tss-name">
-              Ime i prezime
+              {t("booking.nameLabel", "Ime i prezime")}
             </label>
             <input
               className="tss-input"
               type="text"
               id="tss-name"
               name="name"
-              placeholder="Tvoje ime i prezime"
+              placeholder={t("booking.namePlaceholder", "Tvoje ime i prezime")}
             />
           </div>
 
@@ -290,7 +290,7 @@ function TrainingSignupSection() {
           <div className="tss-row">
             <div className="tss-field">
               <label className="tss-label" htmlFor="tss-email">
-                E-mail
+                {t("booking.emailLabel", "E-mail")}
               </label>
               <input
                 className="tss-input"
@@ -302,14 +302,14 @@ function TrainingSignupSection() {
             </div>
             <div className="tss-field">
               <label className="tss-label" htmlFor="tss-phone">
-                Mobitel
+                {t("booking.phoneLabel", "Mobitel")}
               </label>
               <input
                 className="tss-input"
                 type="tel"
                 id="tss-phone"
                 name="phone"
-                placeholder="+385..."
+                placeholder={t("booking.phonePlaceholder", "+385...")}
               />
             </div>
           </div>
@@ -317,58 +317,58 @@ function TrainingSignupSection() {
           {/* 2-col row: training type + preferred time */}
           <div className="tss-row">
             <TssSelect
-              label="Vrsta treninga"
+              label={t("booking.typeLabel", "Vrsta treninga")}
               id="tss-type"
               name="type"
-              placeholder="Odaberi..."
+              placeholder={t("booking.selectPlaceholder", "Odaberi...")}
               value={type}
               onChange={setType}
               options={[
-                { value: "individual", label: "Individualni trening" },
-                { value: "group", label: "Mala grupa" },
+                { value: "individual", label: t("booking.typeIndividual", "Individualni trening") },
+                { value: "group", label: t("booking.typeGroup", "Mala grupa") },
               ]}
             />
             <TssSelect
-              label="Željeno vrijeme"
+              label={t("booking.timeLabel", "Željeno vrijeme")}
               id="tss-time"
               name="time"
-              placeholder="Odaberi..."
+              placeholder={t("booking.selectPlaceholder", "Odaberi...")}
               value={time}
               onChange={setTime}
               options={[
-                { value: "morning", label: "Prijepodne" },
-                { value: "afternoon", label: "Poslijepodne" },
-                { value: "flexible", label: "Fleksibilno" },
+                { value: "morning", label: t("booking.timeMorning", "Prijepodne") },
+                { value: "afternoon", label: t("booking.timeAfternoon", "Poslijepodne") },
+                { value: "flexible", label: t("booking.timeFlexible", "Fleksibilno") },
               ]}
             />
           </div>
 
           {/* Full width: experience */}
           <TssSelect
-            label="Iskustvo s pilatesom"
+            label={t("booking.experienceLabel", "Iskustvo s pilatesom")}
             id="tss-experience"
             name="experience"
-            placeholder="Odaberi..."
+            placeholder={t("booking.selectPlaceholder", "Odaberi...")}
             value={experience}
             onChange={setExperience}
             options={[
-              { value: "beginner", label: "Početnica sam" },
-              { value: "some", label: "Imam malo iskustva" },
-              { value: "advanced", label: "Vježbam redovito" },
+              { value: "beginner", label: t("booking.expBeginner", "Početnica sam") },
+              { value: "some", label: t("booking.expSome", "Imam malo iskustva") },
+              { value: "advanced", label: t("booking.expAdvanced", "Vježbam redovito") },
             ]}
           />
 
           {/* Full width: notes */}
           <div className="tss-field">
             <label className="tss-label" htmlFor="tss-message">
-              Dodatne napomene
+              {t("booking.notesLabel", "Dodatne napomene")}
             </label>
             <textarea
               className="tss-input tss-input--textarea"
               id="tss-message"
               name="message"
               rows={2}
-              placeholder="Ciljevi, eventualne ozljede, željeni dani..."
+              placeholder={t("booking.notesPlaceholder", "Ciljevi, eventualne ozljede, željeni dani...")}
             />
           </div>
 
@@ -377,9 +377,11 @@ function TrainingSignupSection() {
             className="tss-submit"
             disabled={formStatus?.type === "loading"}
           >
-            {formStatus?.type === "loading" ? "Slanje..." : "Pošalji upit za termin"}
+            {formStatus?.type === "loading"
+              ? t("booking.submitting", "Slanje...")
+              : t("booking.submit", "Pošalji upit za termin")}
           </button>
-          <p className="tss-microcopy">Bez obveze. Bez članarine. Samo dogovor.</p>
+          <p className="tss-microcopy">{t("booking.microcopy", "Bez obveze. Bez članarine. Samo dogovor.")}</p>
         </form>
       </motion.div>
 

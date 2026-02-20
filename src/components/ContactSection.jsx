@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import "../styles/ContactSection.css";
 import { fadeUp, imageReveal, staggerContainer, viewport } from "../animations/motionPresets";
 
@@ -13,6 +14,7 @@ import gallery4 from "../assets/images/DSC_8325.webp";
 import patternBg from "../assets/green-pattern-bg.png";
 
 function ContactSection() {
+  const { t } = useTranslation();
   const heroRef = useRef(null);
   const heroBgRef = useRef(null);
 
@@ -50,7 +52,7 @@ function ContactSection() {
   };
 
   return (
-    <section className="contact-section" id="contact">
+    <section className="contact-section" id="kontakt">
       {/* Hero Image Section — parallax bg untouched, animate the text overlay */}
       <div className="contact-hero" ref={heroRef}>
         <div
@@ -69,7 +71,7 @@ function ContactSection() {
           viewport={viewport}
         >
           <motion.h2 className="contact-hero-title" variants={fadeUp}>
-            Kontakt i lokacija
+            {t("contact.pageTitle", "Kontakt i lokacija")}
           </motion.h2>
         </motion.div>
       </div>
@@ -85,33 +87,32 @@ function ContactSection() {
       >
         {/* Address Card */}
         <motion.div className="contact-info-card" variants={fadeUp}>
-          <h3>Adresa</h3>
+          <h3>{t("contact.addressTitle", "Adresa")}</h3>
           <p>
             Gioia – reformer pilates studio
             <br />
             Verudela 8
             <br />
-            52100 Pula, Hrvatska
+            {t("contact.addressCity", "52100 Pula, Hrvatska")}
           </p>
           <p className="contact-intro-text">
-            Studio se nalazi u mirnom dijelu Verudele, nekoliko minuta hoda od
-            mora. Lako dostupan autom, s besplatnim parkingom u blizini.
+            {t("contact.addressNote", "Studio se nalazi u mirnom dijelu Verudele, nekoliko minuta hoda od mora. Lako dostupan autom, s besplatnim parkingom u blizini.")}
           </p>
         </motion.div>
 
         {/* Contact & Hours Card */}
         <motion.div className="contact-info-card" variants={fadeUp}>
           <div className="contact-details-block">
-            <h3>Kontakt</h3>
+            <h3>{t("contact.contactTitle", "Kontakt")}</h3>
             <p>
-              <strong>Telefon:</strong>
+              <strong>{t("contact.phone", "Telefon")}:</strong>
               <br />
               <a href="tel:+385953896809" className="contact-link-editorial">
                 095 389 6809
               </a>
             </p>
             <p>
-              <strong>E-mail:</strong>
+              <strong>{t("contact.email", "E-mail")}:</strong>
               <br />
               <a href="mailto:gioiareformer@gmail.com" className="contact-link-editorial">
                 gioiareformer@gmail.com
@@ -120,26 +121,27 @@ function ContactSection() {
           </div>
 
           <div className="contact-details-block">
-            <h3>Radno vrijeme</h3>
+            <h3>{t("contact.hoursTitle", "Radno vrijeme")}</h3>
             <p>
-              <strong>Ponedjeljak – petak:</strong>
+              <strong>{t("contact.monFri", "Ponedjeljak – petak")}:</strong>
               <br />
               7–10 h, 16–19 h
             </p>
             <p>
-              <strong>Subota:</strong>
+              <strong>{t("contact.saturday", "Subota")}:</strong>
               <br />
               8–11 h
             </p>
             <p>
-              <strong>Nedjeljom:</strong> zatvoreno
+              <strong>{t("contact.sunday", "Nedjeljom")}:</strong>{" "}
+              {t("contact.sundayClosed", "zatvoreno")}
             </p>
           </div>
         </motion.div>
 
         {/* Vertical Image Column */}
         <motion.div className="contact-image-column" variants={imageReveal}>
-          <img src={verticalImage} alt="Gioia studio ambijent" loading="lazy" />
+          <img src={verticalImage} alt={t("contact.studioAlt", "Gioia studio ambijent")} loading="lazy" />
         </motion.div>
       </motion.div>
 
@@ -149,7 +151,7 @@ function ContactSection() {
       {/* Map Section */}
       <div className="contact-map-full">
         <iframe
-          title="Gioia - reformer pilates studio lokacija"
+          title={t("contact.mapTitle", "Gioia - reformer pilates studio lokacija")}
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2828.9375580498445!2d13.83649317659797!3d44.84320497465727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477cd3c7d9c47527%3A0x96f98e7e1837d5d7!2sGioia%20-%20reformer%20pilates%20studio!5e0!3m2!1sen!2shr!4v1764440583822!5m2!1sen!2shr"
           loading="lazy"
           allowFullScreen=""
@@ -166,16 +168,16 @@ function ContactSection() {
         viewport={{ once: true, amount: 0.22 }}
       >
         <motion.div className="contact-gallery-item" variants={imageReveal}>
-          <img src={gallery1} alt="Pilates rekviziti" loading="lazy" />
+          <img src={gallery1} alt={t("contact.galleryAlt1", "Pilates rekviziti")} loading="lazy" />
         </motion.div>
         <motion.div className="contact-gallery-item" variants={imageReveal}>
-          <img src={gallery2} alt="Reformer detalj" loading="lazy" />
+          <img src={gallery2} alt={t("contact.galleryAlt2", "Reformer detalj")} loading="lazy" />
         </motion.div>
         <motion.div className="contact-gallery-item" variants={imageReveal}>
-          <img src={gallery3} alt="Trening u akciji" loading="lazy" />
+          <img src={gallery3} alt={t("contact.galleryAlt3", "Trening u akciji")} loading="lazy" />
         </motion.div>
         <motion.div className="contact-gallery-item" variants={imageReveal}>
-          <img src={gallery4} alt="Studio prostor" loading="lazy" />
+          <img src={gallery4} alt={t("contact.galleryAlt4", "Studio prostor")} loading="lazy" />
         </motion.div>
       </motion.div>
 
@@ -188,15 +190,15 @@ function ContactSection() {
         viewport={viewport}
       >
         <motion.p className="contact-cta-text" variants={fadeUp}>
-          Spremna započeti svoj pilates put?
+          {t("contact.ctaText", "Spremna započeti svoj pilates put?")}
         </motion.p>
         <motion.div variants={fadeUp}>
           <a
-            href="#booking"
+            href="#rezervacija"
             className="contact-cta-button"
             onClick={handleScrollToBooking}
           >
-            Rezerviraj termin
+            {t("contact.ctaButton", "Rezerviraj termin")}
           </a>
         </motion.div>
       </motion.div>

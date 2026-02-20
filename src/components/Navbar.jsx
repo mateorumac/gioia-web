@@ -119,15 +119,11 @@ function Navbar() {
       : " site-header--solid");
 
   const navItems = [
-    { type: "anchor", hash: "about", label: t("nav.about", "O studiju") },
+    { type: "anchor", hash: "o-nama", label: t("nav.about", "O studiju") },
     { type: "anchor", hash: "treninzi", label: t("nav.classes", "Treninzi") },
-    {
-      type: "anchor",
-      hash: "team",
-      label: t("nav.team", "Trenerice"),
-    },
-    { type: "anchor", hash: "gallery", label: t("nav.gallery", "Galerija") },
-    { type: "anchor", hash: "contact", label: t("nav.contact", "Kontakt") },
+    { type: "anchor", hash: "trenerice", label: t("nav.team", "Trenerice") },
+    { type: "anchor", hash: "galerija", label: t("nav.gallery", "Galerija") },
+    { type: "anchor", hash: "kontakt", label: t("nav.contact", "Kontakt") },
     { type: "route", to: "/clanice", label: t("nav.clanice", "Članice") },
   ];
 
@@ -242,7 +238,7 @@ function Navbar() {
               <button
                 type="button"
                 className={`lang-trigger ${langOpen ? "open" : ""}`}
-                aria-label="Odabir jezika"
+                aria-label={t("nav.selectLang", "Odabir jezika")}
                 aria-haspopup="menu"
                 aria-expanded={langOpen}
                 onClick={() => setLangOpen((v) => !v)}
@@ -298,7 +294,7 @@ function Navbar() {
             ref={hamburgerRef}
             type="button"
             className={`hamburger mobile-only ${drawerOpen ? "is-open" : ""}`}
-            aria-label={drawerOpen ? "Zatvori izbornik" : "Otvori izbornik"}
+            aria-label={drawerOpen ? t("nav.closeMenu", "Zatvori izbornik") : t("nav.openMenu", "Otvori izbornik")}
             aria-expanded={drawerOpen}
             onClick={() => setDrawerOpen((v) => !v)}
           >

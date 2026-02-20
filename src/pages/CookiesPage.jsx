@@ -170,7 +170,7 @@ function CookiesPage() {
             </p>
             <p>
               Za više informacija o obradi osobnih podataka pogledajte našu{" "}
-              <a href="/hr/privacy">Politiku privatnosti</a>.
+              <a href="/hr/politika-privatnosti">Politiku politika-privatnostii</a>.
             </p>
           </>
         ) : (
@@ -278,7 +278,7 @@ function CookiesPage() {
             <h2>5. More Information</h2>
             <p>
               For more information about how we protect your personal data, see
-              our <a href="/en/privacy">Privacy Policy</a>.
+              our <a href="/en/politika-privatnosti">Privacy Policy</a>.
               <br />
               For questions:{" "}
               <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a>

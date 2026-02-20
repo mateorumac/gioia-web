@@ -96,7 +96,7 @@ function GalleryPage() {
           viewport={{ once: true, amount: 0.3 }}
         >
           <motion.p className="gp__eyebrow" variants={fadeUp}>
-            Studio &amp; Trening
+            {t("gallery.pageEyebrow", "Studio & Trening")}
           </motion.p>
           <motion.h1 className="gp__title" variants={fadeUp}>
             {t("gallery.pageTitle", "Galerija")}
@@ -124,7 +124,7 @@ function GalleryPage() {
             onClick={() => openModal(index)}
             role="button"
             tabIndex={0}
-            aria-label={`Otvori sliku ${index + 1}`}
+            aria-label={t("gallery.openImage", { index: index + 1, defaultValue: "Otvori sliku {{index}}" })}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
@@ -151,7 +151,7 @@ function GalleryPage() {
             animate="visible"
             exit="exit"
           >
-            <button className="gp-modal__close" onClick={closeModal} aria-label="Zatvori galeriju">
+            <button className="gp-modal__close" onClick={closeModal} aria-label={t("gallery.closeGallery", "Zatvori galeriju")}>
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                 <line x1="1" y1="1" x2="17" y2="17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
                 <line x1="17" y1="1" x2="1" y2="17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
@@ -161,7 +161,7 @@ function GalleryPage() {
             <button
               className="gp-modal__prev"
               onClick={(e) => { e.stopPropagation(); prevImage(); }}
-              aria-label="Prethodna slika"
+              aria-label={t("gallery.prevImage", "Prethodna slika")}
             >
               <svg width="10" height="18" viewBox="0 0 10 18" fill="none" aria-hidden="true">
                 <polyline points="9,1 1,9 9,17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -171,7 +171,7 @@ function GalleryPage() {
             <button
               className="gp-modal__next"
               onClick={(e) => { e.stopPropagation(); nextImage(); }}
-              aria-label="Sljedeća slika"
+              aria-label={t("gallery.nextImage", "Sljedeća slika")}
             >
               <svg width="10" height="18" viewBox="0 0 10 18" fill="none" aria-hidden="true">
                 <polyline points="1,1 9,9 1,17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

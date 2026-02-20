@@ -138,7 +138,7 @@ function TermsPage() {
             <h2>9. Privatnost</h2>
             <p>
               Obrada osobnih podataka regulirana je našom{" "}
-              <a href="/hr/privacy">Politikom privatnosti</a>.
+              <a href="/hr/politika-privatnosti">Politikom politika-privatnostii</a>.
             </p>
 
             <h2>10. Mjerodavno pravo i nadležnost</h2>
@@ -271,7 +271,7 @@ function TermsPage() {
             <h2>9. Privacy</h2>
             <p>
               The processing of personal data is governed by our{" "}
-              <a href="/en/privacy">Privacy Policy</a>.
+              <a href="/en/politika-privatnosti">Privacy Policy</a>.
             </p>
 
             <h2>10. Applicable Law and Jurisdiction</h2>

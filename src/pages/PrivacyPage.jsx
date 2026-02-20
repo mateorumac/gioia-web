@@ -163,7 +163,7 @@ function PrivacyPage() {
             <p>
               Više informacija o upotrebi kolačića na ovoj stranici potražite
               u našoj{" "}
-              <a href="/hr/cookies">Politici kolačića</a>.
+              <a href="/hr/politika-kolacica">Politici kolačića</a>.
             </p>
 
             <h2>11. Automatizirano donošenje odluka</h2>
@@ -282,7 +282,7 @@ function PrivacyPage() {
             <h2>10. Cookies</h2>
             <p>
               For more information about how this website uses cookies, see our{" "}
-              <a href="/en/cookies">Cookie Policy</a>.
+              <a href="/en/politika-kolacica">Cookie Policy</a>.
             </p>
 
             <h2>11. Policy Changes</h2>

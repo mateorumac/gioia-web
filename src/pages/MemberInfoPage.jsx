@@ -42,7 +42,7 @@ function MemberInfoPage() {
           className="mi__hero-bg"
           style={{ backgroundImage: `url(${membersHero})` }}
           role="img"
-          aria-label="Gioia Studio članice"
+          aria-label={t("members.heroAlt", "Gioia Studio članice")}
         />
         <div className="mi__hero-overlay" />
         <motion.div

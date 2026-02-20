@@ -14,15 +14,15 @@ const routes = [
   "/hr",
   "/en",
   "/hr/galerija",
-  "/en/gallery",
+  "/en/galerija",
   "/hr/clanice",
-  "/en/members",
-  "/hr/privacy",
-  "/en/privacy",
-  "/hr/terms",
-  "/en/terms",
-  "/hr/cookies",
-  "/en/cookies",
+  "/en/clanice",
+  "/hr/politika-privatnosti",
+  "/en/politika-privatnosti",
+  "/hr/uvjeti-koristenja",
+  "/en/uvjeti-koristenja",
+  "/hr/politika-kolacica",
+  "/en/politika-kolacica",
 ];
 
 async function prerender() {

@@ -1,34 +1,8 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import "../styles/ReviewsSection.css";
 import sectionBg from "../assets/images/IMG_1588.webp";
 import { fadeUp, fadeIn, staggerContainer, viewport } from "../animations/motionPresets";
-
-const testimonials = [
-  {
-    id: 1,
-    name: "Maja",
-    text: "Obje trenerice su izuzetno stručne i smirene. Vježbe su jasno objašnjene, a svaki pokret ima smisao – osjećam se sigurnije u svom tijelu.",
-    featured: true,
-  },
-  {
-    id: 2,
-    name: "Ana",
-    text: "Predivan studio, intimna atmosfera i stvarno pažljiv pristup. Nakon nekoliko treninga osjećam puno manje napetosti u leđima.",
-    featured: false,
-  },
-  {
-    id: 3,
-    name: "Ivana",
-    text: "Volim što su grupe male i što me netko stvarno ispravi kad treba. Nakon treninga se osjećam i jače i smirenije.",
-    featured: false,
-  },
-  {
-    id: 4,
-    name: "Petra",
-    text: "Prostor je predivan i miran, a treninzi su izazovni na najbolji način. Idealno nakon radnog dana.",
-    featured: false,
-  },
-];
 
 const StarIcon = ({ className }) => (
   <svg
@@ -50,13 +24,42 @@ const Stars = ({ count = 5, className = "" }) => (
 );
 
 function ReviewsSection() {
+  const { t } = useTranslation();
+
+  const testimonials = [
+    {
+      id: 1,
+      name: "Maja",
+      text: t("reviews.t1", "Obje trenerice su izuzetno stručne i smirene. Vježbe su jasno objašnjene, a svaki pokret ima smisao – osjećam se sigurnije u svom tijelu."),
+      featured: true,
+    },
+    {
+      id: 2,
+      name: "Ana",
+      text: t("reviews.t2", "Predivan studio, intimna atmosfera i stvarno pažljiv pristup. Nakon nekoliko treninga osjećam puno manje napetosti u leđima."),
+      featured: false,
+    },
+    {
+      id: 3,
+      name: "Ivana",
+      text: t("reviews.t3", "Volim što su grupe male i što me netko stvarno ispravi kad treba. Nakon treninga se osjećam i jače i smirenije."),
+      featured: false,
+    },
+    {
+      id: 4,
+      name: "Petra",
+      text: t("reviews.t4", "Prostor je predivan i miran, a treninzi su izazovni na najbolji način. Idealno nakon radnog dana."),
+      featured: false,
+    },
+  ];
+
   const featured = testimonials.find((t) => t.featured);
   const supporting = testimonials.filter((t) => !t.featured);
 
   return (
     <section
       className="testimonialsSection"
-      id="reviews"
+      id="recenzije"
       style={{ backgroundImage: `url(${sectionBg})` }}
     >
       <div className="testimonialsSection__overlay" />
@@ -69,10 +72,10 @@ function ReviewsSection() {
           viewport={viewport}
         >
           <motion.p className="testimonialsSection__eyebrow" variants={fadeUp}>
-            Recenzije
+            {t("reviews.eyebrow", "Recenzije")}
           </motion.p>
           <motion.h2 className="testimonialsSection__title" variants={fadeUp}>
-            Iskustva naših klijenata
+            {t("reviews.title", "Iskustva naših klijenata")}
           </motion.h2>
         </motion.div>
 
@@ -85,7 +88,7 @@ function ReviewsSection() {
         >
           <Stars className="testimonialsSection__stars--credibility" />
           <p className="testimonialsSection__credibilityText">
-            na temelju 50+ recenzija
+            {t("reviews.credibility", "na temelju 50+ recenzija")}
           </p>
         </motion.div>
 
@@ -111,17 +114,17 @@ function ReviewsSection() {
           whileInView="visible"
           viewport={viewport}
         >
-          {supporting.map((t) => (
+          {supporting.map((item) => (
             <motion.article
-              key={t.id}
+              key={item.id}
               className="testimonialsSection__card"
               variants={fadeUp}
               whileHover={{ y: -4 }}
               transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], type: "tween" }}
             >
-              <p className="testimonialsSection__cardText">{t.text}</p>
+              <p className="testimonialsSection__cardText">{item.text}</p>
               <div className="testimonialsSection__cardFooter">
-                <p className="testimonialsSection__cardName">{t.name}</p>
+                <p className="testimonialsSection__cardName">{item.name}</p>
                 <Stars className="testimonialsSection__stars--card" />
               </div>
             </motion.article>

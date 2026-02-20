@@ -38,18 +38,17 @@ function App() {
         <Route path="/hr" element={<HomePage />} />
         <Route path="/hr/galerija" element={<GalleryPage />} />
         <Route path="/hr/clanice" element={<MemberInfoPage />} />
-        <Route path="/hr/members" element={<MemberInfoPage />} />
-        <Route path="/hr/cookies" element={<CookiesPage />} />
-        <Route path="/hr/privacy" element={<PrivacyPage />} />
-        <Route path="/hr/terms" element={<TermsPage />} />
+        <Route path="/hr/politika-kolacica" element={<CookiesPage />} />
+        <Route path="/hr/politika-privatnosti" element={<PrivacyPage />} />
+        <Route path="/hr/uvjeti-koristenja" element={<TermsPage />} />
 
         {/* EN rute */}
         <Route path="/en" element={<HomePage />} />
-        <Route path="/en/gallery" element={<GalleryPage />} />
-        <Route path="/en/members" element={<MemberInfoPage />} />
-        <Route path="/en/cookies" element={<CookiesPage />} />
-        <Route path="/en/privacy" element={<PrivacyPage />} />
-        <Route path="/en/terms" element={<TermsPage />} />
+        <Route path="/en/galerija" element={<GalleryPage />} />
+        <Route path="/en/clanice" element={<MemberInfoPage />} />
+        <Route path="/en/politika-kolacica" element={<CookiesPage />} />
+        <Route path="/en/politika-privatnosti" element={<PrivacyPage />} />
+        <Route path="/en/uvjeti-koristenja" element={<TermsPage />} />
 
         {/* 404 */}
         <Route path="*" element={<NotFoundPage />} />

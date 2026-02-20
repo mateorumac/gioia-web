@@ -22,27 +22,6 @@ function Footer() {
   const homeBase = `/${currentLang}`;
   const year = new Date().getFullYear();
 
-  // const [newsletterEmail, setNewsletterEmail] = useState("");
-  // const [toast, setToast] = useState({
-  //   open: false,
-  //   type: "info",
-  //   title: "",
-  //   message: "",
-  // });
-
-  // const handleNewsletterSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   setToast({
-  //     open: true,
-  //     type: "info",
-  //     title: t("newsletter.title", "Newsletter"),
-  //     message: t("newsletter.success", "Hvala na prijavi!"),
-  //   });
-
-  //   setNewsletterEmail("");
-  // };
-
   return (
     <footer className="site-footer-editorial">
       <div className="footer-inner-editorial">
@@ -71,19 +50,19 @@ function Footer() {
               <h4>{t("footer.navigation", "Navigacija")}</h4>
               <ul>
                 <li>
-                  <Link to={`${homeBase}#about`}>O studiju</Link>
+                  <Link to={`${homeBase}#o-nama`}>{t("footer.navAbout", "O studiju")}</Link>
                 </li>
                 <li>
-                  <Link to={`${homeBase}#classes`}>Treninzi</Link>
+                  <Link to={`${homeBase}#treninzi`}>{t("footer.navClasses", "Treninzi")}</Link>
                 </li>
                 <li>
-                  <Link to={`${homeBase}#team`}>Trenerice</Link>
+                  <Link to={`${homeBase}#trenerice`}>{t("footer.navTeam", "Trenerice")}</Link>
                 </li>
                 <li>
-                  <Link to={`${homeBase}#gallery`}>Galerija</Link>
+                  <Link to={`${homeBase}#galerija`}>{t("footer.navGallery", "Galerija")}</Link>
                 </li>
                 <li>
-                  <Link to={`${homeBase}#contact`}>Kontakt</Link>
+                  <Link to={`${homeBase}#kontakt`}>{t("footer.navContact", "Kontakt")}</Link>
                 </li>
               </ul>
             </motion.div>
@@ -100,7 +79,7 @@ function Footer() {
                   >
                     Verudela 8
                     <br />
-                    52100 Pula, Hrvatska
+                    {t("footer.addressCity", "52100 Pula, Hrvatska")}
                   </a>
                 </li>
                 <li>
@@ -129,16 +108,16 @@ function Footer() {
               <h4>{t("footer.hours", "Radno vrijeme")}</h4>
               <ul className="footer-hours">
                 <li>
-                  <span>Pon – Pet:</span>
-                  <span>7–10 h, 16–19 h</span>
+                  <span>{t("footer.monFri", "Pon – Pet")}:</span>
+                  <span>{t("footer.monFriHours", "7–10 h, 16–19 h")}</span>
                 </li>
                 <li>
-                  <span>Subota:</span>
-                  <span>8–11 h</span>
+                  <span>{t("footer.saturday", "Subota")}:</span>
+                  <span>{t("footer.satHours", "8–11 h")}</span>
                 </li>
                 <li>
-                  <span>Nedjelja:</span>
-                  <span>Zatvoreno</span>
+                  <span>{t("footer.sunday", "Nedjelja")}:</span>
+                  <span>{t("footer.sundayClosed", "Zatvoreno")}</span>
                 </li>
               </ul>
             </motion.div>
@@ -147,47 +126,18 @@ function Footer() {
               <h4>{t("footer.legal", "Pravne informacije")}</h4>
               <ul>
                 <li>
-                  <Link to={`${homeBase}/privacy`}>
-                    Politika privatnosti
+                  <Link to={`${homeBase}/politika-privatnosti`}>
+                    {t("footer.privacy", "Politika politika-privatnostii")}
                   </Link>
                 </li>
                 <li>
-                  <Link to={`${homeBase}/terms`}>Uvjeti korištenja</Link>
+                  <Link to={`${homeBase}/uvjeti-koristenja`}>{t("footer.terms", "Uvjeti korištenja")}</Link>
                 </li>
                 <li>
-                  <Link to={`${homeBase}/cookies`}>Cookie pravila</Link>
+                  <Link to={`${homeBase}/politika-kolacica`}>{t("footer.cookies", "Cookie pravila")}</Link>
                 </li>
               </ul>
             </motion.div>
-
-            {/* <div className="footer-newsletter-editorial">
-              <h4>{t("newsletter.title", "Ostani u tijeku")}</h4>
-              <p>
-                {t(
-                  "newsletter.subtitle",
-                  "Prijavi se na naš newsletter kako bi saznao/la o novim terminima, posebnim ponudama i korisnim savjetima.",
-                )}
-              </p>
-
-              <form
-                className="newsletter-form-editorial"
-                onSubmit={handleNewsletterSubmit}
-              >
-                <input
-                  type="email"
-                  placeholder={t(
-                    "newsletter.placeholder",
-                    "Tvoja email adresa",
-                  )}
-                  value={newsletterEmail}
-                  onChange={(e) => setNewsletterEmail(e.target.value)}
-                  required
-                />
-                <button type="submit">
-                  {t("newsletter.button", "Prijavi se")}
-                </button>
-              </form>
-            </div> */}
           </motion.div>
         </motion.div>
 
@@ -208,16 +158,6 @@ function Footer() {
           </p>
         </div>
       </div>
-
-      {/* <Toast
-        open={toast.open}
-        type={toast.type}
-        title={toast.title}
-        message={toast.message}
-        duration={4500}
-        position="top-right"
-        onClose={() => setToast((p) => ({ ...p, open: false }))}
-      /> */}
     </footer>
   );
 }
