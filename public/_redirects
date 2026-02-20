@@ -1,0 +1,6 @@
+# Redirect bare root to Croatian homepage
+/ /hr 302
+
+# SPA fallback: serve index.html for any path not found as a static file
+# (handles client-side routes like /hr/blog/:slug that aren't pre-rendered)
+/* /index.html 200

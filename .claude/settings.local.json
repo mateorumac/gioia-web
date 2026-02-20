@@ -4,7 +4,15 @@
       "Bash(npm install:*)",
       "Bash(npm run build:*)",
       "Bash(ls:*)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(npm run build:ssg:*)",
+      "Bash(node -e:*)",
+      "Bash(node --input-type=module -e:*)",
+      "Bash(__NEW_LINE_f5e957b0137fc0fe__ ls d:/personal/gioia-web/node_modules/react-router-dom/dist/)",
+      "Bash(npm run build:server:*)",
+      "Bash(npm run build:prerender:*)",
+      "Bash(node:*)",
+      "Bash(npm run build:client:*)"
     ]
   }
 }

@@ -7,4 +7,8 @@ export default defineConfig({
   server: {
     host: true,
   },
+  ssr: {
+    // Bundle these CJS packages into the SSR output so Node ESM can import them
+    noExternal: ["react-helmet-async"],
+  },
 })
