@@ -1,18 +1,18 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, Suspense, lazy } from "react";
 import { useTranslation } from "react-i18next";
 
 import Layout from "./components/Layout.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 
-// Pages
-import HomePage from "./pages/HomePage.jsx";
-import GalleryPage from "./pages/GalleryPage.jsx";
-import MemberInfoPage from "./pages/MemberInfoPage.jsx";
-import CookiesPage from "./pages/CookiesPage.jsx";
-import PrivacyPage from "./pages/PrivacyPage.jsx";
-import TermsPage from "./pages/TermsPage.jsx";
-import NotFoundPage from "./pages/NotFoundPage.jsx";
+// Pages — code-split so each route loads its own chunk
+const HomePage = lazy(() => import("./pages/HomePage.jsx"));
+const GalleryPage = lazy(() => import("./pages/GalleryPage.jsx"));
+const MemberInfoPage = lazy(() => import("./pages/MemberInfoPage.jsx"));
+const CookiesPage = lazy(() => import("./pages/CookiesPage.jsx"));
+const PrivacyPage = lazy(() => import("./pages/PrivacyPage.jsx"));
+const TermsPage = lazy(() => import("./pages/TermsPage.jsx"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage.jsx"));
 
 function App() {
   const location = useLocation();
@@ -29,6 +29,7 @@ function App() {
   return (
     <Layout>
       <ScrollToTop />
+      <Suspense fallback={null}>
       <Routes>
         {/* root → uvijek /hr */}
         <Route path="/" element={<Navigate to="/hr" replace />} />
@@ -53,6 +54,7 @@ function App() {
         {/* 404 */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      </Suspense>
     </Layout>
   );
 }

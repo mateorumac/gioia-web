@@ -35,6 +35,20 @@ async function prerender() {
     "utf-8"
   );
 
+  // Build filename → hashed web URL map from the Vite client manifest.
+  // SSR asset imports resolve to file:// paths at build time; we replace
+  // them with the correct /assets/[name]-[hash].ext URLs from the client build.
+  const manifestPath = path.resolve(__dirname, "dist/.vite/manifest.json");
+  const assetMap = {};
+  if (fs.existsSync(manifestPath)) {
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
+    for (const [srcKey, entry] of Object.entries(manifest)) {
+      if (entry.file) {
+        assetMap[path.basename(srcKey)] = "/" + entry.file;
+      }
+    }
+  }
+
   let succeeded = 0;
   let failed = 0;
 
@@ -74,6 +88,15 @@ async function prerender() {
       rendered = rendered
         .replace("<!--app-head-->", extraTags)
         .replace('<div id="root"></div>', `<div id="root">${html}</div>`);
+
+      // Replace any file:// paths emitted by SSR asset resolution with the
+      // correct hashed client-build URLs (e.g. /assets/IMG_1491-BnVx.webp)
+      if (Object.keys(assetMap).length > 0) {
+        rendered = rendered.replace(/file:\/\/[^"'\s]*/g, (match) => {
+          const filename = decodeURIComponent(match.split("/").pop());
+          return assetMap[filename] || match;
+        });
+      }
 
       const outDir = path.resolve(__dirname, `dist${route}`);
       fs.mkdirSync(outDir, { recursive: true });
