@@ -1,107 +1,123 @@
+import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import "../styles/LegalPages.css";
 
 function CookiesPage() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const isHR = i18n.language === "hr";
 
   return (
     <div className="legal-page">
+      <Helmet>
+        <title>
+          {isHR
+            ? "Politika kolačića | Gioia Reformer Pilates Studio"
+            : "Cookie Policy | Gioia Reformer Pilates Studio"}
+        </title>
+        <meta
+          name="description"
+          content={
+            isHR
+              ? "Politika kolačića Gioia Reformer Pilates Studija. Informacije o upotrebi Google Analytics kolačića i upravljanju vašim postavkama."
+              : "Cookie policy of Gioia Reformer Pilates Studio. Information about Google Analytics cookie usage and managing your preferences."
+          }
+        />
+      </Helmet>
+
       <div className="legal-container">
         <h1>{isHR ? "Politika kolačića" : "Cookie Policy"}</h1>
         <p className="legal-update-date">
           {isHR
-            ? "Posljednje ažuriranje: Siječanj 2026"
-            : "Last updated: January 2026"}
+            ? "Posljednje ažuriranje: Veljača 2026"
+            : "Last updated: February 2026"}
         </p>
 
         {isHR ? (
           <>
             <h2>1. Što su kolačići?</h2>
             <p>
-              Kolačići su male tekstualne datoteke koje web stranica pohranjuje
-              na vaš uređaj (računalo, tablet, mobitel) kada je posjetite.
-              Kolačići omogućuju web stranici da "zapamti" vaše radnje i
-              postavke kroz određeno razdoblje.
+              Kolačići su male tekstualne datoteke koje se pohranjuju na vaš
+              uređaj prilikom posjete web stranici. Omogućuju pravilno
+              funkcioniranje stranice te prikupljanje anonimnih statističkih
+              podataka o korištenju.
             </p>
 
-            <h2>2. Kako koristimo kolačiće</h2>
-            <p>
-              Naša web stranica koristi kolačiće kako bi poboljšala vaše
-              korisničko iskustvo. Kolačići nam pomažu da:
-            </p>
-            <ul>
-              <li>Zapamtimo vaše jezične postavke (Hrvatski/English)</li>
-              <li>Razumijemo kako koristite našu web stranicu</li>
-              <li>Poboljšamo funkcionalnost i performanse stranice</li>
-              <li>Pružimo personalizirano iskustvo</li>
-            </ul>
+            <h2>2. Koje kolačiće koristimo</h2>
 
-            <h2>3. Vrste kolačića koje koristimo</h2>
-
-            <h3>3.1 Nužni kolačići</h3>
+            <h3>2.1 Nužni kolačići</h3>
             <p>
-              Ovi kolačići su neophodni za rad web stranice i ne mogu se
-              isključiti. Obično se postavljaju samo kao odgovor na vaše radnje
-              kao što su:
+              Ovi kolačići su neophodni za tehničko funkcioniranje web stranice
+              i ne mogu se isključiti. Uključuju:
             </p>
             <ul>
-              <li>Postavljanje jezičnih preferencija</li>
-              <li>Navigacija kroz stranicu</li>
-              <li>Pristup sigurnim područjima</li>
+              <li>kolačić za pamćenje jezične postavke (HR / EN)</li>
+              <li>kolačić za spremanje vaše odluke o pristanku na analitičke kolačiće</li>
             </ul>
+            <p>Ovi kolačići ne zahtijevaju privolu jer su tehnički nužni.</p>
 
-            <h3>3.2 Funkcionalni kolačići</h3>
+            <h3>2.2 Analitički kolačići (Google Analytics 4)</h3>
             <p>
-              Ovi kolačići omogućuju web stranici da pruži poboljšanu
-              funkcionalnost i personalizaciju. Mogu se postaviti od strane nas
-              ili trećih strana čije smo usluge dodali na našu stranicu.
-            </p>
-
-            <h3>3.3 Analitički kolačići</h3>
-            <p>
-              Ovi kolačići nam omogućuju da prebrojimo posjete i izvore
-              prometa kako bismo mogli mjeriti i poboljšati performanse naše
-              stranice. Pomažu nam da saznamo koje su stranice najpopularnije,
-              a koje najmanje.
-            </p>
-
-            <h2>4. Kolačići trećih strana</h2>
-            <p>
-              Naša web stranica može koristiti kolačiće trećih strana za
-              analitiku i društvene medije:
+              Uz vašu izričitu privolu koristimo <strong>Google Analytics 4</strong>{" "}
+              za prikupljanje anonimnih statističkih podataka o korištenju web
+              stranice, kao što su:
             </p>
             <ul>
-              <li>
-                <strong>Google Analytics:</strong> Za praćenje i analizu
-                korištenja web stranice
-              </li>
-              <li>
-                <strong>Instagram widget:</strong> Za prikaz naših objava s
-                Instagrama
-              </li>
+              <li>broj posjetitelja</li>
+              <li>trajanje posjete</li>
+              <li>najposjećenije stranice</li>
+              <li>vrsta uređaja i preglednika</li>
             </ul>
-
-            <h2>5. Kako upravljati kolačićima</h2>
             <p>
-              Možete kontrolirati i/ili brisati kolačiće kako želite. Detalje
-              potražite na{" "}
+              IP adresa se anonimizira prije pohrane, sukladno postavkama
+              Google Analytics 4 sustava.
+            </p>
+            <p>
+              Podaci se koriste isključivo u statističke svrhe radi poboljšanja
+              web stranice i ne koriste se za oglašavanje ili remarketing.
+            </p>
+            <p>
+              Google može obrađivati podatke na poslužiteljima izvan Europske
+              unije, uz primjenu odgovarajućih zaštitnih mjera sukladno GDPR-u.
+            </p>
+            <p>
+              Više informacija o načinu obrade podataka od strane Googlea
+              dostupno je na:{" "}
               <a
-                href="https://www.aboutcookies.org"
+                href="https://policies.google.com/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                aboutcookies.org
+                policies.google.com/privacy
               </a>
-              .
             </p>
 
-            <h3>5.1 Postavke preglednika</h3>
+            <h2>3. Trajanje kolačića</h2>
             <p>
-              Većina preglednika automatski prihvaća kolačiće, ali možete
-              promijeniti postavke svog preglednika kako biste odbili kolačiće
-              ili bili obaviješteni kada se kolačić šalje. Upute za
-              najpopularnije preglednike:
+              Nužni kolačići pohranjuju se na razdoblje potrebno za
+              funkcioniranje stranice.
+            </p>
+            <p>
+              Analitički kolačići zadržavaju se najdulje do 14 mjeseci,
+              sukladno standardnim postavkama Google Analyticsa, osim ako ih
+              korisnik prethodno ne izbriše putem postavki preglednika.
+            </p>
+
+            <h2>4. Pravna osnova obrade</h2>
+            <p>
+              Analitički kolačići postavljaju se isključivo na temelju vaše
+              privole, koju možete dati ili odbiti putem obavijesti o
+              kolačićima.
+            </p>
+            <p>Privolu možete u svakom trenutku povući.</p>
+
+            <h2>5. Upravljanje kolačićima</h2>
+            <p>
+              Svoj odabir možete promijeniti putem obavijesti o kolačićima
+              dostupne na web stranici.
+            </p>
+            <p>
+              Kolačićima možete upravljati i putem postavki svog internetskog
+              preglednika:
             </p>
             <ul>
               <li>
@@ -141,35 +157,20 @@ function CookiesPage() {
                 </a>
               </li>
             </ul>
-
-            <h3>5.2 Posljedice blokiranja kolačića</h3>
             <p>
-              Blokiranjem kolačića možete ograničiti funkcionalnost naše web
-              stranice. Neke značajke možda neće ispravno raditi ili uopće neće
-              biti dostupne.
+              Blokiranje analitičkih kolačića neće utjecati na osnovno
+              funkcioniranje web stranice.
             </p>
 
-            <h2>6. Promjene politike kolačića</h2>
+            <h2>6. Kontakt</h2>
             <p>
-              Možemo s vremena na vrijeme ažurirati ovu politiku kolačića.
-              Preporučujemo da povremeno pregledate ovu stranicu kako biste
-              bili informirani o tome kako koristimo kolačiće.
+              Za dodatne informacije o korištenju kolačića možete nam se
+              obratiti na:{" "}
+              <a href="mailto:info@gioia.hr">info@gioia.hr</a>
             </p>
-
-            <h2>7. Dodatne informacije</h2>
             <p>
-              Za više informacija o tome kako štitimo vašu privatnost,
-              pogledajte našu{" "}
-              <a href="/hr/privacy-policy">Politiku privatnosti</a>.
-            </p>
-
-            <h2>8. Kontakt</h2>
-            <p>
-              Ako imate pitanja o našoj politici kolačića, kontaktirajte nas:
-              <br />
-              Email: <a href="mailto:info@gioia.hr">info@gioia.hr</a>
-              <br />
-              Telefon: <a href="tel:+385953896809">095 389 6809</a>
+              Za više informacija o obradi osobnih podataka pogledajte našu{" "}
+              <a href="/hr/privacy">Politiku privatnosti</a>.
             </p>
           </>
         ) : (
@@ -177,86 +178,59 @@ function CookiesPage() {
             <h2>1. What Are Cookies?</h2>
             <p>
               Cookies are small text files that a website stores on your device
-              (computer, tablet, phone) when you visit it. Cookies enable the
-              website to "remember" your actions and preferences over a period
-              of time.
+              when you visit it. They are used to ensure the website functions
+              correctly and to help us understand how it is used.
             </p>
 
-            <h2>2. How We Use Cookies</h2>
-            <p>
-              Our website uses cookies to improve your user experience. Cookies
-              help us to:
-            </p>
-            <ul>
-              <li>Remember your language settings (Croatian/English)</li>
-              <li>Understand how you use our website</li>
-              <li>Improve site functionality and performance</li>
-              <li>Provide a personalized experience</li>
-            </ul>
+            <h2>2. Cookies We Use</h2>
 
-            <h2>3. Types of Cookies We Use</h2>
-
-            <h3>3.1 Necessary Cookies</h3>
+            <h3>2.1 Necessary Cookies</h3>
             <p>
-              These cookies are essential for the website to function and cannot
-              be disabled. They are usually set only in response to your actions
-              such as:
-            </p>
-            <ul>
-              <li>Setting language preferences</li>
-              <li>Navigating through the site</li>
-              <li>Accessing secure areas</li>
-            </ul>
-
-            <h3>3.2 Functional Cookies</h3>
-            <p>
-              These cookies enable the website to provide enhanced functionality
-              and personalization. They may be set by us or by third-party
-              providers whose services we have added to our site.
+              These cookies are essential for the basic functioning of the
+              website and cannot be disabled. They include a cookie to remember
+              your language preference (Croatian / English) and a cookie to
+              record your consent decision regarding analytics cookies.
             </p>
 
-            <h3>3.3 Analytics Cookies</h3>
+            <h3>2.2 Analytics Cookies — Google Analytics 4</h3>
             <p>
-              These cookies allow us to count visits and traffic sources so we
-              can measure and improve site performance. They help us know which
-              pages are most and least popular.
+              We use <strong>Google Analytics 4</strong> for anonymous
+              statistical analysis of visits (e.g. number of visitors, most
+              visited pages, session duration). These cookies are loaded only
+              after your explicit consent via the cookie notice.
             </p>
-
-            <h2>4. Third-Party Cookies</h2>
             <p>
-              Our website may use third-party cookies for analytics and social
-              media:
+              IP anonymisation is enabled — your IP address is not stored in
+              full. Google Analytics does not use this data for personal
+              targeting or advertising.
             </p>
-            <ul>
-              <li>
-                <strong>Google Analytics:</strong> For tracking and analyzing
-                website usage
-              </li>
-              <li>
-                <strong>Instagram widget:</strong> For displaying our Instagram
-                posts
-              </li>
-            </ul>
-
-            <h2>5. How to Manage Cookies</h2>
             <p>
-              You can control and/or delete cookies as you wish. For details,
-              visit{" "}
+              More about Google Analytics' privacy policy:{" "}
               <a
-                href="https://www.aboutcookies.org"
+                href="https://policies.google.com/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                aboutcookies.org
+                policies.google.com/privacy
               </a>
-              .
             </p>
 
-            <h3>5.1 Browser Settings</h3>
+            <h2>3. What We Do Not Use</h2>
+            <p>This website does <strong>not use</strong>:</p>
+            <ul>
+              <li>Meta Pixel (Facebook / Instagram tracking)</li>
+              <li>Google Ads remarketing</li>
+              <li>Cookies for personalised advertising</li>
+              <li>Newsletter systems or CRM tools</li>
+            </ul>
+
+            <h2>4. Managing Cookies</h2>
             <p>
-              Most browsers automatically accept cookies, but you can change
-              your browser settings to decline cookies or be notified when a
-              cookie is being sent. Instructions for popular browsers:
+              You can withdraw or change your consent at any time via the
+              cookie notice displayed at the bottom of the page.
+            </p>
+            <p>
+              You can also manage cookies directly in your browser settings:
             </p>
             <ul>
               <li>
@@ -296,34 +270,18 @@ function CookiesPage() {
                 </a>
               </li>
             </ul>
-
-            <h3>5.2 Consequences of Blocking Cookies</h3>
             <p>
-              By blocking cookies, you may limit the functionality of our
-              website. Some features may not work properly or may not be
-              available at all.
+              Note: blocking analytics cookies will not affect the website's
+              core functionality.
             </p>
 
-            <h2>6. Changes to Cookie Policy</h2>
+            <h2>5. More Information</h2>
             <p>
-              We may update this cookie policy from time to time. We recommend
-              that you periodically review this page to stay informed about how
-              we use cookies.
-            </p>
-
-            <h2>7. Additional Information</h2>
-            <p>
-              For more information about how we protect your privacy, see our{" "}
-              <a href="/en/privacy-policy">Privacy Policy</a>.
-            </p>
-
-            <h2>8. Contact</h2>
-            <p>
-              If you have questions about our cookie policy, contact us:
+              For more information about how we protect your personal data, see
+              our <a href="/en/privacy">Privacy Policy</a>.
               <br />
-              Email: <a href="mailto:info@gioia.hr">info@gioia.hr</a>
-              <br />
-              Phone: <a href="tel:+385953896809">095 389 6809</a>
+              For questions:{" "}
+              <a href="mailto:info@gioia.hr">info@gioia.hr</a>
             </p>
           </>
         )}

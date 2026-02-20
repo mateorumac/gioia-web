@@ -1,232 +1,263 @@
+import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import "../styles/LegalPages.css";
 
 function PrivacyPage() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const isHR = i18n.language === "hr";
 
   return (
     <div className="legal-page">
+      <Helmet>
+        <title>
+          {isHR
+            ? "Politika privatnosti | Gioia Reformer Pilates Studio"
+            : "Privacy Policy | Gioia Reformer Pilates Studio"}
+        </title>
+        <meta
+          name="description"
+          content={
+            isHR
+              ? "Politika privatnosti Gioia Reformer Pilates Studija. Saznajte koje podatke prikupljamo, u koju svrhu i kako štitimo vašu privatnost."
+              : "Privacy policy of Gioia Reformer Pilates Studio. Learn what data we collect, for what purpose, and how we protect your privacy."
+          }
+        />
+      </Helmet>
+
       <div className="legal-container">
         <h1>{isHR ? "Politika privatnosti" : "Privacy Policy"}</h1>
         <p className="legal-update-date">
           {isHR
-            ? "Posljednje ažuriranje: Siječanj 2026"
-            : "Last updated: January 2026"}
+            ? "Posljednje ažuriranje: Veljača 2026"
+            : "Last updated: February 2026"}
         </p>
 
         {isHR ? (
           <>
-            <h2>1. Uvod</h2>
+            <h2>1. Voditelj obrade podataka</h2>
             <p>
-              Gioia Reformer Pilates Studio ("mi", "naš", "studio") poštuje vašu
-              privatnost i obvezuje se zaštititi vaše osobne podatke. Ova
-              politika privatnosti objašnjava kako prikupljamo, koristimo i
-              štitimo vaše informacije kada koristite našu web stranicu i
-              usluge.
+              Voditelj obrade osobnih podataka je:
+              <br />
+              <strong>GIOIA, obrt za obavljanje djelatnosti fitness centra, vl. Sanja Ileković Vuk</strong>
+              <br />
+              Ulica Verudella 8, 52100 Pula, Hrvatska
+              <br />
+              OIB: 63943975584 | MBS: 98984284
+              <br />
+              E-mail: <a href="mailto:info@gioia.hr">info@gioia.hr</a>
             </p>
 
-            <h2>2. Podaci koje prikupljamo</h2>
-            <p>Možemo prikupljati sljedeće vrste podataka:</p>
-            <ul>
-              <li>
-                <strong>Identifikacijski podaci:</strong> ime, prezime, email
-                adresa, telefonski broj
-              </li>
-              <li>
-                <strong>Podaci o treninzima:</strong> rezervacije termina,
-                povijest treninga, preferencije
-              </li>
-              <li>
-                <strong>Tehnički podaci:</strong> IP adresa, tip preglednika,
-                uređaj, kolačići
-              </li>
-              <li>
-                <strong>Komunikacijski podaci:</strong> vaše poruke, upiti i
-                povratne informacije
-              </li>
-            </ul>
-
-            <h2>3. Kako koristimo vaše podatke</h2>
-            <p>Vaše osobne podatke koristimo za:</p>
-            <ul>
-              <li>Pružanje i upravljanje uslugama pilatesa</li>
-              <li>Rezervaciju i potvrdu termina treninga</li>
-              <li>Komunikaciju s vama o terminima i obavijestima</li>
-              <li>Poboljšanje kvalitete naših usluga</li>
-              <li>
-                Slanje newslettera i marketinških poruka (samo uz vaš pristanak)
-              </li>
-              <li>Ispunjavanje zakonskih obveza</li>
-            </ul>
-
-            <h2>4. Pravna osnova za obradu</h2>
-            <p>Vaše podatke obrađujemo na temelju:</p>
-            <ul>
-              <li>Vašeg pristanka</li>
-              <li>Izvršavanja ugovora o pružanju usluga</li>
-              <li>Legitimnih interesa poslovanja</li>
-              <li>Zakonskih obveza</li>
-            </ul>
-
-            <h2>5. Dijeljenje podataka</h2>
+            <h2>2. Koje podatke prikupljamo i na koji način</h2>
             <p>
-              Vaše osobne podatke nećemo prodavati trećim stranama. Možemo
-              podijeliti podatke samo s:
+              Osobne podatke prikupljamo isključivo putem forme za rezervaciju
+              prvog termina treninga. Prikupljaju se sljedeći podaci:
             </p>
             <ul>
-              <li>Pružateljima usluga koji podržavaju naše poslovanje</li>
-              <li>
-                Zakonskim tijelima kada je to zakonom propisano ili potrebno
-              </li>
+              <li>Ime i prezime</li>
+              <li>E-mail adresa</li>
+              <li>Broj mobitela</li>
+              <li>Vrsta treninga</li>
+              <li>Željeno vrijeme termina</li>
+              <li>Iskustvo s pilatesom</li>
+              <li>Dodatne napomene (neobavezno)</li>
             </ul>
-
-            <h2>6. Sigurnost podataka</h2>
             <p>
-              Primjenjujemo prikladne tehničke i organizacijske mjere kako
-              bismo zaštitili vaše osobne podatke od neovlaštenog pristupa,
-              gubitka ili zlouporabe.
+              Stranica ne koristi obrasce za kontakt, registraciju, prijavu
+              korisnika ni bilo koji drugi sustav za prikupljanje podataka.
             </p>
 
-            <h2>7. Vaša prava</h2>
-            <p>Imate pravo:</p>
+            <h2>3. Svrha obrade podataka</h2>
+            <p>Vaše podatke koristimo isključivo za:</p>
             <ul>
-              <li>Pristupiti svojim osobnim podacima</li>
-              <li>Zatražiti ispravak netočnih podataka</li>
-              <li>Zatražiti brisanje podataka</li>
-              <li>Ograničiti obradu podataka</li>
-              <li>Prenosivost podataka</li>
-              <li>Uložiti prigovor na obradu</li>
-              <li>Povući pristanak u bilo kojem trenutku</li>
+              <li>Organizaciju i potvrdu prvog termina treninga</li>
+              <li>Kontaktiranje vezano uz rezervaciju</li>
+              <li>Pripremu treninga prema vašem iskustvu i potrebama</li>
             </ul>
-
-            <h2>8. Kolačići</h2>
             <p>
-              Naša web stranica koristi kolačiće kako bi poboljšala vaše
-              iskustvo. Više informacija potražite u našoj{" "}
+              Podaci se <strong>ne koriste</strong> za marketing, newsletter,
+              oglašavanje niti se dijele s trećim stranama.
+            </p>
+
+            <h2>4. Pohrana podataka</h2>
+            <p>
+              Podaci se ne pohranjuju u bazu podataka. Nakon slanja forme,
+              podaci se dostavljaju isključivo na interni e-mail adresu studija
+              i ne arhiviraju se sustavno. Ne postoji CRM sustav niti
+              automatska obrada podataka.
+            </p>
+
+            <h2>5. Pravna osnova za obradu</h2>
+            <p>
+              Vaše podatke obrađujemo na temelju vašeg pristanka, koji
+              izražavate dobrovoljnim ispunjavanjem i slanjem forme. Podatke
+              koristimo samo u svrhu zbog koje su prikupljeni.
+            </p>
+
+            <h2>6. Maloljetnici</h2>
+            <p>
+              Maloljetne osobe mogu ispuniti formu bez dodatne potvrde
+              roditelja ili skrbnika. Studio ne prikuplja posebne kategorije
+              podataka vezane uz dob korisnika.
+            </p>
+
+            <h2>7. Analitika</h2>
+            <p>
+              Web stranica koristi <strong>Google Analytics 4</strong> radi
+              statističke analize posjeta. Anonimizacija IP adrese je
+              uključena. Google Analytics se učitava isključivo nakon vašeg
+              pristanka putem obavijesti o kolačićima. Nisu implementirani
+              Meta Pixel, Google Ads remarketing ni bilo koji drugi alat za
+              praćenje korisnika u oglašavačke svrhe.
+            </p>
+
+            <h2>8. Hosting i sigurnost</h2>
+            <p>
+              Web stranica je hostana na platformi <strong>Cloudflare</strong>{" "}
+              i koristi HTTPS (SSL enkripcija). Cloudflare djeluje kao pružatelj
+              infrastrukture i može procesirati prometne podatke u skladu s
+              vlastitom politikom privatnosti.
+            </p>
+
+            <h2>9. Vaša prava (GDPR)</h2>
+            <p>
+              Sukladno Uredbi (EU) 2016/679 (GDPR), imate sljedeća prava:
+            </p>
+            <ul>
+              <li>Pravo pristupa – možete zatražiti uvid u podatke koje čuvamo o vama</li>
+              <li>Pravo ispravka – možete zatražiti ispravak netočnih podataka</li>
+              <li>Pravo brisanja – možete zatražiti brisanje svojih podataka</li>
+              <li>Pravo na prigovor – možete se protiviti obradi vaših podataka</li>
+              <li>Pravo na pritužbu – imate pravo podnijeti pritužbu nadzornom tijelu (AZOP, <a href="https://azop.hr" target="_blank" rel="noopener noreferrer">azop.hr</a>)</li>
+            </ul>
+            <p>
+              Za ostvarivanje prava kontaktirajte nas na:{" "}
+              <a href="mailto:info@gioia.hr">info@gioia.hr</a>
+            </p>
+
+            <h2>10. Kolačići</h2>
+            <p>
+              Više informacija o upotrebi kolačića na ovoj stranici potražite
+              u našoj{" "}
               <a href="/hr/cookies">Politici kolačića</a>.
             </p>
 
-            <h2>9. Kontakt</h2>
+            <h2>11. Izmjene politike</h2>
             <p>
-              Za pitanja vezana uz privatnost, kontaktirajte nas na:
-              <br />
-              Email: <a href="mailto:info@gioia.hr">info@gioia.hr</a>
-              <br />
-              Telefon: <a href="tel:+385953896809">095 389 6809</a>
-              <br />
-              Adresa: Verudela 8, 52100 Pula, Hrvatska
-            </p>
-
-            <h2>10. Promjene politike</h2>
-            <p>
-              Zadržavamo pravo izmjene ove politike privatnosti. Sve promjene
-              bit će objavljene na ovoj stranici s ažuriranim datumom.
+              Zadržavamo pravo izmjene ove politike. Sve promjene bit će
+              objavljene na ovoj stranici s ažuriranim datumom.
             </p>
           </>
         ) : (
           <>
-            <h2>1. Introduction</h2>
+            <h2>1. Data Controller</h2>
             <p>
-              Gioia Reformer Pilates Studio ("we", "our", "studio") respects
-              your privacy and is committed to protecting your personal data.
-              This privacy policy explains how we collect, use, and protect your
-              information when you use our website and services.
-            </p>
-
-            <h2>2. Data We Collect</h2>
-            <p>We may collect the following types of data:</p>
-            <ul>
-              <li>
-                <strong>Identification data:</strong> name, surname, email
-                address, phone number
-              </li>
-              <li>
-                <strong>Training data:</strong> session bookings, training
-                history, preferences
-              </li>
-              <li>
-                <strong>Technical data:</strong> IP address, browser type,
-                device, cookies
-              </li>
-              <li>
-                <strong>Communication data:</strong> your messages, inquiries,
-                and feedback
-              </li>
-            </ul>
-
-            <h2>3. How We Use Your Data</h2>
-            <p>We use your personal data to:</p>
-            <ul>
-              <li>Provide and manage pilates services</li>
-              <li>Book and confirm training sessions</li>
-              <li>Communicate with you about appointments and notifications</li>
-              <li>Improve the quality of our services</li>
-              <li>
-                Send newsletters and marketing messages (only with your consent)
-              </li>
-              <li>Fulfill legal obligations</li>
-            </ul>
-
-            <h2>4. Legal Basis for Processing</h2>
-            <p>We process your data based on:</p>
-            <ul>
-              <li>Your consent</li>
-              <li>Performance of a contract for service provision</li>
-              <li>Legitimate business interests</li>
-              <li>Legal obligations</li>
-            </ul>
-
-            <h2>5. Data Sharing</h2>
-            <p>
-              We will not sell your personal data to third parties. We may share
-              data only with:
-            </p>
-            <ul>
-              <li>Service providers who support our business</li>
-              <li>Legal authorities when required by law or necessary</li>
-            </ul>
-
-            <h2>6. Data Security</h2>
-            <p>
-              We implement appropriate technical and organizational measures to
-              protect your personal data from unauthorized access, loss, or
-              misuse.
-            </p>
-
-            <h2>7. Your Rights</h2>
-            <p>You have the right to:</p>
-            <ul>
-              <li>Access your personal data</li>
-              <li>Request correction of inaccurate data</li>
-              <li>Request deletion of data</li>
-              <li>Restrict data processing</li>
-              <li>Data portability</li>
-              <li>Object to processing</li>
-              <li>Withdraw consent at any time</li>
-            </ul>
-
-            <h2>8. Cookies</h2>
-            <p>
-              Our website uses cookies to improve your experience. For more
-              information, see our <a href="/en/cookies">Cookie Policy</a>.
-            </p>
-
-            <h2>9. Contact</h2>
-            <p>
-              For privacy-related questions, contact us at:
+              The data controller is:
               <br />
-              Email: <a href="mailto:info@gioia.hr">info@gioia.hr</a>
+              <strong>GIOIA, obrt za obavljanje djelatnosti fitness centra, vl. Sanja Ileković Vuk</strong>
               <br />
-              Phone: <a href="tel:+385953896809">095 389 6809</a>
+              Ulica Verudella 8, 52100 Pula, Croatia
               <br />
-              Address: Verudela 8, 52100 Pula, Croatia
+              OIB: 63943975584 | MBS: 98984284
+              <br />
+              E-mail: <a href="mailto:info@gioia.hr">info@gioia.hr</a>
             </p>
 
-            <h2>10. Policy Changes</h2>
+            <h2>2. What Data We Collect and How</h2>
             <p>
-              We reserve the right to modify this privacy policy. All changes
-              will be published on this page with an updated date.
+              Personal data is collected exclusively through the first training
+              session booking form. The following data is collected:
+            </p>
+            <ul>
+              <li>First and last name</li>
+              <li>E-mail address</li>
+              <li>Mobile phone number</li>
+              <li>Type of training</li>
+              <li>Preferred session time</li>
+              <li>Pilates experience</li>
+              <li>Additional notes (optional)</li>
+            </ul>
+            <p>
+              The website does not use contact forms, user registration,
+              login systems, or any other data collection method.
+            </p>
+
+            <h2>3. Purpose of Processing</h2>
+            <p>Your data is used exclusively to:</p>
+            <ul>
+              <li>Organise and confirm your first training session</li>
+              <li>Contact you regarding your booking</li>
+              <li>Prepare the session according to your experience and needs</li>
+            </ul>
+            <p>
+              Your data is <strong>not used</strong> for marketing, newsletters,
+              advertising, or shared with third parties.
+            </p>
+
+            <h2>4. Data Storage</h2>
+            <p>
+              Data is not stored in a database. Once the form is submitted,
+              data is delivered only to the studio's internal e-mail inbox and
+              is not systematically archived. There is no CRM system or
+              automated data processing.
+            </p>
+
+            <h2>5. Legal Basis for Processing</h2>
+            <p>
+              We process your data on the basis of your consent, expressed by
+              voluntarily completing and submitting the form. Data is used only
+              for the purpose for which it was collected.
+            </p>
+
+            <h2>6. Minors</h2>
+            <p>
+              Minors may submit the booking form without additional parental
+              or guardian verification. The studio does not collect special
+              categories of data related to user age.
+            </p>
+
+            <h2>7. Analytics</h2>
+            <p>
+              The website uses <strong>Google Analytics 4</strong> for
+              statistical analysis of visits. IP anonymisation is enabled.
+              Google Analytics loads only after your consent via the cookie
+              notice. No Meta Pixel, Google Ads remarketing, or any other
+              user-tracking tools for advertising purposes are implemented.
+            </p>
+
+            <h2>8. Hosting and Security</h2>
+            <p>
+              The website is hosted on <strong>Cloudflare</strong> and uses
+              HTTPS (SSL encryption). Cloudflare acts as an infrastructure
+              provider and may process traffic data according to its own
+              privacy policy.
+            </p>
+
+            <h2>9. Your Rights (GDPR)</h2>
+            <p>
+              Under Regulation (EU) 2016/679 (GDPR), you have the following rights:
+            </p>
+            <ul>
+              <li>Right of access – you may request to see the data we hold about you</li>
+              <li>Right of rectification – you may request correction of inaccurate data</li>
+              <li>Right to erasure – you may request deletion of your data</li>
+              <li>Right to object – you may object to the processing of your data</li>
+              <li>Right to lodge a complaint – you may file a complaint with the supervisory authority (AZOP, <a href="https://azop.hr" target="_blank" rel="noopener noreferrer">azop.hr</a>)</li>
+            </ul>
+            <p>
+              To exercise your rights, contact us at:{" "}
+              <a href="mailto:info@gioia.hr">info@gioia.hr</a>
+            </p>
+
+            <h2>10. Cookies</h2>
+            <p>
+              For more information about how this website uses cookies, see our{" "}
+              <a href="/en/cookies">Cookie Policy</a>.
+            </p>
+
+            <h2>11. Policy Changes</h2>
+            <p>
+              We reserve the right to update this policy. All changes will be
+              published on this page with an updated date.
             </p>
           </>
         )}

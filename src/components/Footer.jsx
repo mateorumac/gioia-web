@@ -145,7 +145,7 @@ function Footer() {
               <h4>{t("footer.legal", "Pravne informacije")}</h4>
               <ul>
                 <li>
-                  <Link to={`${homeBase}/privacy-policy`}>
+                  <Link to={`${homeBase}/privacy`}>
                     Politika privatnosti
                   </Link>
                 </li>
