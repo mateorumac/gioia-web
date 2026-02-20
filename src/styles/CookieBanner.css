@@ -1,0 +1,327 @@
+/* ═══════════════════════════════════════════
+   Cookie Banner — CookieBanner.css
+   Prefix: cb__
+   ═══════════════════════════════════════════ */
+
+/* ── Floating widget ── */
+.cb__float {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 10000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-beige, #ede8d8);
+  color: var(--color-text, #1a1a1a);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.14);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  padding: 0;
+}
+
+.cb__float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
+
+body.no-scroll .cb__float {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+/* ── Overlay ── */
+.cb__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  background: rgba(10, 10, 10, 0.42);
+}
+
+/* ── Modal ── */
+.cb__modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10002;
+  width: calc(100% - 2.5rem);
+  max-width: 520px;
+  background: var(--color-beige, #ece5d1);
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Modal header ── */
+.cb__modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.6rem 1.6rem 0.75rem;
+}
+
+.cb__title {
+  font-family: var(--font-playfair, "Playfair Display", serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-text, #1a1a1a);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.cb__close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-text, #1a1a1a);
+  opacity: 0.35;
+  padding: 0.2rem 0.35rem;
+  transition: opacity 0.15s ease;
+  margin-left: 0.75rem;
+  flex-shrink: 0;
+}
+
+.cb__close:hover {
+  opacity: 0.75;
+}
+
+/* ── Modal body ── */
+.cb__modal-body {
+  padding: 1.4rem 1.6rem 1rem;
+}
+
+/* ── Text ── */
+.cb__text {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--color-text, #333333);
+  opacity: 0.75;
+  margin: 0;
+}
+
+.cb__link {
+  color: var(--color-sage, #5a7a51);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cb__link:hover {
+  opacity: 0.75;
+}
+
+/* ── Modal footer ── */
+.cb__modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  padding: 0.75rem 1.6rem 1.4rem;
+}
+
+.cb__modal-footer--center {
+  justify-content: center;
+}
+
+/* ── Settings link row ── */
+.cb__modal-settings-row {
+  display: flex;
+  justify-content: center;
+  padding: 0 1.6rem 1.1rem;
+  border-top: 1px solid rgba(51, 51, 51, 0.1);
+  padding-top: 0.75rem;
+}
+
+.cb__settings-link {
+  background: none;
+  border: none;
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 0.75rem;
+  color: var(--color-text, #1a1a1a);
+  opacity: 0.45;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  padding: 0;
+  transition: opacity 0.15s ease;
+  letter-spacing: 0.02em;
+}
+
+.cb__settings-link:hover {
+  opacity: 0.8;
+}
+
+/* ── Buttons ── */
+.cb__btn {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0.6rem 1.35rem;
+  border-radius: 0;
+  transition: opacity 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.cb__btn--accept {
+  background: var(--color-sage, #5a7a51);
+  color: #fff;
+  border: 1px solid var(--color-sage, #5a7a51);
+}
+
+.cb__btn--accept:hover {
+  opacity: 0.88;
+}
+
+.cb__btn--reject {
+  background: transparent;
+  color: var(--color-text, #1a1a1a);
+  border: 1px solid rgba(0, 0, 0, 0.22);
+}
+
+.cb__btn--reject:hover {
+  border-color: rgba(0, 0, 0, 0.5);
+}
+
+.cb__btn--full {
+  width: 100%;
+  text-align: center;
+}
+
+/* ═══════════════════════
+   PREFERENCES ROWS
+   ═══════════════════════ */
+.cb__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.05rem 0;
+  border-top: 1px solid rgba(51, 51, 51, 0.1);
+}
+
+.cb__row:first-of-type {
+  margin-top: 0.1rem;
+}
+
+.cb__row-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.cb__row-name {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 0.83rem;
+  font-weight: 500;
+  color: var(--color-text, #1a1a1a);
+}
+
+.cb__row-desc {
+  font-family: var(--font-inter, "Inter", sans-serif);
+  font-size: 0.74rem;
+  color: var(--color-text, #1a1a1a);
+  opacity: 0.52;
+  line-height: 1.5;
+}
+
+.cb__row--disabled .cb__row-name,
+.cb__row--disabled .cb__row-desc {
+  opacity: 0.4;
+}
+
+/* ── Toggle switch ── */
+.cb__toggle {
+  flex-shrink: 0;
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background: #c8c8c4;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s ease;
+  padding: 0;
+  display: inline-block;
+}
+
+.cb__toggle--on {
+  background: var(--color-sage, #5a7a51);
+}
+
+.cb__toggle--static {
+  cursor: default;
+  pointer-events: none;
+}
+
+.cb__toggle-track {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  position: relative;
+}
+
+.cb__toggle-thumb {
+  display: block;
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.22);
+}
+
+.cb__toggle--on .cb__toggle-thumb {
+  transform: translateX(20px);
+}
+
+/* ── Mobile ── */
+@media (max-width: 560px) {
+  .cb__modal {
+    width: calc(100% - 1.5rem);
+    max-height: 90dvh;
+    overflow-y: auto;
+  }
+
+  .cb__modal-header {
+    padding: 1.1rem 1.25rem 0.8rem;
+  }
+
+  .cb__modal-body {
+    padding: 1rem 1.25rem 0.5rem;
+  }
+
+  .cb__modal-footer {
+    padding: 0.6rem 1.25rem 1.1rem;
+    flex-wrap: wrap;
+  }
+
+  .cb__modal-footer--center {
+    flex-wrap: nowrap;
+  }
+
+  .cb__btn--accept,
+  .cb__btn--reject {
+    flex: 1;
+    text-align: center;
+    padding: 0.7rem 1rem;
+  }
+
+  .cb__modal-settings-row {
+    padding: 0.6rem 1.25rem 0.9rem;
+  }
+}

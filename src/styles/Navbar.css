@@ -435,7 +435,7 @@
   gap: 0.65rem;
   border: 1px solid rgba(0, 0, 0, 0.14);
   background: rgba(255, 255, 255, 0.28);
-  padding: 1.05rem 1rem;
+  padding: 0.65rem 0.85rem;
   cursor: pointer;
   border-radius: 14px;
   opacity: 0.98;
@@ -523,7 +523,7 @@
   }
 
   .drawer-lang-btn {
-    padding: 1rem 0.95rem;
+    padding: 0.62rem 0.85rem;
     border-radius: 14px;
   }
 }
@@ -561,7 +561,7 @@
   }
 
   .drawer-lang-btn {
-    padding: 0.95rem 0.9rem;
+    padding: 0.6rem 0.8rem;
     border-radius: 13px;
   }
 }
@@ -603,7 +603,7 @@
   }
 
   .drawer-lang-btn {
-    padding: 0.9rem 0.85rem;
+    padding: 0.55rem 0.75rem;
     border-radius: 12px;
   }
 }
