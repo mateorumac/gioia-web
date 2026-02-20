@@ -187,18 +187,54 @@ function TrainingSignupSection() {
   const showToast = (status) => {
     setFormStatus(status);
     if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
-    toastTimerRef.current = setTimeout(() => setFormStatus(null), 3500);
+    toastTimerRef.current = setTimeout(() => setFormStatus(null), 4000);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    showToast({
-      type: "info",
-      message: t(
-        "booking.infoMessage",
-        "Za sada kontaktirajte nas direktno na gioiareformer@gmail.com ili 095 389 6809"
-      ),
-    });
+    const form = e.target;
+    setFormStatus({ type: "loading" });
+
+    const data = Object.fromEntries(new FormData(form));
+
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/gioiareformer@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          ...data,
+          _subject: "Nova prijava za trening — Gioia Studio",
+          _captcha: "false",
+          _replyto: data.email,
+        }),
+      });
+
+      const json = await res.json();
+
+      if (json.success === "true" || json.success === true) {
+        showToast({
+          type: "success",
+          message: t("booking.successMessage", "Upit je poslan! Javit ćemo se unutar 24 sata."),
+        });
+        form.reset();
+        setType("");
+        setTime("");
+        setExperience("");
+      } else {
+        showToast({
+          type: "error",
+          message: t("booking.errorMessage", "Nešto je pošlo po krivu. Pokušajte ponovo ili nas kontaktirajte direktno."),
+        });
+      }
+    } catch {
+      showToast({
+        type: "error",
+        message: t("booking.errorMessage", "Nešto je pošlo po krivu. Pokušajte ponovo ili nas kontaktirajte direktno."),
+      });
+    }
   };
 
   return (
@@ -336,8 +372,12 @@ function TrainingSignupSection() {
             />
           </div>
 
-          <button type="submit" className="tss-submit">
-            Pošalji upit za termin
+          <button
+            type="submit"
+            className="tss-submit"
+            disabled={formStatus?.type === "loading"}
+          >
+            {formStatus?.type === "loading" ? "Slanje..." : "Pošalji upit za termin"}
           </button>
           <p className="tss-microcopy">Bez obveze. Bez članarine. Samo dogovor.</p>
         </form>

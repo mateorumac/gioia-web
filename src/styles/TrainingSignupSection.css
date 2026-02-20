@@ -273,6 +273,11 @@
   background: #68705a; /* subtle darkening — no glow */
 }
 
+.tss-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* ── Microcopy ──────────────────────────── */
 
 .tss-microcopy {

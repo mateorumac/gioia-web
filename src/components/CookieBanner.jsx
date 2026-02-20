@@ -120,105 +120,79 @@ export default function CookieBanner() {
         <FaCookieBite size={17} />
       </button>
 
-      {/* ── Modal ── */}
-      {open && (
+      {/* ── Banner — bottom strip (first visit) ── */}
+      {open && !showPrefs && (
+        <div className="cb__panel" role="dialog" aria-modal="true" aria-label={t.title}>
+          <div className="cb__panel-inner">
+            <div className="cb__panel-body">
+              <h2 className="cb__title">{t.title}</h2>
+              <p className="cb__text">
+                {t.text}{" "}
+                <a href={t.cookieLink} className="cb__link">{t.cookieLinkText}</a>
+                {" · "}
+                <a href={t.privacyLink} className="cb__link">{t.privacyLinkText}</a>
+              </p>
+            </div>
+            <div className="cb__panel-actions">
+              <button className="cb__btn cb__btn--reject" onClick={handleReject}>
+                {t.reject}
+              </button>
+              <button className="cb__btn cb__btn--accept" onClick={handleAccept}>
+                {t.accept}
+              </button>
+              <button className="cb__settings-link" onClick={openPrefsFromBanner}>
+                {t.settings}
+              </button>
+            </div>
+            <button className="cb__close cb__panel-close" onClick={handleClose} aria-label={t.close}>
+              ×
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* ── Preferences — centered modal ── */}
+      {open && showPrefs && (
         <>
           <div className="cb__overlay" onClick={handleClose} aria-hidden="true" />
-
-          <div
-            className="cb__modal"
-            role="dialog"
-            aria-modal="true"
-            aria-label={t.title}
-          >
-            {/* Header */}
+          <div className="cb__modal" role="dialog" aria-modal="true" aria-label={t.title}>
             <div className="cb__modal-header">
               <h2 className="cb__title">{t.title}</h2>
-              <button
-                className="cb__close"
-                onClick={handleClose}
-                aria-label={t.close}
-              >
+              <button className="cb__close" onClick={handleClose} aria-label={t.close}>
                 ×
               </button>
             </div>
-
-            {!showPrefs ? (
-              /* ── Banner view ── */
-              <>
-                <div className="cb__modal-body">
-                  <p className="cb__text">
-                    {t.text}{" "}
-                    <a href={t.cookieLink} className="cb__link">
-                      {t.cookieLinkText}
-                    </a>
-                    {" · "}
-                    <a href={t.privacyLink} className="cb__link">
-                      {t.privacyLinkText}
-                    </a>
-                  </p>
+            <div className="cb__modal-body">
+              <div className="cb__row cb__row--disabled">
+                <div className="cb__row-info">
+                  <span className="cb__row-name">{t.necessary}</span>
+                  <span className="cb__row-desc">{t.necessaryDesc}</span>
                 </div>
-                <div className="cb__modal-footer">
-                  <button className="cb__btn cb__btn--reject" onClick={handleReject}>
-                    {t.reject}
-                  </button>
-                  <button className="cb__btn cb__btn--accept" onClick={handleAccept}>
-                    {t.accept}
-                  </button>
+                <span className="cb__toggle cb__toggle--on cb__toggle--static" aria-label={t.alwaysOn}>
+                  <span className="cb__toggle-track"><span className="cb__toggle-thumb" /></span>
+                </span>
+              </div>
+              <div className="cb__row">
+                <div className="cb__row-info">
+                  <span className="cb__row-name">{t.analytics}</span>
+                  <span className="cb__row-desc">{t.analyticsDesc}</span>
                 </div>
-                <div className="cb__modal-settings-row">
-                  <button className="cb__settings-link" onClick={openPrefsFromBanner}>
-                    {t.settings}
-                  </button>
-                </div>
-              </>
-            ) : (
-              /* ── Preferences view ── */
-              <>
-                <div className="cb__modal-body">
-                  {/* Necessary — always on */}
-                  <div className="cb__row cb__row--disabled">
-                    <div className="cb__row-info">
-                      <span className="cb__row-name">{t.necessary}</span>
-                      <span className="cb__row-desc">{t.necessaryDesc}</span>
-                    </div>
-                    <span
-                      className="cb__toggle cb__toggle--on cb__toggle--static"
-                      aria-label={t.alwaysOn}
-                    >
-                      <span className="cb__toggle-track">
-                        <span className="cb__toggle-thumb" />
-                      </span>
-                    </span>
-                  </div>
-
-                  {/* Analytics — toggleable */}
-                  <div className="cb__row">
-                    <div className="cb__row-info">
-                      <span className="cb__row-name">{t.analytics}</span>
-                      <span className="cb__row-desc">{t.analyticsDesc}</span>
-                    </div>
-                    <button
-                      role="switch"
-                      aria-checked={analyticsToggle}
-                      className={`cb__toggle${analyticsToggle ? " cb__toggle--on" : ""}`}
-                      onClick={() => setAnalyticsToggle((v) => !v)}
-                      aria-label={t.analytics}
-                    >
-                      <span className="cb__toggle-track">
-                        <span className="cb__toggle-thumb" />
-                      </span>
-                    </button>
-                  </div>
-                </div>
-
-                <div className="cb__modal-footer cb__modal-footer--center">
-                  <button className="cb__btn cb__btn--accept cb__btn--full" onClick={handleSave}>
-                    {t.save}
-                  </button>
-                </div>
-              </>
-            )}
+                <button
+                  role="switch"
+                  aria-checked={analyticsToggle}
+                  className={`cb__toggle${analyticsToggle ? " cb__toggle--on" : ""}`}
+                  onClick={() => setAnalyticsToggle((v) => !v)}
+                  aria-label={t.analytics}
+                >
+                  <span className="cb__toggle-track"><span className="cb__toggle-thumb" /></span>
+                </button>
+              </div>
+            </div>
+            <div className="cb__modal-footer cb__modal-footer--center">
+              <button className="cb__btn cb__btn--accept cb__btn--full" onClick={handleSave}>
+                {t.save}
+              </button>
+            </div>
           </div>
         </>
       )}
