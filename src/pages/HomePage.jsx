@@ -6,6 +6,7 @@ import ClassesSection from "../components/ClassesSection";
 import TrainingSignupSection from "../components/TrainingSignupSection";
 import TeamSection from "../components/TeamSection";
 import ReviewsSection from "../components/ReviewsSection";
+import PressSection from "../components/PressSection";
 import GallerySection from "../components/GallerySection";
 import ContactSection from "../components/ContactSection";
 import QuoteSection from "../components/QuoteSection";
@@ -91,6 +92,7 @@ function HomePage() {
       <QuoteSection />
       <TeamSection />
       <ReviewsSection />
+      <PressSection />
       <GallerySection />
       <ContactSection />
     </div>
