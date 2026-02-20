@@ -53,13 +53,13 @@ function PrivacyPage() {
               prvog termina treninga. Prikupljaju se sljedeći podaci:
             </p>
             <ul>
-              <li>Ime i prezime</li>
-              <li>E-mail adresa</li>
-              <li>Broj mobitela</li>
-              <li>Vrsta treninga</li>
-              <li>Željeno vrijeme termina</li>
-              <li>Iskustvo s pilatesom</li>
-              <li>Dodatne napomene (neobavezno)</li>
+              <li>Ime i prezime.</li>
+              <li>E-mail adresa.</li>
+              <li>Broj mobitela.</li>
+              <li>Vrsta treninga.</li>
+              <li>Željeno vrijeme termina.</li>
+              <li>Iskustvo s pilatesom.</li>
+              <li>Dodatne napomene (neobavezno).</li>
             </ul>
             <p>
               Stranica ne koristi obrasce za kontakt, registraciju, prijavu
@@ -69,9 +69,9 @@ function PrivacyPage() {
             <h2>3. Svrha obrade podataka</h2>
             <p>Vaše podatke koristimo isključivo za:</p>
             <ul>
-              <li>Organizaciju i potvrdu prvog termina treninga</li>
-              <li>Kontaktiranje vezano uz rezervaciju</li>
-              <li>Pripremu treninga prema vašem iskustvu i potrebama</li>
+              <li>Organizaciju i potvrdu prvog termina treninga.</li>
+              <li>Kontaktiranje vezano uz rezervaciju.</li>
+              <li>Pripremu treninga prema vašem iskustvu i potrebama.</li>
             </ul>
             <p>
               Podaci se <strong>ne koriste</strong> za marketing, newsletter,
@@ -86,11 +86,26 @@ function PrivacyPage() {
               automatska obrada podataka.
             </p>
 
+            <h3>Rok čuvanja podataka</h3>
+            <p>
+              Podaci zaprimljeni putem forme koriste se isključivo za
+              organizaciju prvog termina i komunikaciju vezanu uz rezervaciju.
+              Ako ne dođe do daljnje suradnje, podaci se brišu u razumnom roku
+              nakon završetka komunikacije, a najdulje 12 mjeseci od posljednjeg
+              kontakta, osim ako zakonski propisi nalažu dulje čuvanje. Ako
+              postanete polaznik studija, podaci se mogu zadržati u skladu s
+              poslovnim i zakonskim obvezama.
+            </p>
+
             <h2>5. Pravna osnova za obradu</h2>
             <p>
               Vaše podatke obrađujemo na temelju vašeg pristanka, koji
               izražavate dobrovoljnim ispunjavanjem i slanjem forme. Podatke
               koristimo samo u svrhu zbog koje su prikupljeni.
+            </p>
+            <p>
+              Privolu možete povući u bilo kojem trenutku slanjem zahtjeva na{" "}
+              <a href="mailto:info@gioia.hr">info@gioia.hr</a>.
             </p>
 
             <h2>6. Maloljetnici</h2>
@@ -109,6 +124,11 @@ function PrivacyPage() {
               Meta Pixel, Google Ads remarketing ni bilo koji drugi alat za
               praćenje korisnika u oglašavačke svrhe.
             </p>
+            <p>
+              Google može obrađivati podatke na poslužiteljima izvan Europske
+              unije, uključujući Sjedinjene Američke Države, uz primjenu
+              odgovarajućih zaštitnih mjera sukladno GDPR-u.
+            </p>
 
             <h2>8. Hosting i sigurnost</h2>
             <p>
@@ -117,17 +137,22 @@ function PrivacyPage() {
               infrastrukture i može procesirati prometne podatke u skladu s
               vlastitom politikom privatnosti.
             </p>
+            <p>
+              Mogući prijenos podataka izvan Europske unije provodi se uz
+              primjenu odgovarajućih zaštitnih mehanizama sukladno važećim
+              propisima.
+            </p>
 
             <h2>9. Vaša prava (GDPR)</h2>
             <p>
               Sukladno Uredbi (EU) 2016/679 (GDPR), imate sljedeća prava:
             </p>
             <ul>
-              <li>Pravo pristupa – možete zatražiti uvid u podatke koje čuvamo o vama</li>
-              <li>Pravo ispravka – možete zatražiti ispravak netočnih podataka</li>
-              <li>Pravo brisanja – možete zatražiti brisanje svojih podataka</li>
-              <li>Pravo na prigovor – možete se protiviti obradi vaših podataka</li>
-              <li>Pravo na pritužbu – imate pravo podnijeti pritužbu nadzornom tijelu (AZOP, <a href="https://azop.hr" target="_blank" rel="noopener noreferrer">azop.hr</a>)</li>
+              <li>Pravo pristupa: možete zatražiti uvid u podatke koje čuvamo o vama.</li>
+              <li>Pravo ispravka: možete zatražiti ispravak netočnih podataka.</li>
+              <li>Pravo brisanja: možete zatražiti brisanje svojih podataka.</li>
+              <li>Pravo na prigovor: možete se protiviti obradi vaših podataka.</li>
+              <li>Pravo na pritužbu: imate pravo podnijeti pritužbu nadzornom tijelu (AZOP, <a href="https://azop.hr" target="_blank" rel="noopener noreferrer">azop.hr</a>).</li>
             </ul>
             <p>
               Za ostvarivanje prava kontaktirajte nas na:{" "}
@@ -141,7 +166,13 @@ function PrivacyPage() {
               <a href="/hr/cookies">Politici kolačića</a>.
             </p>
 
-            <h2>11. Izmjene politike</h2>
+            <h2>11. Automatizirano donošenje odluka</h2>
+            <p>
+              Ne provodimo automatizirano donošenje odluka niti profiliranje
+              korisnika.
+            </p>
+
+            <h2>12. Izmjene politike</h2>
             <p>
               Zadržavamo pravo izmjene ove politike. Sve promjene bit će
               objavljene na ovoj stranici s ažuriranim datumom.

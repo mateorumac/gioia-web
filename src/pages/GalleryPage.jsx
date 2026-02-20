@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { allGalleryImages } from "../utils/images";
 import patternBg from "../assets/green-pattern-bg.png";
 import "../styles/Gallery.css";
@@ -20,6 +22,8 @@ const modalContent = {
 
 function GalleryPage() {
   const { t } = useTranslation();
+  const location = useLocation();
+  const isHR = location.pathname.split("/")[1] !== "en";
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -63,6 +67,22 @@ function GalleryPage() {
 
   return (
     <div className="gp">
+      <Helmet>
+        <title>
+          {isHR
+            ? "Galerija | Gioia Reformer Pilates Studio"
+            : "Gallery | Gioia Reformer Pilates Studio"}
+        </title>
+        <meta
+          name="description"
+          content={
+            isHR
+              ? "Pogledajte fotografije Gioia Reformer Pilates Studija u Puli. Studio, oprema i atmosfera naših treninga na reformeru."
+              : "Browse photos of Gioia Reformer Pilates Studio in Pula. Studio space, equipment and the atmosphere of our reformer sessions."
+          }
+        />
+      </Helmet>
+
       {/* Pattern — sits behind everything, full page height */}
       <div className="gp__pattern" style={{ backgroundImage: `url(${patternBg})` }} />
 

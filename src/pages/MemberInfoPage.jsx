@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import { membersHero, allGalleryImages } from "../utils/images";
@@ -19,6 +20,21 @@ function MemberInfoPage() {
 
   return (
     <div className="mi__page">
+      <Helmet>
+        <title>
+          {currentLang === "en"
+            ? "Members | Gioia Reformer Pilates Studio"
+            : "Članice | Gioia Reformer Pilates Studio"}
+        </title>
+        <meta
+          name="description"
+          content={
+            currentLang === "en"
+              ? "Meet the members of Gioia Reformer Pilates Studio in Pula. A welcoming community built around reformer pilates."
+              : "Upoznajte članice Gioia Reformer Pilates Studija u Puli. Zajednica izgrađena oko treninga na reformeru."
+          }
+        />
+      </Helmet>
 
       {/* ── Hero ── */}
       <section className="mi__hero">
