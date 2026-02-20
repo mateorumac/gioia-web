@@ -55,6 +55,7 @@
   max-width: 260px;
   width: 100%;
   height: auto;
+  aspect-ratio: 520 / 255;
   opacity: 0.9;
 }
 
