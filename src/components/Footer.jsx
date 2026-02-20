@@ -8,7 +8,7 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-import mainLogo from "../assets/logos/main-logo.png";
+import mainLogo from "../assets/logos/main-logo.webp";
 // import Toast from "../components/Toast.jsx";
 import "../styles/Footer.css";
 import { fadeUp, staggerContainer, viewport } from "../animations/motionPresets";
@@ -58,6 +58,8 @@ function Footer() {
               src={mainLogo}
               alt="Gioia Studio"
               className="footer-brand-logo-editorial"
+              width="520"
+              height="255"
             />
           </motion.div>
 

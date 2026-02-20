@@ -50,10 +50,10 @@ function HomePage() {
       <section className="hero">
         <div className="hero-bg">
           <div className="hero-bg-left">
-            <img src={heroLeft} alt="" className="hero-bg-img" fetchpriority="high" />
+            <img src={heroLeft} alt="" className="hero-bg-img" fetchpriority="high" width="2048" height="1363" />
           </div>
           <div className="hero-bg-right">
-            <img src={heroRight} alt="" className="hero-bg-img hero-bg-img--mirrored" fetchpriority="high" />
+            <img src={heroRight} alt="" className="hero-bg-img hero-bg-img--mirrored" fetchpriority="high" width="5739" height="3818" />
           </div>
           <div className="hero-bg-overlay" />
         </div>

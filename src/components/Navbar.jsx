@@ -1,9 +1,9 @@
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import navLogo from "../assets/logos/nav-logo.png";
-import hrFlag from "../assets/icons/croatia.png";
-import enFlag from "../assets/icons/uk.png";
+import navLogo from "../assets/logos/nav-logo.webp";
+import hrFlag from "../assets/icons/croatia.webp";
+import enFlag from "../assets/icons/uk.webp";
 import "../styles/Navbar.css";
 
 function Navbar() {
@@ -189,7 +189,7 @@ function Navbar() {
             className="site-logo"
             aria-label="Gioia Studio"
           >
-            <img className="site-logo-img" src={navLogo} alt="Gioia Studio" />
+            <img className="site-logo-img" src={navLogo} alt="Gioia Studio" width="128" height="112" />
           </NavLink>
 
           <div className="right desktop-only">
@@ -251,6 +251,8 @@ function Navbar() {
                   className="lang-flag"
                   src={langMeta.flag}
                   alt={langMeta.code}
+                  width="48"
+                  height="48"
                 />
                 <span className="lang-code">{langMeta.code}</span>
                 <span className="lang-caret" aria-hidden="true">
@@ -279,6 +281,8 @@ function Navbar() {
                         className="lang-flag"
                         src={opt.flag}
                         alt={opt.code}
+                        width="48"
+                        height="48"
                       />
                       <span className="lang-option-text">
                         <span className="lang-option-name">{opt.name}</span>
@@ -357,7 +361,7 @@ function Navbar() {
                 setDrawerOpen(false);
               }}
             >
-              <img className="lang-flag" src={hrFlag} alt="HR" />
+              <img className="lang-flag" src={hrFlag} alt="HR" width="48" height="48" />
               <span>Hrvatski</span>
             </button>
 
@@ -369,7 +373,7 @@ function Navbar() {
                 setDrawerOpen(false);
               }}
             >
-              <img className="lang-flag" src={enFlag} alt="EN" />
+              <img className="lang-flag" src={enFlag} alt="EN" width="48" height="48" />
               <span>English</span>
             </button>
           </div>
