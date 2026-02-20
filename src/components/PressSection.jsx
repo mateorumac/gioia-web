@@ -37,26 +37,37 @@ function PressSection() {
         </motion.div>
 
         <motion.div
-          className="pressSection__grid"
+          className="pressSection__articles"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
         >
-          {pressItems.map((item) => (
-            <motion.a
-              key={item.source}
-              className="pressSection__card"
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              variants={fadeUp}
-            >
-              <span className="pressSection__source">{item.source}</span>
-              <p className="pressSection__desc">{item.description}</p>
-              <span className="pressSection__cta">Pročitaj članak →</span>
-            </motion.a>
-          ))}
+          <motion.a
+            className="pressSection__article pressSection__article--primary"
+            href={pressItems[0].url}
+            target="_blank"
+            rel="noopener noreferrer"
+            variants={fadeUp}
+          >
+            <span className="pressSection__source">{pressItems[0].source}</span>
+            <p className="pressSection__desc">{pressItems[0].description}</p>
+            <span className="pressSection__cta">Pročitaj članak →</span>
+          </motion.a>
+
+          <div className="pressSection__divider" aria-hidden="true" />
+
+          <motion.a
+            className="pressSection__article pressSection__article--secondary"
+            href={pressItems[1].url}
+            target="_blank"
+            rel="noopener noreferrer"
+            variants={fadeUp}
+          >
+            <span className="pressSection__source">{pressItems[1].source}</span>
+            <p className="pressSection__desc">{pressItems[1].description}</p>
+            <span className="pressSection__cta">Pročitaj članak →</span>
+          </motion.a>
         </motion.div>
       </div>
     </section>

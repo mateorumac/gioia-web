@@ -155,13 +155,12 @@
   text-align: left;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
   backdrop-filter: blur(8px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.55s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
 }
 
 .testimonialsSection__card:hover {
-  transform: translateY(-3px);
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
 }
 

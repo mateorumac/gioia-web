@@ -116,6 +116,8 @@ function ReviewsSection() {
               key={t.id}
               className="testimonialsSection__card"
               variants={fadeUp}
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1], type: "tween" }}
             >
               <p className="testimonialsSection__cardText">{t.text}</p>
               <div className="testimonialsSection__cardFooter">
