@@ -44,7 +44,7 @@ function TermsPage() {
               <br />
               OIB: 63943975584 | MBS: 98984284
               <br />
-              E-mail: <a href="mailto:info@gioia.hr">info@gioia.hr</a>
+              E-mail: <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a>
             </p>
             <p>
               Korištenjem web stranice prihvaćate ove uvjete. Ako se s njima ne
@@ -71,7 +71,7 @@ function TermsPage() {
             </p>
             <p>
               Otkazivanje je moguće putem e-maila na{" "}
-              <a href="mailto:info@gioia.hr">info@gioia.hr</a> ili izravnim
+              <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a> ili izravnim
               kontaktom s instruktoricom.
             </p>
 
@@ -158,7 +158,7 @@ function TermsPage() {
             <p>
               Za sva pitanja vezana uz uvjete korištenja:
               <br />
-              E-mail: <a href="mailto:info@gioia.hr">info@gioia.hr</a>
+              E-mail: <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a>
               <br />
               Adresa: Ulica Verudella 8, 52100 Pula, Hrvatska
             </p>
@@ -175,7 +175,7 @@ function TermsPage() {
               <br />
               OIB: 63943975584 | MBS: 98984284
               <br />
-              E-mail: <a href="mailto:info@gioia.hr">info@gioia.hr</a>
+              E-mail: <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a>
             </p>
             <p>
               By using this website you accept these terms. If you disagree,
@@ -202,7 +202,7 @@ function TermsPage() {
             </p>
             <p>
               Cancellations can be made via e-mail at{" "}
-              <a href="mailto:info@gioia.hr">info@gioia.hr</a> or by contacting
+              <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a> or by contacting
               the instructor directly.
             </p>
 
@@ -291,7 +291,7 @@ function TermsPage() {
             <p>
               For questions regarding these terms:
               <br />
-              E-mail: <a href="mailto:info@gioia.hr">info@gioia.hr</a>
+              E-mail: <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a>
               <br />
               Address: Ulica Verudella 8, 52100 Pula, Croatia
             </p>

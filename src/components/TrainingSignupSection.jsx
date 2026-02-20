@@ -196,7 +196,7 @@ function TrainingSignupSection() {
       type: "info",
       message: t(
         "booking.infoMessage",
-        "Za sada kontaktirajte nas direktno na info@gioia.hr ili 095 389 6809"
+        "Za sada kontaktirajte nas direktno na gioiareformer@gmail.com ili 095 389 6809"
       ),
     });
   };

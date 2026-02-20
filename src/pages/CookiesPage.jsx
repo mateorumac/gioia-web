@@ -166,7 +166,7 @@ function CookiesPage() {
             <p>
               Za dodatne informacije o korištenju kolačića možete nam se
               obratiti na:{" "}
-              <a href="mailto:info@gioia.hr">info@gioia.hr</a>
+              <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a>
             </p>
             <p>
               Za više informacija o obradi osobnih podataka pogledajte našu{" "}
@@ -281,7 +281,7 @@ function CookiesPage() {
               our <a href="/en/privacy">Privacy Policy</a>.
               <br />
               For questions:{" "}
-              <a href="mailto:info@gioia.hr">info@gioia.hr</a>
+              <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a>
             </p>
           </>
         )}

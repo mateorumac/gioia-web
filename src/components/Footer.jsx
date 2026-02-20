@@ -107,7 +107,7 @@ function Footer() {
                 </li>
                 <li>
                   <FaEnvelope />
-                  <a href="mailto:info@gioia.hr">info@gioia.hr</a>
+                  <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a>
                 </li>
               </ul>
 

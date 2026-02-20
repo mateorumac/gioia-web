@@ -32,7 +32,7 @@ function GDPRPage() {
               <strong>Adresa:</strong> Verudela 8, 52100 Pula, Hrvatska
               <br />
               <strong>Email:</strong>{" "}
-              <a href="mailto:info@gioia.hr">info@gioia.hr</a>
+              <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a>
               <br />
               <strong>Telefon:</strong>{" "}
               <a href="tel:+385953896809">095 389 6809</a>
@@ -103,7 +103,7 @@ function GDPRPage() {
             </p>
             <ul>
               <li>
-                Email: <a href="mailto:info@gioia.hr">info@gioia.hr</a>
+                Email: <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a>
               </li>
               <li>
                 Telefon: <a href="tel:+385953896809">095 389 6809</a>
@@ -232,7 +232,7 @@ function GDPRPage() {
               <strong>Address:</strong> Verudela 8, 52100 Pula, Croatia
               <br />
               <strong>Email:</strong>{" "}
-              <a href="mailto:info@gioia.hr">info@gioia.hr</a>
+              <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a>
               <br />
               <strong>Phone:</strong>{" "}
               <a href="tel:+385953896809">095 389 6809</a>
@@ -302,7 +302,7 @@ function GDPRPage() {
             </p>
             <ul>
               <li>
-                Email: <a href="mailto:info@gioia.hr">info@gioia.hr</a>
+                Email: <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a>
               </li>
               <li>
                 Phone: <a href="tel:+385953896809">095 389 6809</a>

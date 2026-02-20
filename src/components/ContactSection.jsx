@@ -113,8 +113,8 @@ function ContactSection() {
             <p>
               <strong>E-mail:</strong>
               <br />
-              <a href="mailto:info@gioia.hr" className="contact-link-editorial">
-                info@gioia.hr
+              <a href="mailto:gioiareformer@gmail.com" className="contact-link-editorial">
+                gioiareformer@gmail.com
               </a>
             </p>
           </div>

@@ -44,7 +44,7 @@ function PrivacyPage() {
               <br />
               OIB: 63943975584 | MBS: 98984284
               <br />
-              E-mail: <a href="mailto:info@gioia.hr">info@gioia.hr</a>
+              E-mail: <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a>
             </p>
 
             <h2>2. Koje podatke prikupljamo i na koji način</h2>
@@ -105,7 +105,7 @@ function PrivacyPage() {
             </p>
             <p>
               Privolu možete povući u bilo kojem trenutku slanjem zahtjeva na{" "}
-              <a href="mailto:info@gioia.hr">info@gioia.hr</a>.
+              <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a>.
             </p>
 
             <h2>6. Maloljetnici</h2>
@@ -156,7 +156,7 @@ function PrivacyPage() {
             </ul>
             <p>
               Za ostvarivanje prava kontaktirajte nas na:{" "}
-              <a href="mailto:info@gioia.hr">info@gioia.hr</a>
+              <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a>
             </p>
 
             <h2>10. Kolačići</h2>
@@ -190,7 +190,7 @@ function PrivacyPage() {
               <br />
               OIB: 63943975584 | MBS: 98984284
               <br />
-              E-mail: <a href="mailto:info@gioia.hr">info@gioia.hr</a>
+              E-mail: <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a>
             </p>
 
             <h2>2. What Data We Collect and How</h2>
@@ -276,7 +276,7 @@ function PrivacyPage() {
             </ul>
             <p>
               To exercise your rights, contact us at:{" "}
-              <a href="mailto:info@gioia.hr">info@gioia.hr</a>
+              <a href="mailto:gioiareformer@gmail.com">gioiareformer@gmail.com</a>
             </p>
 
             <h2>10. Cookies</h2>
