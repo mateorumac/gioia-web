@@ -1,12 +1,21 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 import { membersHero, allGalleryImages } from "../utils/images";
-import { fadeUp, imageReveal, staggerContainer, viewport } from "../animations/motionPresets";
-import patternBg from "../assets/green-pattern-bg.png";
+import {
+  fadeUp,
+  imageReveal,
+  lineReveal,
+  staggerContainer,
+  viewport,
+} from "../animations/motionPresets";
 import "../styles/MemberInfo.css";
 
 function MemberInfoPage() {
   const { t } = useTranslation();
+  const location = useLocation();
+  const currentLang = location.pathname.split("/")[1] === "en" ? "en" : "hr";
+  const contactHref = `/${currentLang}/#contact`;
 
   return (
     <div className="mi__page">
@@ -26,7 +35,7 @@ function MemberInfoPage() {
           initial="hidden"
           animate="visible"
         >
-          <motion.p className="mi__eyebrow" variants={fadeUp}>
+          <motion.p className="mi__hero-eyebrow" variants={fadeUp}>
             {t("members.eyebrow", "Digitalni alati")}
           </motion.p>
           <motion.h1 className="mi__hero-title" variants={fadeUp}>
@@ -39,6 +48,7 @@ function MemberInfoPage() {
       <section className="mi__intro">
         <div className="mi__container">
           <div className="mi__intro-grid">
+
             <motion.div
               className="mi__intro-text"
               variants={staggerContainer}
@@ -46,9 +56,14 @@ function MemberInfoPage() {
               whileInView="visible"
               viewport={viewport}
             >
-              <motion.p className="mi__section-eyebrow" variants={fadeUp}>
+              <motion.p className="mi__eyebrow" variants={fadeUp}>
                 {t("members.introEyebrow", "Za naše članice")}
               </motion.p>
+              <motion.div
+                className="mi__rule"
+                variants={lineReveal}
+                style={{ transformOrigin: "left center" }}
+              />
               <motion.h2 className="mi__section-title" variants={fadeUp}>
                 {t("members.introTitle", "Vaš trening, vaš raspored")}
               </motion.h2>
@@ -73,6 +88,7 @@ function MemberInfoPage() {
                 loading="lazy"
               />
             </motion.div>
+
           </div>
         </div>
       </section>
@@ -129,17 +145,18 @@ function MemberInfoPage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <motion.section
-        className="mi__cta"
-        style={{ "--pattern-bg": `url(${patternBg})` }}
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewport}
-      >
-        <div className="mi__cta-veil" />
-        <div className="mi__cta-content">
+      {/* ── CTA — sage panel ── */}
+      <section className="mi__cta">
+        <motion.div
+          className="mi__cta-content"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
+          <motion.p className="mi__cta-eyebrow" variants={fadeUp}>
+            {t("members.ctaEyebrow", "Aplikacija")}
+          </motion.p>
           <motion.h2 className="mi__cta-title" variants={fadeUp}>
             {t("members.ctaTitle", "Pristupite aplikaciji")}
           </motion.h2>
@@ -159,13 +176,14 @@ function MemberInfoPage() {
               {t("members.appButton", "Otvori aplikaciju")}
             </a>
           </motion.div>
-        </div>
-      </motion.section>
+        </motion.div>
+      </section>
 
       {/* ── Help ── */}
       <section className="mi__help">
         <div className="mi__container">
           <div className="mi__help-grid">
+
             <motion.div
               className="mi__help-image"
               variants={imageReveal}
@@ -187,6 +205,14 @@ function MemberInfoPage() {
               whileInView="visible"
               viewport={viewport}
             >
+              <motion.p className="mi__eyebrow" variants={fadeUp}>
+                {t("members.helpEyebrow", "Početnice")}
+              </motion.p>
+              <motion.div
+                className="mi__rule"
+                variants={lineReveal}
+                style={{ transformOrigin: "left center" }}
+              />
               <motion.h3 className="mi__help-title" variants={fadeUp}>
                 {t("members.helpTitle", "Nova ste u studiju?")}
               </motion.h3>
@@ -197,11 +223,13 @@ function MemberInfoPage() {
                 )}
               </motion.p>
               <motion.div variants={fadeUp}>
-                <a href="#contact" className="mi__contact-link">
-                  {t("members.contactLink", "Kontaktirajte nas")} →
+                <a href={contactHref} className="mi__contact-link">
+                  <span>{t("members.contactLink", "Kontaktirajte nas")}</span>
+                  <span className="mi__contact-arrow" aria-hidden="true">→</span>
                 </a>
               </motion.div>
             </motion.div>
+
           </div>
         </div>
       </section>

@@ -7,16 +7,18 @@
   background-color: var(--color-white);
 }
 
-/* ── Hero ── */
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
 
 .mi__hero {
   position: relative;
   width: 100%;
-  height: 78vh;
-  min-height: 540px;
+  height: 88vh;
+  min-height: 620px;
   overflow: hidden;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
 }
 
@@ -24,50 +26,55 @@
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center 30%;
+  background-position: center 65%;
   background-repeat: no-repeat;
 }
 
+/* Diagonal gradient — reads naturally, not a flat dark veil */
 .mi__hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.08) 0%,
-    rgba(0, 0, 0, 0.18) 50%,
-    rgba(0, 0, 0, 0.58) 100%
+    160deg,
+    rgba(0, 0, 0, 0.06) 0%,
+    rgba(0, 0, 0, 0.22) 45%,
+    rgba(0, 0, 0, 0.54) 100%
   );
 }
 
+/* Slightly above true center via negative margin */
 .mi__hero-content {
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 0 2rem 5rem;
-  max-width: 860px;
+  padding: 0 2rem;
+  max-width: 820px;
+  margin-top: -7vh;
 }
 
-.mi__eyebrow {
+.mi__hero-eyebrow {
   font-family: var(--font-inter);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
-  margin: 0 0 1rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 1.1rem;
 }
 
 .mi__hero-title {
   font-family: var(--font-playfair);
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
   font-weight: 400;
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.18;
   color: var(--color-white);
   margin: 0;
 }
 
-/* ── Container ── */
+/* ─────────────────────────────────────────
+   SHARED UTILITIES
+───────────────────────────────────────── */
 
 .mi__container {
   max-width: 1400px;
@@ -75,16 +82,39 @@
   padding: 0 4rem;
 }
 
-/* ── Intro ── */
+/* Eyebrow label — used across sections */
+.mi__eyebrow {
+  font-family: var(--font-inter);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-sage);
+  margin: 0 0 0.85rem;
+}
+
+/* Thin decorative rule — animates from left via lineReveal */
+.mi__rule {
+  width: 44px;
+  height: 1px;
+  background: var(--color-sage);
+  opacity: 0.45;
+  margin-bottom: 1.4rem;
+}
+
+/* ─────────────────────────────────────────
+   INTRO — text + image split
+───────────────────────────────────────── */
 
 .mi__intro {
-  padding: 9rem 0 8rem;
+  padding: 8rem 0 7rem;
+  background: var(--color-white);
 }
 
 .mi__intro-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 7rem;
+  gap: 6rem;
   align-items: center;
 }
 
@@ -93,35 +123,26 @@
   flex-direction: column;
 }
 
-.mi__section-eyebrow {
-  font-family: var(--font-inter);
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-sage);
-  margin: 0 0 1rem;
-}
-
 .mi__section-title {
   font-family: var(--font-playfair);
-  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
   font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
+  letter-spacing: -0.015em;
+  line-height: 1.22;
   color: var(--color-text);
-  margin: 0 0 2rem;
+  margin: 0 0 1.8rem;
 }
 
 .mi__intro-body {
   font-family: var(--font-inter);
-  font-size: 1.05rem;
-  line-height: 1.9;
+  font-size: 0.95rem;
+  line-height: 2;
   color: var(--color-text);
-  opacity: 0.82;
+  opacity: 0.62;
   margin: 0;
 }
 
+/* Portrait image */
 .mi__intro-image {
   width: 100%;
   aspect-ratio: 4 / 5;
@@ -134,46 +155,77 @@
   object-fit: cover;
   object-position: center;
   display: block;
-  transition: transform 0.8s ease;
+  transition: transform 0.9s ease;
 }
 
 .mi__intro-image:hover img {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
-/* ── Features ── */
+/* ─────────────────────────────────────────
+   FEATURES — beige background, 3 columns
+   Divider style mirrors for-who-columns
+───────────────────────────────────────── */
 
 .mi__features {
-  padding: 0 0 9rem;
+  background: var(--color-beige);
+  padding: 7rem 0;
 }
 
 .mi__features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  padding: 6rem 0;
-  border-top: 1px solid rgba(132, 139, 121, 0.2);
-  border-bottom: 1px solid rgba(132, 139, 121, 0.2);
+  gap: 0;
 }
 
 .mi__feature {
-  padding-top: 2.5rem;
+  position: relative;
+  padding: 0 3.5rem 0 3.5rem;
 }
 
+/* First card: flush with container left edge */
+.mi__feature:first-child {
+  padding-left: 0;
+}
+
+/* Last card: flush with container right edge */
+.mi__feature:last-child {
+  padding-right: 0;
+}
+
+/* Partial-height vertical divider — matches for-who-column style */
+.mi__feature::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background: rgba(132, 139, 121, 0.28);
+  pointer-events: none;
+}
+
+.mi__feature:last-child::after {
+  display: none;
+}
+
+/* Number — visible design element, Cormorant italic at scale */
 .mi__feature-num {
   display: block;
   font-family: var(--font-cormorant);
-  font-size: 3.5rem;
+  font-size: 3.8rem;
   font-weight: 300;
+  font-style: italic;
   color: var(--color-sage);
-  opacity: 0.55;
+  opacity: 0.65;
   line-height: 1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.02em;
 }
 
 .mi__feature-title {
   font-family: var(--font-playfair);
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 400;
   letter-spacing: -0.01em;
   color: var(--color-text);
@@ -183,31 +235,34 @@
 
 .mi__feature-text {
   font-family: var(--font-inter);
-  font-size: 0.98rem;
-  line-height: 1.85;
+  font-size: 0.9rem;
+  line-height: 1.9;
   color: var(--color-text);
-  opacity: 0.78;
+  opacity: 0.6;
   margin: 0;
 }
 
-/* ── CTA ── */
+/* ─────────────────────────────────────────
+   CTA — sage panel, inverse palette
+   Mirrors the for-who-section visual language
+───────────────────────────────────────── */
 
 .mi__cta {
   position: relative;
-  padding: 9rem 4rem;
+  padding: 7rem 4rem;
   text-align: center;
   overflow: hidden;
-  background-color: var(--color-beige);
-  background-image: var(--pattern-bg);
-  background-repeat: repeat;
-  background-size: 950px;
-  background-position: center;
+  background: var(--color-sage);
 }
 
-.mi__cta-veil {
+/* Subtle radial depth — same as for-who-section */
+.mi__cta::before {
+  content: "";
   position: absolute;
   inset: 0;
-  background: rgba(236, 229, 209, 0.78);
+  background:
+    radial-gradient(ellipse at 50% 55%, rgba(255, 255, 255, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.06) 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -215,29 +270,39 @@
 .mi__cta-content {
   position: relative;
   z-index: 1;
-  max-width: 680px;
+  max-width: 620px;
   margin: 0 auto;
+}
+
+.mi__cta-eyebrow {
+  font-family: var(--font-inter);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(236, 229, 209, 0.78);
+  margin: 0 0 0.9rem;
 }
 
 .mi__cta-title {
   font-family: var(--font-playfair);
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-size: clamp(2rem, 3.8vw, 3rem);
   font-weight: 400;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   line-height: 1.2;
-  color: var(--color-sage);
-  margin: 0 0 1.5rem;
+  color: rgba(255, 255, 255, 0.96);
+  margin: 0 0 1.4rem;
 }
 
 .mi__cta-sub {
   font-family: var(--font-inter);
-  font-size: 1.05rem;
-  line-height: 1.85;
-  color: var(--color-text);
-  opacity: 0.85;
-  margin: 0 0 3rem;
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 2.8rem;
 }
 
+/* Skewed button — identical to hero CTA, inverted palette */
 .mi__cta-btn {
   display: inline-flex;
   align-items: center;
@@ -249,27 +314,29 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
-  background: var(--color-sage);
-  color: var(--color-white);
-  border: none;
+  background: var(--color-beige);
+  color: var(--color-sage);
   transform: skewX(-20deg);
   transition: background-color 0.3s ease;
 }
 
 .mi__cta-btn:hover {
-  background: #6f755f;
+  background: var(--color-white);
 }
 
-/* ── Help ── */
+/* ─────────────────────────────────────────
+   HELP — white, image left, text right
+───────────────────────────────────────── */
 
 .mi__help {
-  padding: 9rem 0 10rem;
+  background: var(--color-white);
+  padding: 8rem 0 9rem;
 }
 
 .mi__help-grid {
   display: grid;
   grid-template-columns: 42% 1fr;
-  gap: 7rem;
+  gap: 6rem;
   align-items: center;
 }
 
@@ -285,11 +352,11 @@
   object-fit: cover;
   object-position: center;
   display: block;
-  transition: transform 0.8s ease;
+  transition: transform 0.9s ease;
 }
 
 .mi__help-image:hover img {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .mi__help-text {
@@ -300,32 +367,35 @@
 
 .mi__help-title {
   font-family: var(--font-playfair);
-  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-size: clamp(1.9rem, 3.5vw, 2.5rem);
   font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
+  letter-spacing: -0.015em;
+  line-height: 1.22;
   color: var(--color-text);
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.4rem;
 }
 
 .mi__help-body {
   font-family: var(--font-inter);
-  font-size: 1.05rem;
-  line-height: 1.9;
+  font-size: 0.95rem;
+  line-height: 2;
   color: var(--color-text);
-  opacity: 0.82;
-  margin: 0 0 2.5rem;
+  opacity: 0.62;
+  margin: 0 0 2.4rem;
 }
 
+/* Contact link — arrow animates on hover, no layout shift */
 .mi__contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   font-family: var(--font-inter);
-  font-size: 1rem;
+  font-size: 0.78rem;
   font-weight: 500;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   text-decoration: none;
   color: var(--color-sage);
-  border-bottom: 1px solid var(--color-sage);
-  padding-bottom: 2px;
   transition: opacity 200ms ease;
 }
 
@@ -333,7 +403,21 @@
   opacity: 0.7;
 }
 
-/* ── Responsive ── */
+.mi__contact-arrow {
+  display: inline-block;
+  font-size: 1rem;
+  transition: transform 220ms ease;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.mi__contact-link:hover .mi__contact-arrow {
+  transform: translateX(5px);
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
 
 @media (max-width: 1200px) {
   .mi__container {
@@ -341,28 +425,46 @@
   }
 
   .mi__intro-grid {
-    gap: 5rem;
+    gap: 4.5rem;
+  }
+
+  .mi__feature {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .mi__feature:first-child {
+    padding-left: 0;
+  }
+
+  .mi__feature:last-child {
+    padding-right: 0;
   }
 
   .mi__help-grid {
-    gap: 5rem;
+    gap: 4.5rem;
   }
 
   .mi__cta {
-    padding: 7rem 3rem;
+    padding: 6rem 3rem;
   }
 }
 
 @media (max-width: 900px) {
   .mi__hero {
-    height: 62vh;
+    height: 64vh;
     min-height: 460px;
+  }
+
+  .mi__hero-content {
+    margin-top: -5vh;
   }
 
   .mi__container {
     padding: 0 2rem;
   }
 
+  /* ── Intro ── */
   .mi__intro {
     padding: 6rem 0 5rem;
   }
@@ -373,33 +475,48 @@
   }
 
   .mi__intro-image {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 3 / 2;
   }
 
+  /* ── Features ── */
   .mi__features {
-    padding: 0 0 6rem;
+    padding: 5rem 0;
   }
 
   .mi__features-grid {
     grid-template-columns: 1fr;
-    gap: 0;
-    padding: 4rem 0;
   }
 
   .mi__feature {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(132, 139, 121, 0.12);
+    padding: 2.2rem 0;
+    border-bottom: 1px solid rgba(132, 139, 121, 0.18);
+  }
+
+  .mi__feature:first-child {
+    padding-top: 0;
   }
 
   .mi__feature:last-child {
-    border-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
   }
 
+  /* Remove side padding and pseudo dividers on mobile */
+  .mi__feature::after {
+    display: none;
+  }
+
+  .mi__feature-num {
+    font-size: 3rem;
+    margin-bottom: 0.9rem;
+  }
+
+  /* ── CTA ── */
   .mi__cta {
     padding: 6rem 2rem;
   }
 
+  /* ── Help ── */
   .mi__help {
     padding: 6rem 0 7rem;
   }
@@ -410,23 +527,24 @@
   }
 
   .mi__help-image {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 3 / 2;
     order: -1;
   }
 }
 
 @media (max-width: 600px) {
   .mi__hero {
-    height: 55vh;
+    height: 58vh;
     min-height: 380px;
   }
 
   .mi__hero-content {
-    padding: 0 1.5rem 3.5rem;
+    margin-top: -4vh;
+    padding: 0 1.5rem;
   }
 
   .mi__hero-title {
-    font-size: 2rem;
+    font-size: 1.95rem;
   }
 
   .mi__container {
@@ -442,15 +560,7 @@
   }
 
   .mi__features {
-    padding: 0 0 5rem;
-  }
-
-  .mi__features-grid {
-    padding: 3rem 0;
-  }
-
-  .mi__feature-num {
-    font-size: 3rem;
+    padding: 4rem 0;
   }
 
   .mi__cta {
@@ -465,16 +575,20 @@
   .mi__help {
     padding: 5rem 0 6rem;
   }
+
+  .mi__help-image {
+    aspect-ratio: 4 / 3;
+  }
 }
 
 @media (max-width: 400px) {
   .mi__hero {
-    height: 52vh;
+    height: 54vh;
     min-height: 340px;
   }
 
   .mi__hero-title {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
   }
 
   .mi__container {
