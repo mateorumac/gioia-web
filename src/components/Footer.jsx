@@ -127,7 +127,7 @@ function Footer() {
               <ul>
                 <li>
                   <Link to={`${homeBase}/politika-privatnosti`}>
-                    {t("footer.privacy", "Politika politika-privatnostii")}
+                    {t("footer.privacy", "Politika privatnosti")}
                   </Link>
                 </li>
                 <li>

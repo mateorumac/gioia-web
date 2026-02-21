@@ -1,0 +1,187 @@
+/* ═══════════════════════════════════════════
+   404 NOT FOUND PAGE
+   ═══════════════════════════════════════════ */
+
+.notFound {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100svh - 80px);
+  background-color: var(--color-beige);
+  background-size: 320px auto;
+  background-repeat: repeat;
+  overflow: hidden;
+  /* Slight top bias to visually clear the bg404, but close to symmetric */
+  padding: 6rem 2rem 4rem;
+}
+
+/* Beige wash over the pattern — keeps it extremely subtle */
+.notFound__patternLayer {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-beige);
+  opacity: 0.93;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ghost "404" — decorative watermark, sits behind title area only */
+.notFound__bg404 {
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-cormorant);
+  font-size: clamp(5rem, 18vw, 11rem);
+  font-weight: 700;
+  color: var(--color-sage);
+  opacity: 0.08;
+  line-height: 1;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─────────────────────────────────────────
+   CONTENT
+───────────────────────────────────────── */
+
+.notFound__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notFound__eyebrow {
+  font-family: var(--font-inter);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-sage);
+  margin: 0 0 1.25rem;
+}
+
+.notFound__title {
+  font-family: var(--font-playfair);
+  font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.2;
+  margin: 3rem 0 1.5rem;
+}
+
+.notFound__subtitle {
+  font-family: var(--font-inter);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  opacity: 0.72;
+  margin: 0 0 0.6rem;
+  max-width: 480px;
+}
+
+.notFound__support {
+  font-family: var(--font-inter);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--color-sage);
+  margin: 0 0 2.75rem;
+}
+
+/* ─────────────────────────────────────────
+   BUTTONS
+───────────────────────────────────────── */
+
+.notFound__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  justify-content: center;
+}
+
+.notFound__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.82rem 2rem;
+  font-family: var(--font-inter);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: skewX(-20deg);
+  transition: background-color 0.28s ease, color 0.28s ease, border-color 0.28s ease;
+  white-space: nowrap;
+}
+
+.notFound__btn--primary {
+  background: var(--color-sage);
+  color: var(--color-white);
+  border: 1.5px solid var(--color-sage);
+}
+
+.notFound__btn--primary:hover {
+  background: #6e7566;
+  border-color: #6e7566;
+}
+
+.notFound__btn--outline {
+  background: transparent;
+  color: var(--color-sage);
+  border: 1.5px solid var(--color-sage);
+}
+
+.notFound__btn--outline:hover {
+  background: var(--color-sage);
+  color: var(--color-white);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .notFound {
+    /* More top space so bg404 clears the navbar comfortably */
+    padding: 6rem 1.5rem 3rem;
+  }
+
+  .notFound__bg404 {
+    font-size: 6rem;
+    top: 4rem;
+  }
+
+  .notFound__title {
+    /* Clears bg404 bottom (top 4rem + font 6rem = 10rem) */
+    font-size: 2.2rem;
+    margin-top: 7rem;
+  }
+
+  .notFound__subtitle {
+    font-size: 1.05rem;
+  }
+
+  .notFound__support {
+    font-size: 0.95rem;
+  }
+
+  .notFound__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .notFound__btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 1rem 2rem;
+    font-size: 0.8rem;
+  }
+}

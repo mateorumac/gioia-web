@@ -77,7 +77,7 @@ function HomePage() {
             <motion.div variants={heroFadeUp}>
               <button
                 className="hero-btn-primary"
-                onClick={() => scrollToSection("booking")}
+                onClick={() => scrollToSection("rezervacija")}
               >
                 {t("hero.ctaPrimary", "Rezerviraj termin")}
               </button>

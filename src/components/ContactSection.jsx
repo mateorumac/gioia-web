@@ -45,7 +45,7 @@ function ContactSection() {
 
   const handleScrollToBooking = (e) => {
     e.preventDefault();
-    const bookingSection = document.getElementById("booking");
+    const bookingSection = document.getElementById("rezervacija");
     if (bookingSection) {
       bookingSection.scrollIntoView({ behavior: "smooth" });
     }

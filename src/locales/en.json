@@ -237,6 +237,13 @@
     "error": "An error occurred. Please try again."
   },
   "notFound": {
-    "message": "Page not found."
+    "pageTitle": "Page not found | Gioia Reformer Pilates",
+    "eyebrow": "404",
+    "title": "Page not found",
+    "subtitle": "The page you are looking for may have been moved or no longer exists.",
+    "support": "Return to the homepage or explore our studio.",
+    "btnHome": "Back to homepage",
+    "btnAbout": "About the studio",
+    "btnBook": "Book a session"
   }
 }
