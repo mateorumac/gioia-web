@@ -64,7 +64,6 @@ function MemberInfoPage() {
       <section className="mi__intro">
         <div className="mi__container">
           <div className="mi__intro-grid">
-
             <motion.div
               className="mi__intro-text"
               variants={staggerContainer}
@@ -86,7 +85,7 @@ function MemberInfoPage() {
               <motion.p className="mi__intro-body" variants={fadeUp}>
                 {t(
                   "members.introText",
-                  "Za naše postojeće članice pripremili smo aplikaciju putem koje se jednostavno možete prijaviti na treninge, pregledati raspored i upravljati svojim terminima. Pristup aplikaciji omogućen je uz vaše korisničke podatke."
+                  "Za naše postojeće članice pripremili smo aplikaciju putem koje se jednostavno možete prijaviti na treninge, pregledati raspored i upravljati svojim terminima. Pristup aplikaciji omogućen je uz vaše korisničke podatke.",
                 )}
               </motion.p>
             </motion.div>
@@ -104,7 +103,6 @@ function MemberInfoPage() {
                 loading="lazy"
               />
             </motion.div>
-
           </div>
         </div>
       </section>
@@ -127,7 +125,7 @@ function MemberInfoPage() {
               <p className="mi__feature-text">
                 {t(
                   "members.feature1Text",
-                  "Pregledajte slobodne termine i rezervirajte svoj trening u nekoliko klikova."
+                  "Pregledajte slobodne termine i rezervirajte svoj trening u nekoliko klikova.",
                 )}
               </p>
             </motion.div>
@@ -140,7 +138,7 @@ function MemberInfoPage() {
               <p className="mi__feature-text">
                 {t(
                   "members.feature2Text",
-                  "Vaš osobni kalendar s prikazom svih nadolazećih treninga na jednom mjestu."
+                  "Vaš osobni kalendar s prikazom svih nadolazećih treninga na jednom mjestu.",
                 )}
               </p>
             </motion.div>
@@ -153,7 +151,7 @@ function MemberInfoPage() {
               <p className="mi__feature-text">
                 {t(
                   "members.feature3Text",
-                  "Lako otkazujte ili mijenjajte termine prema svojim potrebama."
+                  "Lako otkazujte ili mijenjajte termine prema svojim potrebama.",
                 )}
               </p>
             </motion.div>
@@ -161,45 +159,10 @@ function MemberInfoPage() {
         </div>
       </section>
 
-      {/* ── CTA — sage panel ── */}
-      <section className="mi__cta">
-        <motion.div
-          className="mi__cta-content"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}
-        >
-          <motion.p className="mi__cta-eyebrow" variants={fadeUp}>
-            {t("members.ctaEyebrow", "Aplikacija")}
-          </motion.p>
-          <motion.h2 className="mi__cta-title" variants={fadeUp}>
-            {t("members.ctaTitle", "Pristupite aplikaciji")}
-          </motion.h2>
-          <motion.p className="mi__cta-sub" variants={fadeUp}>
-            {t(
-              "members.ctaSubtitle",
-              "Ako ste jedna od naših redovitih članica, prijavite se s vašim korisničkim podacima."
-            )}
-          </motion.p>
-          <motion.div variants={fadeUp}>
-            <a
-              href="https://gioia-app.web.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mi__cta-btn"
-            >
-              {t("members.appButton", "Otvori aplikaciju")}
-            </a>
-          </motion.div>
-        </motion.div>
-      </section>
-
       {/* ── Help ── */}
       <section className="mi__help">
         <div className="mi__container">
           <div className="mi__help-grid">
-
             <motion.div
               className="mi__help-image"
               variants={imageReveal}
@@ -235,21 +198,21 @@ function MemberInfoPage() {
               <motion.p className="mi__help-body" variants={fadeUp}>
                 {t(
                   "members.helpText",
-                  "Ako tek počinjete s treninzima, prvo nas kontaktirajte kako bismo vam pomogli započeti vaš pilates put."
+                  "Ako tek počinjete s treninzima, prvo nas kontaktirajte kako bismo vam pomogli započeti vaš pilates put.",
                 )}
               </motion.p>
               <motion.div variants={fadeUp}>
                 <a href={contactHref} className="mi__contact-link">
                   <span>{t("members.contactLink", "Kontaktirajte nas")}</span>
-                  <span className="mi__contact-arrow" aria-hidden="true">→</span>
+                  <span className="mi__contact-arrow" aria-hidden="true">
+                    →
+                  </span>
                 </a>
               </motion.div>
             </motion.div>
-
           </div>
         </div>
       </section>
-
     </div>
   );
 }
