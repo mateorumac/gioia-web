@@ -132,6 +132,26 @@
   margin-bottom: 0;
 }
 
+/* ── Closing quote ── */
+.team-closing-quote {
+  text-align: center;
+  max-width: 700px;
+  margin: 7rem auto 0;
+  padding: 0 2rem;
+}
+
+.team-closing-quote__text {
+  font-family: var(--font-playfair);
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.75;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  opacity: 0.72;
+  margin: 0;
+}
+
 /* ── Responsive ── */
 @media (max-width: 1200px) {
   .team-section-editorial {
@@ -172,6 +192,11 @@
 @media (max-width: 600px) {
   .team-section-editorial {
     padding: 5rem 1.5rem;
+  }
+
+  .team-closing-quote {
+    max-width: 90%;
+    padding: 0;
   }
 
   .team-header-editorial {

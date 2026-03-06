@@ -97,6 +97,18 @@ function TeamSection() {
             </div>
           </motion.article>
         </motion.div>
+
+        <motion.div
+          className="team-closing-quote"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
+          <p className="team-closing-quote__text">
+            {t("team.teamQuote", "Koji god bio vaš razlog dolaska, u Gioia studiju krećemo od mjesta na kojem se trenutno nalazite i vodimo vas prema cilju koji želite ostvariti.")}
+          </p>
+        </motion.div>
       </div>
     </section>
   );
