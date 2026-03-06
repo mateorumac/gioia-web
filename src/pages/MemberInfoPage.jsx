@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
-import { membersHero, allGalleryImages } from "../utils/images";
+import { membersHero, memberIntroImage, memberHelpImage } from "../utils/images";
 import {
   fadeUp,
   imageReveal,
@@ -98,7 +98,7 @@ function MemberInfoPage() {
               viewport={viewport}
             >
               <img
-                src={allGalleryImages[15]}
+                src={memberIntroImage}
                 alt="Gioia Studio interior"
                 loading="lazy"
               />
@@ -171,7 +171,7 @@ function MemberInfoPage() {
               viewport={viewport}
             >
               <img
-                src={allGalleryImages[44]}
+                src={memberHelpImage}
                 alt="Gioia Studio"
                 loading="lazy"
               />

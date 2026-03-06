@@ -3,10 +3,10 @@ import { useTranslation } from "react-i18next";
 import "../styles/ClassesSection.css";
 import { fadeUp, imageReveal, staggerContainer, viewport } from "../animations/motionPresets";
 
-import individualTrainingImage from "../assets/images/DSC_8240.webp";
-import groupTrainingImage from "../assets/images/IMG_1588.webp";
+import individualTrainingImage from "../assets/images/DSC_5556.webp";
+import groupTrainingImage from "../assets/images/DSC_5674.webp";
 import bookingSidebar1 from "../assets/images/DSC_1394.webp";
-import beginnerTrainingImage from "../assets/images/DSC_5624 2.webp";
+import beginnerTrainingImage from "../assets/images/DSC_8240.webp";
 import patternBg from "../assets/green-pattern-bg.png";
 
 function ClassesSection() {

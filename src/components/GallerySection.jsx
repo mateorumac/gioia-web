@@ -12,7 +12,7 @@ import img4 from "../assets/images/DSC_5385.webp";
 import img5 from "../assets/images/DSC_3690.webp";
 import img7 from "../assets/images/DSC_2489.webp";
 import img8 from "../assets/images/DSC_3722.webp";
-import img6 from "../assets/images/DSC_5624 2.webp";
+import img6 from "../assets/images/DSC_5624.webp";
 import img9 from "../assets/images/DSC_5674.webp";
 
 function GallerySection() {
