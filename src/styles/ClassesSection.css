@@ -319,7 +319,7 @@
 /* ── Pricing — editorial ── */
 .pricing-editorial {
   padding: 5rem 0 4rem;
-  max-width: 1100px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -365,24 +365,17 @@
 
 .pricing-table {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
-  position: relative;
-}
-
-/* Thin vertical divider between columns */
-.pricing-table::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: rgba(132, 139, 121, 0.15);
 }
 
 .pricing-column {
-  padding: 2.5rem 3.5rem;
+  padding: 2.5rem 3rem;
+  border-right: 1px solid rgba(132, 139, 121, 0.15);
+}
+
+.pricing-column:last-child {
+  border-right: none;
 }
 
 .pricing-column__title {
@@ -445,6 +438,16 @@
   margin-left: 0.12em;
 }
 
+.pricing-item--spacer {
+  visibility: hidden;
+}
+
+@media (max-width: 900px) {
+  .pricing-item--spacer {
+    display: none;
+  }
+}
+
 
 /* ═══════════════════════════════════════════
    RESPONSIVE
@@ -476,7 +479,7 @@
   }
 
   .pricing-column {
-    padding: 2.5rem 2.5rem;
+    padding: 2.5rem 2rem;
   }
 
 }
@@ -533,17 +536,14 @@
     grid-template-columns: 1fr;
   }
 
-  .pricing-table::after {
-    display: none;
-  }
-
   .pricing-column {
     padding: 2rem 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(132, 139, 121, 0.1);
   }
 
-  .pricing-column:first-child {
-    padding-bottom: 2.5rem;
-    border-bottom: 1px solid rgba(132, 139, 121, 0.1);
+  .pricing-column:last-child {
+    border-bottom: none;
   }
 
 }

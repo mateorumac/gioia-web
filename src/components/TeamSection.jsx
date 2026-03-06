@@ -24,7 +24,7 @@ function TeamSection() {
             {t("team.title", "Trenerice koje vode vašu promjenu")}
           </motion.h2>
           <motion.p className="team-intro-editorial" variants={fadeUp}>
-            {t("team.intro", "U Gioia studiju vjerujemo da je odnos između trenerice i klijentice jedan od ključnih elemenata napretka. Svaka osoba koja dođe k nama dobiva podršku, jasne upute i osjećaj sigurnosti – bez žurbe, uspoređivanja i pritiska.")}
+            {t("team.intro", "Vjerujemo da je odnos između trenerice i klijentice jedan od ključnih elemenata napretka. Svaka osoba u našem studiju dobiva jasne upute, pažnju i osjećaj sigurnosti — bez žurbe, uspoređivanja i pritiska.")}
           </motion.p>
         </motion.div>
 
@@ -52,13 +52,19 @@ function TeamSection() {
               <h3 className="trainer-name-editorial">Sanja</h3>
               <p className="trainer-role-editorial">{t("team.sanjaRole", "Osnivačica i instruktorica reformer pilatesa")}</p>
               <p className="trainer-text-editorial">
-                {t("team.sanjaP1", "Gioia je studio koji reflektira mene i moja životna uvjerenja. Gioia je stvorena kako bi donijela pouzdanje, podršku kako fizičku tako i osobnu, i držati mjesto onima koji žele ono malo više; snagu, mir i pozitivno okruženje, mjesto u kojem će se ljudi fokusirati na sebe u potpunosti i doći \"napuniti\". I sama sam ljubitelj pilatesa i teretane već godinama i gajim veliku ljubav i poštovanje prema pokretu i tijelu, što nažalost često uzimamo zdravo za gotovo. Niti jedna biljka ne može opstati bez brige i zalijevanja, tako je i s našim tijelom, ono je snažno i moćno, ali ako ga zapostavimo s vremenom ćemo osjećati posljedice toga. Your body is your home, take care of it.")}
+                {t("team.sanjaP1", "Gioia studio odraz je mojih životnih uvjerenja i odnosa prema pokretu. Stvoren je s ciljem pružanja pouzdanja i podrške — fizičke i osobne — svima koji žele više: snagu, mir i pozitivno okruženje.  To je prostor u kojem možete u potpunosti usmjeriti fokus na sebe i  ''napuniti se''.")}
               </p>
               <p className="trainer-text-editorial">
-                {t("team.sanjaP2", "S pilatesom sam se susrela još prije dvadesetak godina kada se pojavljivao kao vrsta treninga u Hrvatskoj, međutim nije bio ni blizu popularnosti koju je stekao sada. Prakticirala sam ga dok sam živjela vani i uvijek mi je bio intenzivan i zanimljiv. U pilatesu mali pokreti čine najveću promjenu, usporiti znači preuzeti kontrolu, povezivanjem daha i pokreta pokrećemo energiju i tijelo i dovodimo ga u psihofizički balans. Koncipiran tako da u tih sat vremena imate potpuno povezivanje sami sa sobom.")}
+                {t("team.sanjaP2", "Kao dugogodišnja ljubiteljica pilatesa i teretane, pokret za mene predstavlja izraz poštovanja prema tijelu. Tijelo je snažno i moćno, ali zahtijeva pažnju i brigu. Kao što biljka ne može opstati bez njege, tako ni tijelo ne može bez svjesnog ulaganja.")}
               </p>
               <p className="trainer-text-editorial">
-                {t("team.sanjaP3", "I sama sam često tražila mjesta gdje ću dobiti sve ono što u svom studiju i nudim, zato mi je bilo od početka bilo bitno stvoriti studio koji neće biti samo još jedan u nizu, nego mjesto gdje ćemo svi skupa zajedno rasti i biti podrška jedni drugima. Izuzetno sam sretna, ponosna i zahvalna što su i drugi to prepoznali.")}
+                {t("team.sanjaP3", `„Your body is your home — take care of it."`)}
+              </p>
+              <p className="trainer-text-editorial">
+                {t("team.sanjaP4", "S pilatesom sam se susrela prije dvadesetak godina. Kroz godine prakse shvatila sam koliko mali, kontrolirani pokreti mogu donijeti velike promjene. Usporiti znači preuzeti kontrolu. Povezivanjem daha i pokreta stvaramo ravnotežu tijela i uma, a u tih sat vremena dobivate priliku za potpunu povezanost sa sobom.")}
+              </p>
+              <p className="trainer-text-editorial">
+                {t("team.sanjaP5", "Od početka mi je bilo važno stvoriti studio koji neće biti samo još jedno mjesto za trening, već prostor zajedničkog rasta i podrške. Ponosna sam i zahvalna što su klijenti to prepoznali.")}
               </p>
             </div>
           </motion.article>
@@ -77,19 +83,16 @@ function TeamSection() {
               <h3 className="trainer-name-editorial">Tea</h3>
               <p className="trainer-role-editorial">{t("team.teaRole", "Instruktorica reformer pilatesa")}</p>
               <p className="trainer-text-editorial">
-                {t("team.teaP1", "Studij japanologije odveo me u Pulu, a nakon diplome sam završila kod Sanje na treningu i pronašla nešto što mogu živjeti i u čemu uživam - svoj ikigai.")}
+                {t("team.teaP1", "Put me doveo u Pulu kroz studij japanologije, a različiti oblici treninga već su godinama bili dio mog života. Prvi susret s reformerom imala sam kod Sanje, gdje sam započela kao klijentica i trenirala od samih početaka. Upravo to iskustvo — iz perspektive polaznice — dodatno me motiviralo da se profesionalno posvetim radu u pilatesu.")}
               </p>
               <p className="trainer-text-editorial">
-                {t("team.teaP2", "Kretanje je inače moj način da se posložim i steknem kontrolu nad sobom, a pilates je postao moj izvor za stabilnost i prisutnost. Kroz dugogodišnju praksu naučila sam kako tijelo reagira na različite pokrete i što znači trenirati svjesno, a svoje znanje sam produbila kod Asje Petersen, osnivačice prvog pilates studija u Hrvatskoj.")}
+                {t("team.teaP2", "Kretanje je moj način uspostavljanja balansa, a pilates je postao moj alat za stabilnost i prisutnost. Dugogodišnjom praksom razvila sam razumijevanje načina na koji tijelo reagira na pokret i što znači trenirati svjesno. Znanje sam dodatno nadogradila edukacijom kod Asje Petersen, osnivačice prvog pilates studija u Hrvatskoj.")}
               </p>
               <p className="trainer-text-editorial">
-                {t("team.teaP3", "Praksu i znanje nastojim prenijeti na treninge, a cilj mi je da se klijenti na mojim treninzima osjećaju sigurno, prisutno i malo jače nego kad su došli.")}
+                {t("team.teaP3", "Na treninzima mi je prioritet da se klijenti osjećaju sigurno, prisutno i snažnije nego kada su došli.")}
               </p>
               <p className="trainer-text-editorial">
-                {t("team.teaP4", "Ukratko, biti instruktorica pilatesa je prirodan nastavak svega što volim u životu i što mi je bitno: brige o sebi, učenja i rasta.")}
-              </p>
-              <p className="trainer-text-editorial">
-                {t("team.teaP5", "Koji god je razlog zbog kojeg želite isprobati reformer pilates, u Gioii ćemo skupa krenuti s mjesta na kojem jeste i dovesti vas do cilja zbog kojeg ste i došli.")}
+                {t("team.teaP4", "Biti instruktorica pilatesa prirodan je nastavak svega što cijenim — brige o sebi, kontinuiranog učenja i osobnog rasta.")}
               </p>
             </div>
           </motion.article>

@@ -124,7 +124,7 @@ function Navbar() {
     { type: "anchor", hash: "trenerice", label: t("nav.team", "Trenerice") },
     { type: "anchor", hash: "galerija", label: t("nav.gallery", "Galerija") },
     { type: "anchor", hash: "kontakt", label: t("nav.contact", "Kontakt") },
-    { type: "route", to: "/clanice", label: t("nav.clanice", "Članice") },
+    { type: "route", to: "/clanice", label: t("nav.clanice", "Članovi") },
   ];
 
   const currentHash = location.hash || "";

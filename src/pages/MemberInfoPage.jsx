@@ -24,14 +24,14 @@ function MemberInfoPage() {
         <title>
           {currentLang === "en"
             ? "Members | Gioia Reformer Pilates Studio"
-            : "Članice | Gioia Reformer Pilates Studio"}
+            : "Članovi | Gioia Reformer Pilates Studio"}
         </title>
         <meta
           name="description"
           content={
             currentLang === "en"
               ? "Meet the members of Gioia Reformer Pilates Studio in Pula. A welcoming community built around reformer pilates."
-              : "Upoznajte članice Gioia Reformer Pilates Studija u Puli. Zajednica izgrađena oko treninga na reformeru."
+              : "Upoznajte članove Gioia Reformer Pilates Studija u Puli. Zajednica izgrađena oko treninga na reformeru."
           }
         />
       </Helmet>
@@ -42,7 +42,7 @@ function MemberInfoPage() {
           className="mi__hero-bg"
           style={{ backgroundImage: `url(${membersHero})` }}
           role="img"
-          aria-label={t("members.heroAlt", "Gioia Studio članice")}
+          aria-label={t("members.heroAlt", "Gioia Studio članovi")}
         />
         <div className="mi__hero-overlay" />
         <motion.div
@@ -72,7 +72,7 @@ function MemberInfoPage() {
               viewport={viewport}
             >
               <motion.p className="mi__eyebrow" variants={fadeUp}>
-                {t("members.introEyebrow", "Za naše članice")}
+                {t("members.introEyebrow", "Za naše članove")}
               </motion.p>
               <motion.div
                 className="mi__rule"
@@ -85,7 +85,7 @@ function MemberInfoPage() {
               <motion.p className="mi__intro-body" variants={fadeUp}>
                 {t(
                   "members.introText",
-                  "Za naše postojeće članice pripremili smo aplikaciju putem koje se jednostavno možete prijaviti na treninge, pregledati raspored i upravljati svojim terminima. Pristup aplikaciji omogućen je uz vaše korisničke podatke.",
+                  "Za naše postojeće članove pripremili smo aplikaciju putem koje se jednostavno možete prijaviti na treninge, pregledati raspored i upravljati svojim terminima. Pristup aplikaciji omogućen je uz vaše korisničke podatke.",
                 )}
               </motion.p>
             </motion.div>
@@ -185,7 +185,7 @@ function MemberInfoPage() {
               viewport={viewport}
             >
               <motion.p className="mi__eyebrow" variants={fadeUp}>
-                {t("members.helpEyebrow", "Početnice")}
+                {t("members.helpEyebrow", "Početnici")}
               </motion.p>
               <motion.div
                 className="mi__rule"
@@ -193,7 +193,7 @@ function MemberInfoPage() {
                 style={{ transformOrigin: "left center" }}
               />
               <motion.h3 className="mi__help-title" variants={fadeUp}>
-                {t("members.helpTitle", "Nova ste u studiju?")}
+                {t("members.helpTitle", "Novi ste u studiju?")}
               </motion.h3>
               <motion.p className="mi__help-body" variants={fadeUp}>
                 {t(
