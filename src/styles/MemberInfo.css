@@ -579,6 +579,31 @@
   .mi__help-image {
     aspect-ratio: 4 / 3;
   }
+
+  /* Center all content containers */
+  .mi__intro-text,
+  .mi__help-text {
+    text-align: center;
+    align-items: center;
+  }
+
+  .mi__section-title,
+  .mi__feature-num,
+  .mi__feature-title,
+  .mi__feature-text {
+    text-align: center;
+  }
+
+  /* Body paragraphs: justify for editorial consistency */
+  .mi__intro-body,
+  .mi__help-body {
+    text-align: justify;
+  }
+
+  .mi__rule {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media (max-width: 400px) {

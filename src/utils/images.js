@@ -52,7 +52,7 @@ export const heroAlternatives = [
 ];
 
 // MEMBER INFO PAGE — specific images used by MemberInfoPage sections
-export const memberIntroImage = new URL('../assets/images/DSC_3667.webp', import.meta.url).href;
+export const memberIntroImage = new URL('../assets/images/DSC_8338.webp', import.meta.url).href;
 export const memberHelpImage = new URL('../assets/images/DSC_8159.webp', import.meta.url).href;
 
 // ALL GALLERY IMAGES - dynamically includes every .webp in /images folder
