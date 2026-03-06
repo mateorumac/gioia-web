@@ -362,15 +362,29 @@
   .about-manifesto-item {
     border-right: none;
     border-bottom: 1px solid rgba(132, 139, 121, 0.1);
-    padding: 2rem 1.5rem;
+    padding: 2rem 0rem;
   }
 
   .about-manifesto-item:last-child {
     border-bottom: none;
   }
 
+  .about-intro-left p,
+  .about-intro-right p {
+    text-align: justify;
+  }
+
+  .about-manifesto-text {
+    text-align: justify;
+  }
+
+  .about-manifesto-item {
+    overflow: visible;
+  }
+
   .about-manifesto-num {
     font-size: 5rem;
+    top: -1.3rem;
   }
 }
 
@@ -404,11 +418,12 @@
   }
 
   .about-manifesto-item {
-    padding: 1.5rem 1.25rem;
+    padding: 1.5rem 0rem;
   }
 
   .about-manifesto-num {
     font-size: 4rem;
+    top: -1.3rem;
   }
 
   .about-manifesto-text {

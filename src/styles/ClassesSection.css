@@ -564,6 +564,7 @@
   .for-who-column {
     padding: 2rem 0.5rem;
     border-bottom: 1px solid rgba(236, 229, 209, 0.1);
+    text-align: center;
   }
 
   .for-who-column::after {
