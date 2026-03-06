@@ -6,7 +6,7 @@ import { fadeUp, imageReveal, staggerContainer, viewport } from "../animations/m
 
 // Import images
 import heroImage from "../assets/images/DSC_3666.webp";
-import verticalImage from "../assets/images/IMG_4020.webp";
+import verticalImage from "../assets/images/DSC_8406.webp";
 import gallery1 from "../assets/images/DSC_2498.webp";
 import gallery2 from "../assets/images/DSC_8160.webp";
 import gallery3 from "../assets/images/IMG_4435.webp";
