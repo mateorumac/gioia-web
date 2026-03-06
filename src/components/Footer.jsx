@@ -48,7 +48,7 @@ function Footer() {
           >
             <motion.div className="footer-column-editorial" variants={fadeUp}>
               <h4>{t("footer.navigation", "Navigacija")}</h4>
-              <ul>
+              <ul className="footer-nav-list">
                 <li>
                   <Link to={`${homeBase}#o-nama`}>{t("footer.navAbout", "O studiju")}</Link>
                 </li>
@@ -64,6 +64,9 @@ function Footer() {
                 <li>
                   <Link to={`${homeBase}#kontakt`}>{t("footer.navContact", "Kontakt")}</Link>
                 </li>
+                <li>
+                  <Link to={`/${currentLang}/clanice`}>{t("nav.clanice", "Članovi")}</Link>
+                </li>
               </ul>
             </motion.div>
 
@@ -77,9 +80,7 @@ function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Verudela 8
-                    <br />
-                    {t("footer.addressCity", "52100 Pula, Hrvatska")}
+                    Verudela 8, {t("footer.addressCity", "52100 Pula, Hrvatska")}
                   </a>
                 </li>
                 <li>

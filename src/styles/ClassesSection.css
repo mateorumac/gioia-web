@@ -363,6 +363,12 @@
   opacity: 0.6;
 }
 
+@media (max-width: 600px) {
+  .pricing-note {
+    text-align: justify;
+  }
+}
+
 .pricing-table {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -510,6 +516,10 @@
     border-bottom: 1px solid rgba(236, 229, 209, 0.12);
   }
 
+  .classes-container {
+    padding: 0 2rem;
+  }
+
   .training-types-container {
     padding: 5rem 2rem 0;
   }
@@ -575,6 +585,10 @@
     border-bottom: none;
   }
 
+  .classes-container {
+    padding: 0 1.5rem;
+  }
+
   .training-types-container {
     padding: 4rem 1.5rem 0;
   }
@@ -582,6 +596,18 @@
   .training-block {
     padding: 3rem 1.5rem;
     gap: 2rem;
+  }
+
+  .training-intro__text p {
+    text-align: justify;
+  }
+
+  .training-block:first-of-type .training-block__image img {
+    object-position: center 75%;
+  }
+
+  .training-block__desc {
+    text-align: justify;
   }
 
   .pricing-editorial {
@@ -593,6 +619,10 @@
 @media (max-width: 400px) {
   .classes-for-who-section {
     padding: 3.5rem 1.25rem;
+  }
+
+  .classes-container {
+    padding: 0 1.25rem;
   }
 
   .training-types-container {

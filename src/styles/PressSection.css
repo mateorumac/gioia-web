@@ -150,4 +150,14 @@
   .pressSection__divider {
     display: none;
   }
+
+  .pressSection__source,
+  .pressSection__desc,
+  .pressSection__cta {
+    text-align: center;
+  }
+
+  .pressSection__cta {
+    align-self: center;
+  }
 }

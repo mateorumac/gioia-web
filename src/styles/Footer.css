@@ -83,6 +83,12 @@
   margin: 0;
 }
 
+.footer-nav-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1.5rem;
+}
+
 .footer-column-editorial li {
   margin-bottom: 0.75rem;
   font-family: var(--font-inter);
@@ -396,6 +402,23 @@
 
   .footer-bottom-editorial p {
     font-size: 0.85rem;
+  }
+
+  .footer-column-editorial,
+  .footer-newsletter-editorial {
+    text-align: center;
+  }
+
+  .footer-contact-list li {
+    justify-content: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-bottom-editorial {
+    text-align: center;
   }
 }
 

@@ -343,6 +343,12 @@
     gap: 0.9rem;
   }
 
+  .tss-eyebrow,
+  .tss-title,
+  .tss-subtitle {
+    text-align: center;
+  }
+
   .tss-toast {
     top: 76px;
     right: 12px;

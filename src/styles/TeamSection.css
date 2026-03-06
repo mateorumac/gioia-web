@@ -207,6 +207,14 @@
     font-size: 1.7rem;
   }
 
+  .team-intro-editorial {
+    text-align: justify;
+  }
+
+  .trainer-text-editorial {
+    text-align: justify;
+  }
+
   .trainer-image-wrapper-editorial {
     margin-bottom: 2rem;
   }
