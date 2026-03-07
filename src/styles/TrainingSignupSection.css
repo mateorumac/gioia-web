@@ -51,13 +51,24 @@
   pointer-events: none;
 }
 
+/* ── Two-column layout wrapper ──────────── */
+
+.tss-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3.5rem;
+  row-gap: 2rem;
+  width: 100%;
+  max-width: 1140px;
+  align-items: start;
+}
+
 /* ── Card ───────────────────────────────── */
 
 .tss-card {
-  position: relative;
-  z-index: 1;
   background: var(--color-white);
-  max-width: 580px;
   width: 100%;
   padding: 3rem 3.5rem;
   border-radius: 0; /* sharp corners — site style */
@@ -67,6 +78,23 @@
     0 24px 60px rgba(0, 0, 0, 0.13);
   border: 1px solid rgba(132, 139, 121, 0.14);
 }
+
+/* ── Schedule block (no card) ───────────── */
+
+.tss-schedule-card {
+  display: flex;
+  flex-direction: column;
+  margin-top: 48px;
+}
+
+.tss-schedule-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
 
 /* ── Card header ────────────────────────── */
 
@@ -323,6 +351,17 @@
    RESPONSIVE
    ═══════════════════════════════════════════ */
 
+@media (max-width: 900px) {
+  .tss-layout {
+    grid-template-columns: 1fr;
+    column-gap: 2rem;
+  }
+
+  .tss-schedule-card {
+    margin-top: 0;
+  }
+}
+
 @media (max-width: 640px) {
   .tss-section {
     padding: 5rem 1.25rem;
@@ -366,4 +405,5 @@
   .tss-card {
     padding: 2rem 1.25rem;
   }
+
 }

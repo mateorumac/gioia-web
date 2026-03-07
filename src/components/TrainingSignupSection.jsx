@@ -5,6 +5,7 @@ import "../styles/TrainingSignupSection.css";
 import { fadeUp, staggerContainer, viewport } from "../animations/motionPresets";
 
 import bgImage from "../assets/images/DSC_8285.webp";
+import scheduleImage from "../assets/gioia-classes-winter.png";
 
 /* ─────────────────────────────────────────────
    Custom accessible dropdown — scoped styles
@@ -251,14 +252,17 @@ function TrainingSignupSection() {
         <div className="tss-bg__vignette" />
       </div>
 
-      {/* ── Floating card — animate in ── */}
-      <motion.div
-        className="tss-card"
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewport}
-      >
+      {/* ── Two-column layout: form + schedule ── */}
+      <div className="tss-layout">
+
+        {/* ── Booking form card ── */}
+        <motion.div
+          className="tss-card"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
         <motion.p className="tss-eyebrow" variants={fadeUp}>
           {t("booking.eyebrow", "Rezerviraj svoje mjesto")}
         </motion.p>
@@ -383,7 +387,24 @@ function TrainingSignupSection() {
           </button>
           <p className="tss-microcopy">{t("booking.microcopy", "Bez obveze. Bez članarine. Samo dogovor.")}</p>
         </form>
-      </motion.div>
+        </motion.div>
+
+        {/* ── Schedule card ── */}
+        <motion.div
+          className="tss-schedule-card"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+        >
+          <img
+            src={scheduleImage}
+            alt={t("schedule.imageAlt", "Raspored treninga")}
+            className="tss-schedule-img"
+          />
+        </motion.div>
+
+      </div>
 
       {formStatus && (
         <div className={`tss-toast tss-toast--${formStatus.type}`}>
