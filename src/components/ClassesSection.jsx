@@ -223,15 +223,7 @@ function ClassesSection() {
                 <div className="pricing-items">
                   <div className="pricing-item">
                     <span className="pricing-label">{t("classes.singleSession", "Pojedinačni termin")}</span>
-                    <span className="pricing-value">x<span className="pricing-currency"> €</span></span>
-                  </div>
-                  <div className="pricing-item">
-                    <span className="pricing-label">{t("classes.packInd4", "Paket od 4 termina")}</span>
-                    <span className="pricing-value">x<span className="pricing-currency"> €</span></span>
-                  </div>
-                  <div className="pricing-item">
-                    <span className="pricing-label">{t("classes.packInd8", "Paket od 8 termina")}</span>
-                    <span className="pricing-value">x<span className="pricing-currency"> €</span></span>
+                    <span className="pricing-value">35<span className="pricing-currency"> €</span></span>
                   </div>
                 </div>
               </motion.div>

@@ -84,6 +84,7 @@
 
 .trainer-card-editorial:nth-child(2) .trainer-image-editorial {
   object-position: center 12%;
+  filter: grayscale(100%) sepia(14%);
 }
 
 .trainer-image-wrapper-editorial:hover .trainer-image-editorial {

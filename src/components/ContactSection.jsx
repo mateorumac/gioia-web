@@ -123,18 +123,19 @@ function ContactSection() {
           <div className="contact-details-block">
             <h3>{t("contact.hoursTitle", "Radno vrijeme")}</h3>
             <p>
-              <strong>{t("contact.monFri", "Ponedjeljak – petak")}:</strong>
+              <strong>{t("contact.monWedFri", "Pon, Sri, Pet")}:</strong>
               <br />
-              7–10 h, 16–19 h
+              7–10 h, 16–20 h
+            </p>
+            <p>
+              <strong>{t("contact.tueThu", "Uto i Čet")}:</strong>
+              <br />
+              7–10 h, 17–22 h
             </p>
             <p>
               <strong>{t("contact.saturday", "Subota")}:</strong>
               <br />
               8–11 h
-            </p>
-            <p>
-              <strong>{t("contact.sunday", "Nedjeljom")}:</strong>{" "}
-              {t("contact.sundayClosed", "zatvoreno")}
             </p>
           </div>
         </motion.div>

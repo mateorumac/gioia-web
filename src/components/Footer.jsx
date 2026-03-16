@@ -109,16 +109,16 @@ function Footer() {
               <h4>{t("footer.hours", "Radno vrijeme")}</h4>
               <ul className="footer-hours">
                 <li>
-                  <span>{t("footer.monFri", "Pon – Pet")}:</span>
-                  <span>{t("footer.monFriHours", "7–10 h, 16–19 h")}</span>
+                  <span>{t("footer.monWedFri", "Pon, Sri, Pet")}:</span>
+                  <span>{t("footer.monWedFriHours", "7–10 h, 16–20 h")}</span>
+                </li>
+                <li>
+                  <span>{t("footer.tueThu", "Uto, Čet")}:</span>
+                  <span>{t("footer.tueThuHours", "7–10 h, 17–22 h")}</span>
                 </li>
                 <li>
                   <span>{t("footer.saturday", "Subota")}:</span>
                   <span>{t("footer.satHours", "8–11 h")}</span>
-                </li>
-                <li>
-                  <span>{t("footer.sunday", "Nedjelja")}:</span>
-                  <span>{t("footer.sundayClosed", "Zatvoreno")}</span>
                 </li>
               </ul>
             </motion.div>
