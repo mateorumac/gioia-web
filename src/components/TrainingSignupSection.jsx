@@ -5,7 +5,55 @@ import "../styles/TrainingSignupSection.css";
 import { fadeUp, staggerContainer, viewport } from "../animations/motionPresets";
 
 import bgImage from "../assets/images/DSC_8285.webp";
-import scheduleImage from "../assets/gioia-classes-winter.png";
+
+/* ─────────────────────────────────────────────
+   Weekly schedule — per-day timetable list
+───────────────────────────────────────────── */
+const SCHEDULE = [
+  { day: "Pon", slots: [
+    { time: "8–9",   type: "Strength" },
+    { time: "9–10",  type: "Strength" },
+    { time: "17–18", type: "Strength" },
+    { time: "18–19", type: "Strength" },
+    { time: "19–20", type: "Stretch"  },
+  ]},
+  { day: "Uto", slots: [
+    { time: "7–8",        type: "Strength" },
+    { time: "8–9",        type: "Strength" },
+    { time: "9:30–10:30", type: "Cardio"   },
+    { time: "18–19",      type: "Strength" },
+    { time: "19–20",      type: "Strength" },
+    { time: "20–21",      type: "Beginner" },
+  ]},
+  { day: "Sri", slots: [
+    { time: "8–9",   type: "Strength" },
+    { time: "9–10",  type: "Stretch"  },
+    { time: "17–18", type: "Strength" },
+    { time: "18–19", type: "Strength" },
+    { time: "19–20", type: "Strength" },
+  ]},
+  { day: "Čet", slots: [
+    { time: "7:30–8:30",  type: "Stretch"  },
+    { time: "8:30–9:30",  type: "Strength" },
+    { time: "9:30–10:30", type: "Strength" },
+    { time: "17:30–18:30",type: "Cardio"   },
+    { time: "19–20",      type: "Strength" },
+    { time: "20–21",      type: "Beginner" },
+  ]},
+  { day: "Pet", slots: [
+    { time: "8–9",   type: "Strength" },
+    { time: "9–10",  type: "Strength" },
+    { time: "16–17", type: "Stretch"  },
+    { time: "17–18", type: "Strength" },
+    { time: "18–19", type: "Strength" },
+    { time: "19–20", type: "Strength" },
+  ]},
+  { day: "Sub", slots: [
+    { time: "8–9",   type: "Strength" },
+    { time: "9–10",  type: "Strength" },
+    { time: "10–11", type: "Strength" },
+  ]},
+];
 
 /* ─────────────────────────────────────────────
    Custom accessible dropdown — scoped styles
@@ -392,16 +440,50 @@ function TrainingSignupSection() {
         {/* ── Schedule card ── */}
         <motion.div
           className="tss-schedule-card"
-          variants={fadeUp}
+          variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
         >
-          <img
-            src={scheduleImage}
-            alt={t("schedule.imageAlt", "Raspored treninga")}
-            className="tss-schedule-img"
-          />
+          <div className="tss-sched">
+            <motion.h2 className="tss-sched-title" variants={fadeUp}>
+              {t("schedule.title", "Tjedni raspored")}
+            </motion.h2>
+            <motion.div className="tss-sched-rule" variants={fadeUp} />
+            <motion.div className="tss-schedule-list" variants={staggerContainer}>
+              {SCHEDULE.map(({ day, slots }) => {
+                const morning   = slots.filter(s => parseInt(s.time) < 12);
+                const afternoon = slots.filter(s => parseInt(s.time) >= 12);
+                return (
+                  <motion.div className="tss-day-row" key={day} variants={fadeUp}>
+                    <span className="tss-day-name">{day}</span>
+                    <div className="tss-day-slots">
+                      {morning.length > 0 && (
+                        <div className="tss-slots-row">
+                          {morning.map((slot, i) => (
+                            <span className="tss-slot-item" key={i}>
+                              <span className="tss-slot-time">{slot.time}</span>
+                              <span className="tss-slot-type">{slot.type}</span>
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                      {afternoon.length > 0 && (
+                        <div className="tss-slots-row">
+                          {afternoon.map((slot, i) => (
+                            <span className="tss-slot-item" key={i}>
+                              <span className="tss-slot-time">{slot.time}</span>
+                              <span className="tss-slot-type">{slot.type}</span>
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          </div>
         </motion.div>
 
       </div>

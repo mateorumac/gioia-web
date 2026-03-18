@@ -199,7 +199,7 @@ function ClassesSection() {
         </motion.article>
       </div>
 
-      <div className="pricing-section-wrapper">
+      <div className="pricing-section-wrapper" id="cjenik">
         <div className="pricing-pattern" style={{ backgroundImage: `url(${patternBg})` }} />
         <div className="classes-container">
           <motion.div

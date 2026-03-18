@@ -2,10 +2,12 @@
   "nav": {
     "about": "About",
     "classes": "Classes",
+    "pricing": "Pricing",
     "team": "Trainers",
     "gallery": "Gallery",
     "contact": "Contact",
     "clanice": "Members",
+    "book": "Book",
     "selectLang": "Select language",
     "closeMenu": "Close menu",
     "openMenu": "Open menu",
@@ -240,6 +242,10 @@
     "helpTitle": "Just starting out?",
     "helpText": "If you're new to training with us, get in touch first and we'll help you begin your pilates journey.",
     "contactLink": "Contact us"
+  },
+  "schedule": {
+    "eyebrow": "Class Schedule",
+    "title": "Weekly timetable"
   },
   "newsletter": {
     "title": "Stay Updated",

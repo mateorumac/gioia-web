@@ -62,7 +62,7 @@
   row-gap: 2rem;
   width: 100%;
   max-width: 1140px;
-  align-items: start;
+  align-items: center;
 }
 
 /* ── Card ───────────────────────────────── */
@@ -71,12 +71,9 @@
   background: var(--color-white);
   width: 100%;
   padding: 3rem 3.5rem;
-  border-radius: 0; /* sharp corners — site style */
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.04),
-    0 8px 28px rgba(0, 0, 0, 0.09),
-    0 24px 60px rgba(0, 0, 0, 0.13);
-  border: 1px solid rgba(132, 139, 121, 0.14);
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eceae4;
 }
 
 /* ── Schedule block (no card) ───────────── */
@@ -84,17 +81,124 @@
 .tss-schedule-card {
   display: flex;
   flex-direction: column;
-  margin-top: 48px;
 }
 
-.tss-schedule-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+/* ── Schedule grid ──────────────────────── */
+
+.tss-sched {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    0 20px 56px rgba(0, 0, 0, 0.11);
+  border-radius: 6px;
+  padding: 2.5rem 2.25rem 2.25rem;
 }
 
+.tss-sched-eyebrow {
+  font-family: var(--font-inter);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-sage);
+  margin: 0 0 0.5rem;
+}
+
+/* ── Schedule heading ────────────────────── */
+
+.tss-sched-title {
+  font-family: var(--font-playfair);
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+  margin: 0 0 0.5rem;
+}
+
+.tss-sched-rule {
+  width: 28px;
+  height: 1px;
+  background: rgba(132, 139, 121, 0.35);
+  margin: 0 0 1.5rem;
+}
+
+/* ── Timetable list ──────────────────────── */
+
+.tss-schedule-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.tss-day-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(132, 139, 121, 0.15);
+}
+
+.tss-day-row:first-child {
+  padding-top: 0;
+}
+
+.tss-day-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.tss-day-name {
+  font-family: var(--font-inter);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-sage);
+  min-width: 2.6rem;
+  padding-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+.tss-day-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+}
+
+.tss-slots-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.85rem;
+}
+
+.tss-slot-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.22rem;
+}
+
+.tss-slot-time {
+  font-family: var(--font-inter);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text);
+  opacity: 0.88;
+  white-space: nowrap;
+}
+
+.tss-slot-type {
+  font-family: var(--font-inter);
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--color-text);
+  opacity: 0.58;
+  white-space: nowrap;
+}
 
 /* ── Card header ────────────────────────── */
 
@@ -354,17 +458,22 @@
 @media (max-width: 900px) {
   .tss-layout {
     grid-template-columns: 1fr;
-    column-gap: 2rem;
+    column-gap: 0;
+    align-items: start;
   }
 
   .tss-schedule-card {
-    margin-top: 0;
+    order: -1;
+  }
+
+  .tss-sched {
+    max-width: 100%;
   }
 }
 
 @media (max-width: 640px) {
   .tss-section {
-    padding: 5rem 1.25rem;
+    padding: 5rem 1rem;
   }
 
   /* Shift image upward slightly so reformer stays in frame on narrow screens */
@@ -373,7 +482,7 @@
   }
 
   .tss-card {
-    padding: 2.25rem 1.5rem;
+    padding: 2.25rem 1.25rem;
   }
 
   /* Stack two-column rows on mobile */
@@ -397,13 +506,47 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 640px) {
+  .tss-day-slots {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.2rem 0.5rem;
+  }
+
+  .tss-slots-row {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}
+
+@media (max-width: 480px) {
   .tss-section {
-    padding: 4rem 1rem;
+    padding: 4.5rem 0.75rem;
   }
 
   .tss-card {
-    padding: 2rem 1.25rem;
+    padding: 2rem 1rem;
   }
 
+  .tss-sched {
+    padding: 1.5rem 1.25rem 1.25rem;
+  }
+
+  .tss-day-slots {
+    gap: 0.25rem 0.75rem;
+  }
+
+  .tss-slot-type {
+    font-size: 0.74rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .tss-section {
+    padding: 4rem 0.5rem;
+  }
+
+  .tss-card {
+    padding: 1.75rem 1rem;
+  }
 }

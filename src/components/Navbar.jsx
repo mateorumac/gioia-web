@@ -119,12 +119,14 @@ function Navbar() {
       : " site-header--solid");
 
   const navItems = [
-    { type: "anchor", hash: "o-nama", label: t("nav.about", "O studiju") },
-    { type: "anchor", hash: "treninzi", label: t("nav.classes", "Treninzi") },
-    { type: "anchor", hash: "trenerice", label: t("nav.team", "Trenerice") },
-    { type: "anchor", hash: "galerija", label: t("nav.gallery", "Galerija") },
-    { type: "anchor", hash: "kontakt", label: t("nav.contact", "Kontakt") },
-    { type: "route", to: "/clanice", label: t("nav.clanice", "Članovi") },
+    { type: "anchor", hash: "o-nama",     label: t("nav.about",    "O studiju") },
+    { type: "anchor", hash: "treninzi",   label: t("nav.classes",  "Treninzi") },
+    { type: "anchor", hash: "cjenik",     label: t("nav.pricing",  "Cjenik") },
+    { type: "anchor", hash: "trenerice",  label: t("nav.team",     "Trenerice") },
+    { type: "anchor", hash: "galerija",   label: t("nav.gallery",  "Galerija") },
+    { type: "anchor", hash: "kontakt",    label: t("nav.contact",  "Kontakt") },
+    { type: "route",  to: "/clanice",     label: t("nav.clanice",  "Članovi") },
+    { type: "anchor", hash: "rezervacija",label: t("nav.book",     "Rezerviraj"), cta: true },
   ];
 
   const currentHash = location.hash || "";
@@ -191,15 +193,10 @@ function Navbar() {
           <div className="right desktop-only">
             <nav className="site-nav" aria-label="Glavna navigacija">
               {navItems.map((item, idx) => {
-                const isCta = item.type === "route" && item.to === "/clanice";
-
+                const isCta = item.cta === true;
                 const nextItem = navItems[idx + 1];
-                const nextIsCta =
-                  nextItem &&
-                  nextItem.type === "route" &&
-                  nextItem.to === "/clanice";
-
-                const showSep = !!nextItem && !nextIsCta;
+                const nextIsCta = nextItem?.cta === true;
+                const showSep = !!nextItem && !isCta && !nextIsCta;
 
                 if (item.type === "anchor") {
                   const active = isHome && currentHash === `#${item.hash}`;
@@ -207,7 +204,7 @@ function Navbar() {
                     <span className="nav-item" key={item.hash}>
                       <a
                         href={getAnchorHref(item.hash)}
-                        className={`nav-link ${active ? "active" : ""}`}
+                        className={`nav-link ${isCta ? "nav-cta" : ""} ${active ? "active" : ""}`}
                         onClick={(e) => onAnchorClick(e, item.hash)}
                       >
                         {item.label}
@@ -222,7 +219,7 @@ function Navbar() {
                     <NavLink
                       to={langPath(item.to)}
                       className={({ isActive }) =>
-                        `nav-link ${isCta ? "nav-cta" : ""} ${isActive ? "active" : ""}`
+                        `nav-link ${isActive ? "active" : ""}`
                       }
                       end={item.to === "/"}
                     >
@@ -316,14 +313,14 @@ function Navbar() {
         >
           <nav className="drawer-nav" aria-label="Navigacija">
             {navItems.map((item) => {
-              const isCta = item.type === "route" && item.to === "/clanice";
+              const isCta = item.cta === true;
 
               if (item.type === "anchor") {
                 return (
                   <a
                     key={item.hash}
                     href={getAnchorHref(item.hash)}
-                    className="drawer-link"
+                    className={`drawer-link ${isCta ? "drawer-cta" : ""}`}
                     onClick={(e) => onAnchorClick(e, item.hash)}
                   >
                     {item.label}
@@ -336,9 +333,7 @@ function Navbar() {
                   key={item.to}
                   to={langPath(item.to)}
                   className={({ isActive }) =>
-                    `drawer-link ${isCta ? "drawer-cta" : ""} ${
-                      isActive ? "active" : ""
-                    }`
+                    `drawer-link ${isActive ? "active" : ""}`
                   }
                   onClick={() => setDrawerOpen(false)}
                 >
