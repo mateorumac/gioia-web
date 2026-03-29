@@ -50,7 +50,7 @@ function TeamSection() {
             </motion.div>
             <div className="trainer-content-editorial">
               <h3 className="trainer-name-editorial">Sanja</h3>
-              <p className="trainer-role-editorial">{t("team.sanjaRole", "Osnivačica i instruktorica reformer pilatesa")}</p>
+              <p className="trainer-role-editorial">{t("team.sanjaRole", "Certificirana fitness i pilates trenerica")}</p>
               <p className="trainer-text-editorial">
                 {t("team.sanjaP1", "Gioia studio odraz je mojih životnih uvjerenja i odnosa prema pokretu. Stvoren je s ciljem pružanja pouzdanja i podrške — fizičke i osobne — svima koji žele više: snagu, mir i pozitivno okruženje.  To je prostor u kojem možete u potpunosti usmjeriti fokus na sebe i  ''napuniti se''.")}
               </p>
