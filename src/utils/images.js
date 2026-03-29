@@ -74,6 +74,11 @@ const GALLERY_EXCLUDE = [
   "DSC_8337.webp",
   "DSC_6024.webp",
   "DSC_8423.webp",
+  "DSC_3666.webp",
+  "DSC_8238.webp",
+  "DSC_1535.webp",
+  "IMG_4435.webp",
+  "DSC_3675.webp",
 ];
 const _galleryModules = import.meta.glob('../assets/images/*.webp', { eager: true, import: 'default' });
 const GALLERY_FIRST = "DSC_8445.webp";
