@@ -56,5 +56,32 @@ export const memberIntroImage = new URL('../assets/images/DSC_8338.webp', import
 export const memberHelpImage = new URL('../assets/images/DSC_8159.webp', import.meta.url).href;
 
 // ALL GALLERY IMAGES - dynamically includes every .webp in /images folder
+const GALLERY_EXCLUDE = [
+  "DSC_8160.webp",
+  "DSC_8325.webp",
+  "DSC_2489.webp",
+  "DSC_3667.webp",
+  "DSC_1536.webp",
+  "5360ba76-aaf7-45f7-a796-5a529e367ea9.webp",
+  "DSC_5550.webp",
+  "DSC_5566.webp",
+  "sanjaIMG.webp",
+  "DSC_3662.webp",
+  "DSC_2518 2.webp",
+  "DSC_2498.webp",
+  "DSC_8258.webp",
+  "DSC_1394.webp",
+  "DSC_8337.webp",
+  "DSC_6024.webp",
+  "DSC_8423.webp",
+];
 const _galleryModules = import.meta.glob('../assets/images/*.webp', { eager: true, import: 'default' });
-export const allGalleryImages = Object.values(_galleryModules);
+const GALLERY_FIRST = "DSC_8445.webp";
+export const allGalleryImages = Object.entries(_galleryModules)
+  .filter(([path]) => !GALLERY_EXCLUDE.some((name) => path.endsWith(name)))
+  .sort(([a], [b]) => {
+    if (a.endsWith(GALLERY_FIRST)) return -1;
+    if (b.endsWith(GALLERY_FIRST)) return 1;
+    return 0;
+  })
+  .map(([, url]) => url);
