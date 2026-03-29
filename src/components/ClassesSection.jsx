@@ -223,7 +223,7 @@ function ClassesSection() {
                 <div className="pricing-items">
                   <div className="pricing-item">
                     <span className="pricing-label">{t("classes.singleSession", "Pojedinačni termin")}</span>
-                    <span className="pricing-value">35<span className="pricing-currency"> €</span></span>
+                    <span className="pricing-value">30 / 35<span className="pricing-asterisk">*</span><span className="pricing-currency"> €</span></span>
                   </div>
                 </div>
               </motion.div>
@@ -235,7 +235,7 @@ function ClassesSection() {
                 <div className="pricing-items">
                   <div className="pricing-item">
                     <span className="pricing-label">{t("classes.singleSession", "Pojedinačni termin")}</span>
-                    <span className="pricing-value">20<span className="pricing-currency"> €</span></span>
+                    <span className="pricing-value">20 / 25<span className="pricing-asterisk">*</span><span className="pricing-currency"> €</span></span>
                   </div>
                   <div className="pricing-item">
                     <span className="pricing-label">{t("classes.pack4", "Paket 4 termina")}</span>
@@ -259,7 +259,7 @@ function ClassesSection() {
                 <div className="pricing-items">
                   <div className="pricing-item">
                     <span className="pricing-label">{t("classes.singleSession", "Pojedinačni termin")}</span>
-                    <span className="pricing-value">20<span className="pricing-currency"> €</span></span>
+                    <span className="pricing-value">20 / 25<span className="pricing-asterisk">*</span><span className="pricing-currency"> €</span></span>
                   </div>
                   <div className="pricing-item">
                     <span className="pricing-label">{t("classes.pack4", "Paket 4 termina")}</span>
@@ -276,6 +276,10 @@ function ClassesSection() {
                 </div>
               </motion.div>
             </motion.div>
+
+            <motion.p className="pricing-footnote" variants={fadeUp}>
+              {t("classes.priceFootnote", "* stalni klijenti uživaju nižu cijenu termina")}
+            </motion.p>
           </motion.div>
         </div>
       </div>

@@ -85,7 +85,8 @@
     "pack8": "8-session pack",
     "pack12": "12-session pack",
     "studentsTitle": "Students",
-    "studentsSub": "Group training with student discount"
+    "studentsSub": "Group training with student discount",
+    "priceFootnote": "* returning clients enjoy a lower session price"
   },
   "team": {
     "eyebrow": "Meet Us",
