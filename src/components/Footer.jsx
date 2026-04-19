@@ -114,7 +114,7 @@ function Footer() {
                 </li>
                 <li>
                   <span>{t("footer.tueThu", "Uto, Čet")}:</span>
-                  <span>{t("footer.tueThuHours", "7–10 h, 17–23 h")}</span>
+                  <span>{t("footer.tueThuHours", "7–11 h, 17–22 h")}</span>
                 </li>
                 <li>
                   <span>{t("footer.saturday", "Subota")}:</span>

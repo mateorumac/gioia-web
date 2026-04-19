@@ -130,7 +130,7 @@ function ContactSection() {
             <p>
               <strong>{t("contact.tueThu", "Uto i Čet")}:</strong>
               <br />
-              7–10 h, 17–23 h
+              7–11 h, 17–22 h
             </p>
             <p>
               <strong>{t("contact.saturday", "Subota")}:</strong>
