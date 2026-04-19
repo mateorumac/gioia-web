@@ -289,7 +289,7 @@ function TrainingSignupSection() {
     }
 
     try {
-      const res = await fetch("https://formsubmit.co/ajax/sanya.vuk@gmail.com", {
+      const res = await fetch("https://formsubmit.co/ajax/varzic.lea@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -477,7 +477,7 @@ function TrainingSignupSection() {
         </form>
         <form
           ref={fallbackFormRef}
-          action="https://formsubmit.co/sanya.vuk@gmail.com"
+          action="https://formsubmit.co/varzic.lea@gmail.com"
           method="POST"
           className="tss-fallback-form"
           aria-hidden="true"
