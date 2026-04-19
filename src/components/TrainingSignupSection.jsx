@@ -5,6 +5,7 @@ import "../styles/TrainingSignupSection.css";
 import { fadeUp, staggerContainer, viewport } from "../animations/motionPresets";
 
 import bgImage from "../assets/images/DSC_8285.webp";
+import scheduleImage from "../assets/images/schedule.jpeg";
 
 /* ─────────────────────────────────────────────
    Weekly schedule — per-day timetable list
@@ -446,43 +447,16 @@ function TrainingSignupSection() {
           viewport={viewport}
         >
           <div className="tss-sched">
-            <motion.h2 className="tss-sched-title" variants={fadeUp}>
-              {t("schedule.title", "Tjedni raspored")}
-            </motion.h2>
-            <motion.div className="tss-sched-rule" variants={fadeUp} />
-            <motion.div className="tss-schedule-list" variants={staggerContainer}>
-              {SCHEDULE.map(({ day, slots }) => {
-                const morning   = slots.filter(s => parseInt(s.time) < 12);
-                const afternoon = slots.filter(s => parseInt(s.time) >= 12);
-                return (
-                  <motion.div className="tss-day-row" key={day} variants={fadeUp}>
-                    <span className="tss-day-name">{day}</span>
-                    <div className="tss-day-slots">
-                      {morning.length > 0 && (
-                        <div className="tss-slots-row">
-                          {morning.map((slot, i) => (
-                            <span className="tss-slot-item" key={i}>
-                              <span className="tss-slot-time">{slot.time}</span>
-                              <span className="tss-slot-type">{slot.type}</span>
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                      {afternoon.length > 0 && (
-                        <div className="tss-slots-row">
-                          {afternoon.map((slot, i) => (
-                            <span className="tss-slot-item" key={i}>
-                              <span className="tss-slot-time">{slot.time}</span>
-                              <span className="tss-slot-type">{slot.type}</span>
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
+            <motion.p className="tss-schedule-mobile-label" variants={fadeUp}>
+              {t("schedule.mobileLabel", "Raspored")}
+            </motion.p>
+            <motion.img
+              className="tss-schedule-image"
+              src={scheduleImage}
+              alt={t("schedule.imageAlt", "Tjedni raspored treninga")}
+              variants={fadeUp}
+              loading="lazy"
+            />
           </div>
         </motion.div>
 

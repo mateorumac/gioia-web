@@ -7,6 +7,7 @@ import individualTrainingImage from "../assets/images/DSC_5556.webp";
 import groupTrainingImage from "../assets/images/DSC_5674.webp";
 import bookingSidebar1 from "../assets/images/DSC_1394.webp";
 import beginnerTrainingImage from "../assets/images/DSC_8240.webp";
+import pricingImage from "../assets/images/clanarine.jpeg";
 import patternBg from "../assets/green-pattern-bg.png";
 
 function ClassesSection() {
@@ -210,76 +211,21 @@ function ClassesSection() {
             viewport={viewport}
           >
             <motion.p className="pricing-eyebrow" variants={fadeUp}>{t("classes.pricingEyebrow", "Cjenik")}</motion.p>
-            <motion.h3 className="pricing-title" variants={fadeUp}>{t("classes.pricingTitle", "Investicija u sebe")}</motion.h3>
-            <motion.p className="pricing-note" variants={fadeUp}>
+            <motion.div className="pricing-copy" variants={fadeUp}>
+                <motion.h3 className="pricing-title" variants={fadeUp}>{t("classes.pricingTitle", "Investicija u sebe")}</motion.h3>
+                <motion.p className="pricing-note" variants={fadeUp}>
               {t("classes.pricingNote", "Ovisno o vrsti treninga i dinamici dolazaka, nudimo različite pakete i članarine. Rado ćemo pomoći pri odabiru opcije koja najbolje odgovara vašim ciljevima i rasporedu.")}
-            </motion.p>
-
-            <motion.div className="pricing-table" variants={staggerContainer}>
-              {/* Column 1 — Individualni trening */}
-              <motion.div className="pricing-column" variants={fadeUp}>
-                <h4 className="pricing-column__title">{t("classes.individualTitle", "Individualni trening")}</h4>
-                <p className="pricing-column__sub">{t("classes.individualSub", "Personalizirani pristup, potpuni fokus na tebe")}</p>
-                <div className="pricing-items">
-                  <div className="pricing-item">
-                    <span className="pricing-label">{t("classes.singleSession", "Pojedinačni termin")}</span>
-                    <span className="pricing-value">30 / 35<span className="pricing-asterisk">*</span><span className="pricing-currency"> €</span></span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Column 2 — Grupni trening */}
-              <motion.div className="pricing-column" variants={fadeUp}>
-                <h4 className="pricing-column__title">{t("classes.groupTitle", "Grupni trening")}</h4>
-                <p className="pricing-column__sub">{t("classes.groupSub", "Do 6 polaznika, energija grupe uz osobni pristup")}</p>
-                <div className="pricing-items">
-                  <div className="pricing-item">
-                    <span className="pricing-label">{t("classes.singleSession", "Pojedinačni termin")}</span>
-                    <span className="pricing-value">20 / 25<span className="pricing-asterisk">*</span><span className="pricing-currency"> €</span></span>
-                  </div>
-                  <div className="pricing-item">
-                    <span className="pricing-label">{t("classes.pack4", "Paket 4 termina")}</span>
-                    <span className="pricing-value">60<span className="pricing-currency"> €</span></span>
-                  </div>
-                  <div className="pricing-item">
-                    <span className="pricing-label">{t("classes.pack8", "Paket 8 termina")}</span>
-                    <span className="pricing-value">110<span className="pricing-currency"> €</span></span>
-                  </div>
-                  <div className="pricing-item">
-                    <span className="pricing-label">{t("classes.pack12", "Paket 12 treninga")}</span>
-                    <span className="pricing-value">160<span className="pricing-currency"> €</span></span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Column 3 — Studenti */}
-              <motion.div className="pricing-column" variants={fadeUp}>
-                <h4 className="pricing-column__title">{t("classes.studentsTitle", "Studenti")}</h4>
-                <p className="pricing-column__sub">{t("classes.studentsSub", "Grupni trening uz studentsku povlasticu")}</p>
-                <div className="pricing-items">
-                  <div className="pricing-item">
-                    <span className="pricing-label">{t("classes.singleSession", "Pojedinačni termin")}</span>
-                    <span className="pricing-value">20 / 25<span className="pricing-asterisk">*</span><span className="pricing-currency"> €</span></span>
-                  </div>
-                  <div className="pricing-item">
-                    <span className="pricing-label">{t("classes.pack4", "Paket 4 termina")}</span>
-                    <span className="pricing-value">50<span className="pricing-currency"> €</span></span>
-                  </div>
-                  <div className="pricing-item">
-                    <span className="pricing-label">{t("classes.pack8", "Paket 8 termina")}</span>
-                    <span className="pricing-value">100<span className="pricing-currency"> €</span></span>
-                  </div>
-                  <div className="pricing-item">
-                    <span className="pricing-label">{t("classes.pack12", "Paket 12 treninga")}</span>
-                    <span className="pricing-value">150<span className="pricing-currency"> €</span></span>
-                  </div>
-                </div>
-              </motion.div>
+                </motion.p>
             </motion.div>
 
-            <motion.p className="pricing-footnote" variants={fadeUp}>
-              {t("classes.priceFootnote", "* stalni klijenti uživaju nižu cijenu termina")}
-            </motion.p>
+            <motion.div className="pricing-image-wrap" variants={fadeUp}>
+              <img
+                className="pricing-image"
+                src={pricingImage}
+                alt={t("classes.pricingImageAlt", "Cjenik članarina i paketa treninga")}
+                loading="lazy"
+              />
+            </motion.div>
           </motion.div>
         </div>
       </div>
