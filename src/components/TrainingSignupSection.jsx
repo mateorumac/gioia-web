@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+﻿import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "../styles/TrainingSignupSection.css";
@@ -197,6 +197,7 @@ function TrainingSignupSection() {
   const { t } = useTranslation();
   const [formStatus, setFormStatus] = useState(null);
   const toastTimerRef = useRef(null);
+  const fallbackFormRef = useRef(null);
 
   const [type, setType] = useState("");
   const [time, setTime] = useState("");
@@ -205,6 +206,20 @@ function TrainingSignupSection() {
   // Parallax refs
   const sectionRef = useRef(null);
   const bgImgRef = useRef(null);
+
+  const getFallbackPayload = (data) => ({
+    _subject: "Nova prijava za trening - Gioia Studio",
+    _captcha: "false",
+    _template: "table",
+    _replyto: data.email || "",
+    name: data.name || "",
+    email: data.email || "",
+    phone: data.phone || "",
+    type: data.type || "",
+    time: data.time || "",
+    experience: data.experience || "",
+    message: data.message || "",
+  });
 
   useEffect(() => {
     let ticking = false;
@@ -240,27 +255,52 @@ function TrainingSignupSection() {
     toastTimerRef.current = setTimeout(() => setFormStatus(null), 4000);
   };
 
+  const submitFallbackForm = (payload) => {
+    if (!fallbackFormRef.current) return;
+
+    const fallbackForm = fallbackFormRef.current;
+    fallbackForm.innerHTML = "";
+
+    Object.entries(payload).forEach(([key, value]) => {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = key;
+      input.value = value;
+      fallbackForm.appendChild(input);
+    });
+
+    fallbackForm.submit();
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     setFormStatus({ type: "loading" });
 
     const data = Object.fromEntries(new FormData(form));
+    const payload = getFallbackPayload(data);
+
+    if (!data.name || !data.email) {
+      showToast({
+        type: "error",
+        message: t("booking.validationMessage", "Unesite ime i e-mail adresu prije slanja."),
+      });
+      return;
+    }
 
     try {
-      const res = await fetch("https://formsubmit.co/ajax/gioiareformer@gmail.com", {
+      const res = await fetch("https://formsubmit.co/ajax/sanya.vuk@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          ...data,
-          _subject: "Nova prijava za trening — Gioia Studio",
-          _captcha: "false",
-          _replyto: data.email,
-        }),
+        body: JSON.stringify(payload),
       });
+
+      if (!res.ok) {
+        throw new Error(`FormSubmit request failed with status ${res.status}`);
+      }
 
       const json = await res.json();
 
@@ -274,16 +314,13 @@ function TrainingSignupSection() {
         setTime("");
         setExperience("");
       } else {
-        showToast({
-          type: "error",
-          message: t("booking.errorMessage", "Nešto je pošlo po krivu. Pokušajte ponovo ili nas kontaktirajte direktno."),
-        });
+        submitFallbackForm(payload);
+        return;
       }
-    } catch {
-      showToast({
-        type: "error",
-        message: t("booking.errorMessage", "Nešto je pošlo po krivu. Pokušajte ponovo ili nas kontaktirajte direktno."),
-      });
+    } catch (error) {
+      console.error("Booking form submission failed, falling back to standard POST.", error);
+      submitFallbackForm(payload);
+      return;
     }
   };
 
@@ -335,6 +372,7 @@ function TrainingSignupSection() {
               type="text"
               id="tss-name"
               name="name"
+              required
               placeholder={t("booking.namePlaceholder", "Tvoje ime i prezime")}
             />
           </div>
@@ -350,6 +388,7 @@ function TrainingSignupSection() {
                 type="email"
                 id="tss-email"
                 name="email"
+                required
                 placeholder="tvoj@email.com"
               />
             </div>
@@ -436,6 +475,13 @@ function TrainingSignupSection() {
           </button>
           <p className="tss-microcopy">{t("booking.microcopy", "Bez obveze. Bez članarine. Samo dogovor.")}</p>
         </form>
+        <form
+          ref={fallbackFormRef}
+          action="https://formsubmit.co/sanya.vuk@gmail.com"
+          method="POST"
+          className="tss-fallback-form"
+          aria-hidden="true"
+        />
         </motion.div>
 
         {/* ── Schedule card ── */}

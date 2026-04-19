@@ -263,6 +263,10 @@
   gap: 0.9rem;
 }
 
+.tss-fallback-form {
+  display: none;
+}
+
 /* Two-column row for paired fields */
 .tss-row {
   display: grid;
