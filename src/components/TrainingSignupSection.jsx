@@ -7,7 +7,7 @@ import { fadeUp, staggerContainer, viewport } from "../animations/motionPresets"
 import bgImage from "../assets/images/DSC_8285.webp";
 import scheduleImage from "../assets/images/schedule.jpeg";
 
-const WEB3FORMS_KEY = "7d446f61-4d17-4ecf-a316-b10ace8121db";
+const WEB3FORMS_KEY = "b50b7406-6cb5-45c9-8fcf-40ec5314a160";
 
 const TRAINING_TYPE_HR = {
   individual: "Individualni trening",
