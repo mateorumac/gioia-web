@@ -7,6 +7,25 @@ import { fadeUp, staggerContainer, viewport } from "../animations/motionPresets"
 import bgImage from "../assets/images/DSC_8285.webp";
 import scheduleImage from "../assets/images/schedule.jpeg";
 
+const WEB3FORMS_KEY = "7d446f61-4d17-4ecf-a316-b10ace8121db";
+
+const TRAINING_TYPE_HR = {
+  individual: "Individualni trening",
+  group: "Mala grupa",
+};
+
+const TIME_HR = {
+  morning: "Prijepodne",
+  afternoon: "Poslijepodne",
+  flexible: "Fleksibilno",
+};
+
+const EXPERIENCE_HR = {
+  beginner: "Početnica sam",
+  some: "Imam malo iskustva",
+  advanced: "Vježbam redovito",
+};
+
 /* ─────────────────────────────────────────────
    Weekly schedule — per-day timetable list
 ───────────────────────────────────────────── */
@@ -197,7 +216,6 @@ function TrainingSignupSection() {
   const { t } = useTranslation();
   const [formStatus, setFormStatus] = useState(null);
   const toastTimerRef = useRef(null);
-  const fallbackFormRef = useRef(null);
 
   const [type, setType] = useState("");
   const [time, setTime] = useState("");
@@ -206,20 +224,6 @@ function TrainingSignupSection() {
   // Parallax refs
   const sectionRef = useRef(null);
   const bgImgRef = useRef(null);
-
-  const getFallbackPayload = (data) => ({
-    _subject: "Nova prijava za trening - Gioia Studio",
-    _captcha: "false",
-    _template: "table",
-    _replyto: data.email || "",
-    name: data.name || "",
-    email: data.email || "",
-    phone: data.phone || "",
-    type: data.type || "",
-    time: data.time || "",
-    experience: data.experience || "",
-    message: data.message || "",
-  });
 
   useEffect(() => {
     let ticking = false;
@@ -255,30 +259,12 @@ function TrainingSignupSection() {
     toastTimerRef.current = setTimeout(() => setFormStatus(null), 4000);
   };
 
-  const submitFallbackForm = (payload) => {
-    if (!fallbackFormRef.current) return;
-
-    const fallbackForm = fallbackFormRef.current;
-    fallbackForm.innerHTML = "";
-
-    Object.entries(payload).forEach(([key, value]) => {
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = key;
-      input.value = value;
-      fallbackForm.appendChild(input);
-    });
-
-    fallbackForm.submit();
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     setFormStatus({ type: "loading" });
 
     const data = Object.fromEntries(new FormData(form));
-    const payload = getFallbackPayload(data);
 
     if (!data.name || !data.email) {
       showToast({
@@ -289,22 +275,28 @@ function TrainingSignupSection() {
     }
 
     try {
-      const res = await fetch("https://formsubmit.co/ajax/gioiareformer@gmail.com", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: "Nova prijava za trening – Gioia Studio",
+          "Ime i prezime": data.name,
+          email: data.email,
+          "Telefon": data.phone || "",
+          "Vrsta treninga": TRAINING_TYPE_HR[data.type] || data.type || "",
+          "Željeno vrijeme": TIME_HR[data.time] || data.time || "",
+          "Iskustvo s pilatesom": EXPERIENCE_HR[data.experience] || data.experience || "",
+          "Napomene": data.message || "",
+        }),
       });
-
-      if (!res.ok) {
-        throw new Error(`FormSubmit request failed with status ${res.status}`);
-      }
 
       const json = await res.json();
 
-      if (json.success === "true" || json.success === true) {
+      if (json.success) {
         showToast({
           type: "success",
           message: t("booking.successMessage", "Upit je poslan! Javit ćemo se unutar 24 sata."),
@@ -314,13 +306,14 @@ function TrainingSignupSection() {
         setTime("");
         setExperience("");
       } else {
-        submitFallbackForm(payload);
-        return;
+        throw new Error(json.message || "Submission failed");
       }
     } catch (error) {
-      console.error("Booking form submission failed, falling back to standard POST.", error);
-      submitFallbackForm(payload);
-      return;
+      console.error("Booking form submission failed.", error);
+      showToast({
+        type: "error",
+        message: t("booking.errorMessage", "Slanje nije uspjelo. Molimo pokušajte ponovno."),
+      });
     }
   };
 
@@ -475,13 +468,6 @@ function TrainingSignupSection() {
           </button>
           <p className="tss-microcopy">{t("booking.microcopy", "Bez obveze. Bez članarine. Samo dogovor.")}</p>
         </form>
-        <form
-          ref={fallbackFormRef}
-          action="https://formsubmit.co/gioiareformer@gmail.com"
-          method="POST"
-          className="tss-fallback-form"
-          aria-hidden="true"
-        />
         </motion.div>
 
         {/* ── Schedule card ── */}
@@ -508,7 +494,7 @@ function TrainingSignupSection() {
 
       </div>
 
-      {formStatus && (
+      {formStatus?.message && (
         <div className={`tss-toast tss-toast--${formStatus.type}`}>
           {formStatus.message}
         </div>
