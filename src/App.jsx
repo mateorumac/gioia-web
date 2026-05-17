@@ -37,7 +37,7 @@ function App() {
         {/* HR rute */}
         <Route path="/hr" element={<HomePage />} />
         <Route path="/hr/galerija" element={<GalleryPage />} />
-        <Route path="/hr/clanice" element={<MemberInfoPage />} />
+        <Route path="/hr/clanovi" element={<MemberInfoPage />} />
         <Route path="/hr/politika-kolacica" element={<CookiesPage />} />
         <Route path="/hr/politika-privatnosti" element={<PrivacyPage />} />
         <Route path="/hr/uvjeti-koristenja" element={<TermsPage />} />
@@ -45,7 +45,7 @@ function App() {
         {/* EN rute */}
         <Route path="/en" element={<HomePage />} />
         <Route path="/en/galerija" element={<GalleryPage />} />
-        <Route path="/en/clanice" element={<MemberInfoPage />} />
+        <Route path="/en/clanovi" element={<MemberInfoPage />} />
         <Route path="/en/politika-kolacica" element={<CookiesPage />} />
         <Route path="/en/politika-privatnosti" element={<PrivacyPage />} />
         <Route path="/en/uvjeti-koristenja" element={<TermsPage />} />

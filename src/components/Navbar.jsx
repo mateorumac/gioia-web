@@ -125,7 +125,7 @@ function Navbar() {
     { type: "anchor", hash: "trenerice",  label: t("nav.team",     "Trenerice") },
     { type: "anchor", hash: "galerija",   label: t("nav.gallery",  "Galerija") },
     { type: "anchor", hash: "kontakt",    label: t("nav.contact",  "Kontakt") },
-    { type: "route",  to: "/clanice",     label: t("nav.clanice",  "Članovi") },
+    { type: "route",  to: "/clanovi",     label: t("nav.clanice",  "Članovi") },
     { type: "anchor", hash: "rezervacija",label: t("nav.book",     "Rezerviraj"), cta: true },
   ];
 

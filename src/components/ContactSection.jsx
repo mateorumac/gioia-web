@@ -191,7 +191,7 @@ function ContactSection() {
         viewport={viewport}
       >
         <motion.p className="contact-cta-text" variants={fadeUp}>
-          {t("contact.ctaText", "Spremna započeti svoj pilates put?")}
+          {t("contact.ctaText", "Spremni započeti svoj pilates put?")}
         </motion.p>
         <motion.div variants={fadeUp}>
           <a

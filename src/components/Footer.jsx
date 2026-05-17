@@ -65,7 +65,7 @@ function Footer() {
                   <Link to={`${homeBase}#kontakt`}>{t("footer.navContact", "Kontakt")}</Link>
                 </li>
                 <li>
-                  <Link to={`/${currentLang}/clanice`}>{t("nav.clanice", "Članovi")}</Link>
+                  <Link to={`/${currentLang}/clanovi`}>{t("nav.clanice", "Članovi")}</Link>
                 </li>
               </ul>
             </motion.div>
