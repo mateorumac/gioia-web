@@ -61,7 +61,7 @@
   row-gap: 2rem;
   width: 100%;
   max-width: 1140px;
-  align-items: center;
+  align-items: stretch;
 }
 
 /* ── Card ───────────────────────────────── */
@@ -80,6 +80,7 @@
 .tss-schedule-card {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 /* ── Schedule grid ──────────────────────── */
@@ -94,14 +95,18 @@
   box-shadow: none;
   border-radius: 0;
   padding: 0;
-  width: min(100%, 460px);
-  margin: 0 auto;
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
 }
 
 .tss-schedule-image {
   display: block;
   width: 100%;
-  height: auto;
+  flex: 1;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center;
   border-radius: 4px;
 }
 

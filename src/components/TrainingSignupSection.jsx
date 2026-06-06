@@ -5,7 +5,7 @@ import "../styles/TrainingSignupSection.css";
 import { fadeUp, staggerContainer, viewport } from "../animations/motionPresets";
 
 import bgImage from "../assets/images/DSC_8285.webp";
-import scheduleImage from "../assets/images/schedule.jpeg";
+import scheduleImage from "../assets/gioia-classes-summer.webp";
 
 const WEB3FORMS_KEY = "b50b7406-6cb5-45c9-8fcf-40ec5314a160";
 
