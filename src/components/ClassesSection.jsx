@@ -7,7 +7,7 @@ import individualTrainingImage from "../assets/images/DSC_5556.webp";
 import groupTrainingImage from "../assets/images/DSC_5674.webp";
 import bookingSidebar1 from "../assets/images/DSC_1394.webp";
 import beginnerTrainingImage from "../assets/images/DSC_8240.webp";
-import pricingImage from "../assets/images/clanarine.webp";
+import pricingImage from "../assets/clanarine.webp";
 import patternBg from "../assets/green-pattern-bg.png";
 
 function ClassesSection() {
