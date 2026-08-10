@@ -266,10 +266,10 @@ function TrainingSignupSection() {
 
     const data = Object.fromEntries(new FormData(form));
 
-    if (!data.name || !data.email) {
+    if (!data.name?.trim() || !data.email?.trim() || !data.phone?.trim()) {
       showToast({
         type: "error",
-        message: t("booking.validationMessage", "Unesite ime i e-mail adresu prije slanja."),
+        message: t("booking.validationMessage", "Unesite ime, e-mail adresu i broj mobitela prije slanja."),
       });
       return;
     }
@@ -394,6 +394,7 @@ function TrainingSignupSection() {
                 type="tel"
                 id="tss-phone"
                 name="phone"
+                required
                 placeholder={t("booking.phonePlaceholder", "+385...")}
               />
             </div>
