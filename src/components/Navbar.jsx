@@ -123,10 +123,11 @@ function Navbar() {
     { type: "anchor", hash: "treninzi",   label: t("nav.classes",  "Treninzi") },
     { type: "anchor", hash: "cjenik",     label: t("nav.pricing",  "Cjenik") },
     { type: "anchor", hash: "trenerice",  label: t("nav.team",     "Trenerice") },
+    { type: "anchor", hash: "recenzije",  label: t("nav.reviews",  "Recenzije") },
     { type: "anchor", hash: "galerija",   label: t("nav.gallery",  "Galerija") },
     { type: "anchor", hash: "kontakt",    label: t("nav.contact",  "Kontakt") },
     { type: "route",  to: "/clanovi",     label: t("nav.clanice",  "Članovi") },
-    { type: "anchor", hash: "rezervacija",label: t("nav.book",     "Rezerviraj"), cta: true },
+    { type: "anchor", hash: "rezervacija",label: t("nav.book",     "Rezerviraj"), drawerLabel: t("nav.bookDrawer", "Rezerviraj termin"), cta: true },
   ];
 
   const currentHash = location.hash || "";
@@ -323,7 +324,7 @@ function Navbar() {
                     className={`drawer-link ${isCta ? "drawer-cta" : ""}`}
                     onClick={(e) => onAnchorClick(e, item.hash)}
                   >
-                    {item.label}
+                    {item.drawerLabel ?? item.label}
                   </a>
                 );
               }

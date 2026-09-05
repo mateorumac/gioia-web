@@ -3,10 +3,7 @@
    ═══════════════════════════════════════════ */
 .quote-section-editorial {
   padding: 3rem 2rem;
-  background:
-    radial-gradient(ellipse at 50% 55%, rgba(255, 255, 255, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.06) 100%),
-    var(--color-sage);
+  background: var(--color-beige);
   text-align: center;
   position: relative;
 }
@@ -22,8 +19,8 @@
   font-family: var(--font-cormorant);
   font-size: 13rem;
   line-height: 0.6;
-  color: rgba(255, 255, 255, 0.96);
-  opacity: 0.18;
+  color: var(--color-sage);
+  opacity: 0.22;
   text-align: center;
   pointer-events: none;
   user-select: none;
@@ -36,7 +33,7 @@
   font-weight: 400;
   font-style: italic;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.96);
+  color: var(--color-text);
   letter-spacing: -0.01em;
   margin: 0 0 1.1rem;
 }
@@ -46,7 +43,7 @@
   font-size: 0.72rem;
   font-style: normal;
   font-weight: 500;
-  color: rgba(236, 229, 209, 0.6);
+  color: var(--color-sage);
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
