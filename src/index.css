@@ -10,6 +10,29 @@
   --font-playfair: "Playfair Display", serif;
   --font-cormorant: "Cormorant Garamond", serif;
   --font-inter: "Inter", sans-serif;
+
+  /* Fixed header height (+ a little breathing room), mirrors the
+     breakpoints in Navbar.css so anchor-scrolled sections don't end up
+     hidden underneath the fixed nav. */
+  --header-offset: 96px;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --header-offset: 84px;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --header-offset: 76px;
+  }
+}
+
+@media (max-width: 400px) {
+  :root {
+    --header-offset: 70px;
+  }
 }
 
 /* GLOBAL RESET */
@@ -52,4 +75,18 @@ html,
 body {
   width: 100%;
   overflow-x: hidden;
+}
+
+/* Anchor-nav targets — offset scroll landing so content isn't hidden
+   underneath the fixed header. Respected by both scrollIntoView() and
+   native browser anchor jumps. */
+#o-nama,
+#treninzi,
+#cjenik,
+#trenerice,
+#recenzije,
+#galerija,
+#kontakt,
+#rezervacija {
+  scroll-margin-top: var(--header-offset);
 }

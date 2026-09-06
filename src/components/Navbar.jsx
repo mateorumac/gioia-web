@@ -137,36 +137,87 @@ function Navbar() {
     return langPath(`/#${hash}`);
   };
 
-  const smoothScrollToHash = (hash) => {
+  // HomePage is lazy-loaded, so when arriving from another route its
+  // sections may not exist in the DOM yet on the first animation frame —
+  // retry across frames until the target shows up. Once it does, the page
+  // can still be mid-reflow for a while (webfonts swapping in, images
+  // settling, slower devices taking longer to lay everything out), so
+  // instead of guessing a fixed delay we watch the document's height and
+  // wait until it stops changing for a handful of consecutive frames
+  // before actually scrolling — otherwise we land short, at whatever the
+  // page's not-yet-final layout put at that scroll offset.
+  const scrollToHashWhenReady = (hash, cancelledRef) => {
     const id = (hash || "").replace("#", "");
     if (!id) return;
 
-    const el = document.getElementById(id);
-    if (!el) return;
+    const waitForElement = (attemptsLeft) => {
+      if (cancelledRef.current) return;
+      const el = document.getElementById(id);
+      if (!el) {
+        if (attemptsLeft <= 0) return;
+        requestAnimationFrame(() => waitForElement(attemptsLeft - 1));
+        return;
+      }
+      waitForStableLayout(el, -1, 0, 120);
+    };
 
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    const waitForStableLayout = (el, lastHeight, stableFrames, framesLeft) => {
+      if (cancelledRef.current) return;
+
+      const height = document.documentElement.scrollHeight;
+      const isStable = height === lastHeight;
+      const nextStableFrames = isStable ? stableFrames + 1 : 0;
+
+      // ~6 consecutive unchanged frames (~100ms), or give up waiting after
+      // ~2s and scroll anyway so a click never just does nothing.
+      if (nextStableFrames >= 6 || framesLeft <= 0) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+
+      requestAnimationFrame(() =>
+        waitForStableLayout(el, height, nextStableFrames, framesLeft - 1)
+      );
+    };
+
+    waitForElement(60);
   };
 
   useEffect(() => {
     if (!isHome) return;
     if (!location.hash) return;
 
-    const raf = requestAnimationFrame(() => smoothScrollToHash(location.hash));
-    return () => cancelAnimationFrame(raf);
+    const cancelledRef = { current: false };
+    scrollToHashWhenReady(location.hash, cancelledRef);
+    return () => {
+      cancelledRef.current = true;
+    };
   }, [isHome, location.hash]);
 
   const onAnchorClick = (e, hash) => {
-    if (!isHome) return;
-
     e.preventDefault();
 
+    // Close the drawer and release its scroll lock synchronously —
+    // the "no-scroll" class is normally cleared by an effect that only
+    // runs after this handler returns, which is too late for the
+    // scrollIntoView below to have any effect on mobile.
+    setDrawerOpen(false);
+    document.body.classList.remove("no-scroll");
+
     const next = `#${hash}`;
-    if (window.location.hash !== next) {
-      window.history.pushState(null, "", next);
+
+    if (isHome) {
+      if (window.location.hash !== next) {
+        window.history.pushState(null, "", next);
+      }
+      scrollToHashWhenReady(next, { current: false });
+      return;
     }
 
-    smoothScrollToHash(next);
-    setDrawerOpen(false);
+    // Navigate to the home page with the hash — client-side, so we don't
+    // hard-reload — and let the effect above (which retries until the
+    // lazy-loaded section actually exists) handle the scroll once we land.
+    navigate(langPath(`/${next}`));
   };
 
   const langMeta =
@@ -312,6 +363,10 @@ function Navbar() {
           className={`drawer ${drawerOpen ? "open" : ""}`}
           aria-hidden={!drawerOpen}
         >
+          <span className="drawer-eyebrow drawer-eyebrow--nav">
+            {t("nav.navigationLabel", "Navigacija")}
+          </span>
+          <div className="drawer-divider drawer-divider--nav" aria-hidden="true" />
           <nav className="drawer-nav" aria-label="Navigacija">
             {navItems.map((item) => {
               const isCta = item.cta === true;
@@ -344,30 +399,36 @@ function Navbar() {
             })}
           </nav>
 
-          <div className="drawer-lang" aria-label="Jezik">
-            <button
-              type="button"
-              className={`drawer-lang-btn ${currentLang === "hr" ? "active" : ""}`}
-              onClick={() => {
-                switchLanguage("hr");
-                setDrawerOpen(false);
-              }}
-            >
-              <img className="lang-flag" src={hrFlag} alt="HR" width="48" height="48" />
-              <span>Hrvatski</span>
-            </button>
+          <div className="drawer-lang-block">
+            <span className="drawer-eyebrow drawer-eyebrow--lang">
+              {t("nav.languageLabel", "Jezik")}
+            </span>
+            <div className="drawer-divider drawer-divider--lang" aria-hidden="true" />
+            <div className="drawer-lang" aria-label="Jezik">
+              <button
+                type="button"
+                className={`drawer-lang-btn ${currentLang === "hr" ? "active" : ""}`}
+                onClick={() => {
+                  switchLanguage("hr");
+                  setDrawerOpen(false);
+                }}
+              >
+                <img className="lang-flag" src={hrFlag} alt="HR" width="48" height="48" />
+                <span>Hrvatski</span>
+              </button>
 
-            <button
-              type="button"
-              className={`drawer-lang-btn ${currentLang === "en" ? "active" : ""}`}
-              onClick={() => {
-                switchLanguage("en");
-                setDrawerOpen(false);
-              }}
-            >
-              <img className="lang-flag" src={enFlag} alt="EN" width="48" height="48" />
-              <span>English</span>
-            </button>
+              <button
+                type="button"
+                className={`drawer-lang-btn ${currentLang === "en" ? "active" : ""}`}
+                onClick={() => {
+                  switchLanguage("en");
+                  setDrawerOpen(false);
+                }}
+              >
+                <img className="lang-flag" src={enFlag} alt="EN" width="48" height="48" />
+                <span>English</span>
+              </button>
+            </div>
           </div>
         </aside>
       </div>

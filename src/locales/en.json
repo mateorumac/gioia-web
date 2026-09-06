@@ -13,7 +13,9 @@
     "selectLang": "Select language",
     "closeMenu": "Close menu",
     "openMenu": "Open menu",
-    "mainNav": "Main navigation"
+    "mainNav": "Main navigation",
+    "navigationLabel": "Navigation",
+    "languageLabel": "Language"
   },
   "hero": {
     "ctaPrimary": "Book a Session",
