@@ -23,15 +23,15 @@ function GallerySection() {
   const galleryLink = currentLang === "en" ? "/en/galerija" : "/hr/galerija";
 
   const galleryItems = [
-    { src: img1, alt: t("gallery.alt1", "Trening u studiju") },
-    { src: img2, alt: t("gallery.alt2", "Pilates trening") },
-    { src: img3, alt: t("gallery.alt3", "Prostor studija") },
-    { src: img4, alt: t("gallery.alt4", "Reformer trening") },
-    { src: img5, alt: t("gallery.alt5", "Studio detalj") },
-    { src: img6, alt: t("gallery.alt6", "Gioia studio ambijent") },
-    { src: img7, alt: t("gallery.alt7", "Pilates vježba") },
-    { src: img8, alt: t("gallery.alt8", "Grupni trening") },
-    { src: img9, alt: t("gallery.alt9", "Studio atmosfera") },
+    { src: img1, alt: t("gallery.alt1", "Trening u studiju"), width: 1300, height: 1950 },
+    { src: img2, alt: t("gallery.alt2", "Pilates trening"), width: 1200, height: 1800 },
+    { src: img3, alt: t("gallery.alt3", "Prostor studija"), width: 1200, height: 1800 },
+    { src: img4, alt: t("gallery.alt4", "Reformer trening"), width: 1198, height: 1800 },
+    { src: img5, alt: t("gallery.alt5", "Studio detalj"), width: 1200, height: 1800 },
+    { src: img6, alt: t("gallery.alt6", "Gioia studio ambijent"), width: 1800, height: 1198 },
+    { src: img7, alt: t("gallery.alt7", "Pilates vježba"), width: 1100, height: 1650 },
+    { src: img8, alt: t("gallery.alt8", "Grupni trening"), width: 1200, height: 1800 },
+    { src: img9, alt: t("gallery.alt9", "Studio atmosfera"), width: 1198, height: 1800 },
   ];
 
   return (
@@ -70,7 +70,14 @@ function GallerySection() {
               className={`gallerySection__item gallerySection__item--${index + 1}`}
               variants={imageReveal}
             >
-              <img src={item.src} alt={item.alt} loading="lazy" />
+              <img
+                src={item.src}
+                alt={item.alt}
+                width={item.width}
+                height={item.height}
+                loading="lazy"
+                decoding="async"
+              />
             </motion.div>
           ))}
         </motion.div>

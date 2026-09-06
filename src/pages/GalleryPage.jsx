@@ -132,7 +132,7 @@ function GalleryPage() {
               }
             }}
           >
-            <img src={src} alt={`Gioia studio ${index + 1}`} loading="lazy" />
+            <img src={src} alt={`Gioia studio ${index + 1}`} loading="lazy" decoding="async" />
             <div className="gp__item-overlay" aria-hidden="true">
               <span className="gp__item-icon">+</span>
             </div>
@@ -186,7 +186,7 @@ function GalleryPage() {
               animate="visible"
               exit="exit"
             >
-              <img src={selectedImage} alt={`Gioia studio ${currentIndex + 1}`} />
+              <img src={selectedImage} alt={`Gioia studio ${currentIndex + 1}`} decoding="async" />
               <p className="gp-modal__counter">
                 {String(currentIndex + 1).padStart(2, "0")} / {String(allGalleryImages.length).padStart(2, "0")}
               </p>

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "../styles/ClassesSection.css";
 import { fadeUp, imageReveal, staggerContainer, viewport } from "../animations/motionPresets";
+import ImageLightbox from "./ImageLightbox";
 
 import individualTrainingImage from "../assets/images/DSC_5556.webp";
 import groupTrainingImage from "../assets/images/DSC_5674.webp";
@@ -210,8 +211,8 @@ function ClassesSection() {
             whileInView="visible"
             viewport={viewport}
           >
-            <motion.p className="pricing-eyebrow" variants={fadeUp}>{t("classes.pricingEyebrow", "Cjenik")}</motion.p>
             <motion.div className="pricing-copy" variants={fadeUp}>
+                <motion.p className="pricing-eyebrow" variants={fadeUp}>{t("classes.pricingEyebrow", "Cjenik")}</motion.p>
                 <motion.h3 className="pricing-title" variants={fadeUp}>{t("classes.pricingTitle", "Investicija u sebe")}</motion.h3>
                 <motion.p className="pricing-note" variants={fadeUp}>
               {t("classes.pricingNote", "Ovisno o vrsti treninga i dinamici dolazaka, nudimo različite pakete i članarine. Rado ćemo pomoći pri odabiru opcije koja najbolje odgovara vašim ciljevima i rasporedu.")}
@@ -219,12 +220,19 @@ function ClassesSection() {
             </motion.div>
 
             <motion.div className="pricing-image-wrap" variants={fadeUp}>
-              <img
-                className="pricing-image"
+              <ImageLightbox
                 src={pricingImage}
                 alt={t("classes.pricingImageAlt", "Cjenik članarina i paketa treninga")}
-                loading="lazy"
-              />
+                openLabel={t("gallery.openImage", { index: 1, defaultValue: "Otvori sliku" })}
+                closeLabel={t("gallery.closeGallery", "Zatvori galeriju")}
+              >
+                <img
+                  className="pricing-image"
+                  src={pricingImage}
+                  alt={t("classes.pricingImageAlt", "Cjenik članarina i paketa treninga")}
+                  loading="lazy"
+                />
+              </ImageLightbox>
             </motion.div>
           </motion.div>
         </div>

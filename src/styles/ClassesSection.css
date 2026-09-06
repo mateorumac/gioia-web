@@ -324,7 +324,6 @@
   display: grid;
   grid-template-columns: minmax(0, 520px) minmax(280px, 1fr);
   grid-template-areas:
-    "eyebrow eyebrow"
     "image copy";
   align-items: start;
   column-gap: clamp(2.5rem, 6vw, 6rem);
@@ -341,17 +340,14 @@
 }
 
 .pricing-eyebrow {
-  grid-area: eyebrow;
   font-family: var(--font-inter);
   font-size: 0.78rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--color-sage);
-  text-align: center;
+  text-align: left;
   margin: 0 0 1rem;
-  justify-self: center;
-  align-self: start;
 }
 
 .pricing-copy {
@@ -382,15 +378,18 @@
 
 @media (max-width: 600px) {
   .pricing-eyebrow {
-    margin-bottom: 0.15rem;
+    text-align: center;
+    margin-bottom: 1rem;
   }
 
   .pricing-title {
     text-align: center;
-    margin-bottom: 0.65rem;
+    margin-bottom: 2.5rem;
   }
 
   .pricing-note {
+    font-size: 0.95rem;
+    line-height: 2;
     text-align: justify;
   }
 }
@@ -408,6 +407,7 @@
   height: auto;
   border-radius: 10px;
   box-shadow: 0 18px 50px rgba(55, 61, 49, 0.16);
+  cursor: zoom-in;
 }
 
 
@@ -494,7 +494,6 @@
     padding: 4rem 0;
     grid-template-columns: 1fr;
     grid-template-areas:
-      "eyebrow"
       "copy"
       "image";
     row-gap: 1.1rem;
@@ -566,7 +565,8 @@
   }
 
   .pricing-editorial {
-    padding: 3.5rem 0;
+    padding: 4rem 0;
+    row-gap: 2rem;
   }
 
 }
@@ -589,7 +589,7 @@
   }
 
   .pricing-editorial {
-    padding: 3rem 0;
+    padding: 3.5rem 0;
   }
 
 }

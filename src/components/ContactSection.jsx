@@ -142,7 +142,7 @@ function ContactSection() {
 
         {/* Vertical Image Column */}
         <motion.div className="contact-image-column" variants={imageReveal}>
-          <img src={verticalImage} alt={t("contact.studioAlt", "Gioia studio ambijent")} loading="lazy" />
+          <img src={verticalImage} alt={t("contact.studioAlt", "Gioia studio ambijent")} loading="lazy" decoding="async" />
         </motion.div>
       </motion.div>
 
@@ -169,16 +169,16 @@ function ContactSection() {
         viewport={{ once: true, amount: 0.22 }}
       >
         <motion.div className="contact-gallery-item" variants={imageReveal}>
-          <img src={gallery1} alt={t("contact.galleryAlt1", "Pilates rekviziti")} loading="lazy" />
+          <img src={gallery1} alt={t("contact.galleryAlt1", "Pilates rekviziti")} width="1100" height="1650" loading="lazy" decoding="async" />
         </motion.div>
         <motion.div className="contact-gallery-item" variants={imageReveal}>
-          <img src={gallery2} alt={t("contact.galleryAlt2", "Reformer detalj")} loading="lazy" />
+          <img src={gallery2} alt={t("contact.galleryAlt2", "Reformer detalj")} width="1100" height="1650" loading="lazy" decoding="async" />
         </motion.div>
         <motion.div className="contact-gallery-item" variants={imageReveal}>
-          <img src={gallery3} alt={t("contact.galleryAlt3", "Trening u akciji")} loading="lazy" />
+          <img src={gallery3} alt={t("contact.galleryAlt3", "Trening u akciji")} width="1920" height="2880" loading="lazy" decoding="async" />
         </motion.div>
         <motion.div className="contact-gallery-item" variants={imageReveal}>
-          <img src={gallery4} alt={t("contact.galleryAlt4", "Studio prostor")} loading="lazy" />
+          <img src={gallery4} alt={t("contact.galleryAlt4", "Studio prostor")} width="1100" height="1650" loading="lazy" decoding="async" />
         </motion.div>
       </motion.div>
 

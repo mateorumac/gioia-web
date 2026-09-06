@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "../styles/TrainingSignupSection.css";
 import { fadeUp, staggerContainer, viewport } from "../animations/motionPresets";
+import ImageLightbox from "./ImageLightbox";
 
 import bgImage from "../assets/images/DSC_8285.webp";
 import scheduleImage from "../assets/gioia-classes-fall.webp";
@@ -483,13 +484,20 @@ function TrainingSignupSection() {
             <motion.p className="tss-schedule-mobile-label" variants={fadeUp}>
               {t("schedule.mobileLabel", "Raspored")}
             </motion.p>
-            <motion.img
-              className="tss-schedule-image"
+            <ImageLightbox
               src={scheduleImage}
               alt={t("schedule.imageAlt", "Tjedni raspored treninga")}
-              variants={fadeUp}
-              loading="lazy"
-            />
+              openLabel={t("gallery.openImage", { index: 1, defaultValue: "Otvori sliku" })}
+              closeLabel={t("gallery.closeGallery", "Zatvori galeriju")}
+            >
+              <motion.img
+                className="tss-schedule-image"
+                src={scheduleImage}
+                alt={t("schedule.imageAlt", "Tjedni raspored treninga")}
+                variants={fadeUp}
+                loading="lazy"
+              />
+            </ImageLightbox>
           </div>
         </motion.div>
 
